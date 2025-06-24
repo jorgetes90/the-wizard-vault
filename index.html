@@ -12,7 +12,7 @@
     #toolbar {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: center; /* vertically center */
       margin-bottom: 10px;
       border-bottom: 2px solid #1dbae2;
       padding-bottom: 8px;
@@ -43,6 +43,7 @@
       color: #000c86;
     }
 
+    /* Book container for the clickable book image + label */
     .book-container {
       display: flex;
       flex-direction: column;
@@ -53,7 +54,7 @@
     }
 
     .book-container img {
-      height: 180px;
+      height: 180px; /* 3/4 of wizard's 240px */
       animation: yellowGlow 2.5s ease-in-out infinite;
       display: block;
       border-radius: 8px;
@@ -216,10 +217,11 @@
 </head>
 <body>
 
+  <!-- Toolbar -->
   <div id="toolbar">
     <div class="title">Medical Guideline Search Viewer</div>
     <div class="toolbar-links">
-      <a href="https://script.google.com/macros/s/AKfycbzUFKUkOG1s2uuNZx0pKQQv5q5MnWJEeulOmJrQvkVo0FhxRCqZoVVA_F8yJ9Hdu4Spbg/exec" target="_blank" rel="noopener">NY Formulary</a>
+      <a href="https://script.google.com/macros/s/AKfycbxkHujLjwUxHSTGE2Arz04IfPDtZECKYIyl7h6APtZAZPCZmr785sKpHuNWvQMUSRUOXQ/exec" target="_blank" rel="noopener">NY Formulary</a>
       <div class="book-container" title="Click to add more data to the vault">
         <a href="https://drive.google.com/drive/folders/11mWfH7HohNkDInjcP8Mv54ek3uYLF33R?usp=drive_link" target="_blank" rel="noopener">
           <img src="https://i.postimg.cc/qMZyJfXF/Chat-GPT-Image-Jun-23-2025-04-02-36-PM.png" alt="Book of Spells" />
@@ -229,18 +231,20 @@
     </div>
   </div>
 
+  <!-- Wizard and Bubbles -->
   <div id="wizardContainer">
     <img src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
     <div id="welcomeBubble"></div>
     <div id="chatBubble"></div>
   </div>
 
+  <!-- Search -->
   <input id="searchBox" placeholder="Type keywords to search documents..." autocomplete="off" autofocus />
   <div id="results"></div>
   <div id="contentViewer">Search for a document to view its contents.</div>
 
   <script>
-    const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbxYWPaEMedI9D83PR8jOb_haNK56sfDMagmgcemIJvJiLyJNPQz7JGWPSwy4Ct7AIZhVA/exec';
+    const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbxkHujLjwUxHSTGE2Arz04IfPDtZECKYIyl7h6APtZAZPCZmr785sKpHuNWvQMUSRUOXQ/exec';
 
     const welcomePhrases = [
       "Welcome to the Wizard Guideline Vault!!",
@@ -356,9 +360,11 @@
       }
 
       searchTimeout = setTimeout(() => {
-        // Call the Google Apps Script web app endpoint for search
         fetch(`${API_BASE_URL}?action=searchDocs&keyword=${encodeURIComponent(keyword)}`)
-          .then(response => response.json())
+          .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+          })
           .then(results => {
             filteredDocs = results;
             selectedIndex = -1;
@@ -373,6 +379,7 @@
           })
           .catch(() => {
             contentViewer.textContent = "Error contacting server.";
+            showChatBubble("The magical connection was lost! Try again.");
           });
       }, 300);
     });
@@ -398,14 +405,16 @@
       selectedIndex = index;
       renderResults();
       contentViewer.textContent = "Loading document...";
-      // Call the Google Apps Script web app endpoint for document content
       fetch(`${API_BASE_URL}?action=getDocContent&docId=${filteredDocs[selectedIndex].id}`)
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) throw new Error('Network response was not ok');
+          return response.text();
+        })
         .then(text => {
           contentViewer.textContent = text || "(Empty Document)";
         })
         .catch(() => {
-          contentViewer.textContent = "Error loading document.";
+          contentViewer.textContent = "Error loading document content.";
         });
     }
 
