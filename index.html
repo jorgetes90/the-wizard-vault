@@ -43,7 +43,6 @@
       color: #000c86;
     }
 
-    /* Book container to hold image + label */
     .book-container {
       display: flex;
       flex-direction: column;
@@ -54,7 +53,7 @@
     }
 
     .book-container img {
-      height: 180px; /* 3/4 size of wizard image (wizard is 240px) */
+      height: 180px;
       animation: yellowGlow 2.5s ease-in-out infinite;
       display: block;
       border-radius: 8px;
@@ -217,7 +216,6 @@
 </head>
 <body>
 
-  <!-- Toolbar -->
   <div id="toolbar">
     <div class="title">Medical Guideline Search Viewer</div>
     <div class="toolbar-links">
@@ -231,21 +229,18 @@
     </div>
   </div>
 
-  <!-- Wizard and Bubbles -->
   <div id="wizardContainer">
     <img src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
     <div id="welcomeBubble"></div>
     <div id="chatBubble"></div>
   </div>
 
-  <!-- Search -->
   <input id="searchBox" placeholder="Type keywords to search documents..." autocomplete="off" autofocus />
   <div id="results"></div>
   <div id="contentViewer">Search for a document to view its contents.</div>
 
   <script>
-    // Your Apps Script web app URL here (replace with your deployed URL)
-    const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbzVIh7fj2ziYWL56P0Gu6I4HHOgkDg1PwVZRQV21u5btbczCCY63V8lPx34CvDIsJKeOg/exec';
+    const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbxYWPaEMedI9D83PR8jOb_haNK56sfDMagmgcemIJvJiLyJNPQz7JGWPSwy4Ct7AIZhVA/exec';
 
     const welcomePhrases = [
       "Welcome to the Wizard Guideline Vault!!",
@@ -361,7 +356,8 @@
       }
 
       searchTimeout = setTimeout(() => {
-        fetch(`${API_BASE_URL}?action=search&keyword=${encodeURIComponent(keyword)}`)
+        // Call the Google Apps Script web app endpoint for search
+        fetch(`${API_BASE_URL}?action=searchDocs&keyword=${encodeURIComponent(keyword)}`)
           .then(response => response.json())
           .then(results => {
             filteredDocs = results;
@@ -375,9 +371,8 @@
               showChatBubble(getRemarkForKeyword(keyword));
             }
           })
-          .catch(err => {
-            contentViewer.textContent = "Error searching documents.";
-            console.error(err);
+          .catch(() => {
+            contentViewer.textContent = "Error contacting server.";
           });
       }, 300);
     });
@@ -403,14 +398,14 @@
       selectedIndex = index;
       renderResults();
       contentViewer.textContent = "Loading document...";
-      fetch(`${API_BASE_URL}?action=content&docId=${encodeURIComponent(filteredDocs[selectedIndex].id)}`)
-        .then(response => response.json())
-        .then(data => {
-          contentViewer.textContent = data.content || "(Empty Document)";
+      // Call the Google Apps Script web app endpoint for document content
+      fetch(`${API_BASE_URL}?action=getDocContent&docId=${filteredDocs[selectedIndex].id}`)
+        .then(response => response.text())
+        .then(text => {
+          contentViewer.textContent = text || "(Empty Document)";
         })
-        .catch(err => {
-          contentViewer.textContent = "Error loading document content.";
-          console.error(err);
+        .catch(() => {
+          contentViewer.textContent = "Error loading document.";
         });
     }
 
