@@ -1,50 +1,431 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wizard Vault - Glowing Frame</title>
+  <base target="_top">
+  <title>Medical Guideline Search Viewer</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #000;
-      background-image: url('border.png');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
     }
 
-    iframe {
-      border: none;
-      width: 900px;
-      height: 600px;
-      background-color: white;
-      box-shadow: 0 0 10px 3px #ffd700;
-      animation: glow 2s ease-in-out infinite;
+    #toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #1dbae2;
+      padding-bottom: 8px;
+    }
+
+    #toolbar .title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #000c86;
+    }
+
+    .toolbar-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .toolbar-links a {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1dbae2;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .toolbar-links a:hover {
+      text-decoration: underline;
+      color: #000c86;
+    }
+
+    /* Book container to hold image + label */
+    .book-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      margin-left: 10px;
+    }
+
+    .book-container img {
+      height: 180px; /* 3/4 size of wizard image (wizard is 240px) */
+      animation: yellowGlow 2.5s ease-in-out infinite;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .book-label {
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #b58c00;
+      font-family: 'Georgia', serif;
+      user-select: none;
+    }
+
+    @keyframes yellowGlow {
+      0% { filter: drop-shadow(0 0 5px gold); }
+      50% { filter: drop-shadow(0 0 20px gold); }
+      100% { filter: drop-shadow(0 0 5px gold); }
+    }
+
+    #wizardContainer {
+      position: relative;
+      width: 240px;
+      margin: 0 auto 20px auto;
+    }
+
+    #wizardContainer img {
+      width: 240px;
+      height: auto;
+      animation: glow 2s infinite ease-in-out;
+      display: block;
+      margin: 0 auto;
     }
 
     @keyframes glow {
-      0% {
-        box-shadow: 0 0 10px 3px #ffd700;
-      }
-      50% {
-        box-shadow: 0 0 25px 8px #ffd700;
-      }
-      100% {
-        box-shadow: 0 0 10px 3px #ffd700;
-      }
+      0% { filter: drop-shadow(0 0 5px #00d0ff); }
+      50% { filter: drop-shadow(0 0 20px #00d0ff); }
+      100% { filter: drop-shadow(0 0 5px #00d0ff); }
+    }
+
+    #welcomeBubble {
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translate(15px, -40%);
+      max-width: 380px;
+      min-width: 260px;
+      padding: 14px 20px;
+      background-color: #e1f7ff;
+      border: 2px solid #1dbae2;
+      border-radius: 10px;
+      font-style: italic;
+      color: #003b5c;
+      box-shadow: 0 0 15px #00d0ff;
+      font-size: 15px;
+      line-height: 1.4;
+      user-select: none;
+      animation: pop 0.5s ease-in-out;
+      z-index: 10;
+      white-space: normal;
+    }
+
+    #welcomeBubble::after {
+      content: "";
+      position: absolute;
+      top: 40%;
+      left: -15px;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-right-color: #e1f7ff;
+      border-left: 0;
+      margin-top: -10px;
+    }
+
+    #chatBubble {
+      position: absolute;
+      top: 85%;
+      left: 100%;
+      transform: translate(15px, -50%);
+      max-width: 380px;
+      min-width: 260px;
+      padding: 14px 20px;
+      background-color: #e1f7ff;
+      border: 2px solid #1dbae2;
+      border-radius: 10px;
+      font-style: italic;
+      color: #003b5c;
+      box-shadow: 0 0 15px #00d0ff;
+      animation: pop 0.5s ease-in-out;
+      user-select: none;
+      font-size: 15px;
+      line-height: 1.4;
+      display: none;
+      z-index: 15;
+      white-space: normal;
+    }
+
+    #chatBubble::after {
+      content: "";
+      position: absolute;
+      top: 40%;
+      left: -15px;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-right-color: #e1f7ff;
+      border-left: 0;
+      margin-top: -10px;
+    }
+
+    #searchBox {
+      width: 300px;
+      padding: 8px;
+      font-size: 16px;
+      margin: 20px auto 10px auto;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline-color: #1dbae2;
+    }
+
+    #results {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 5px;
+      margin: 0 auto 10px auto;
+      width: 300px;
+      font-size: 15px;
+      user-select: none;
+    }
+
+    .resultItem {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .resultItem:hover, .resultItem.selected {
+      background-color: #d0eaff;
+    }
+
+    #contentViewer {
+      white-space: pre-wrap;
+      border: 1px solid #ccc;
+      padding: 15px;
+      max-height: 400px;
+      overflow-y: auto;
+      margin: 0 auto;
+      width: 96%;
+      font-size: 16px;
+      background-color: #fdfdfd;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-  <iframe src="https://script.google.com/macros/s/AKfycbzVIh7fj2ziYWL56P0Gu6I4HHOgkDg1PwVZRQV21u5btbczCCY63V8lPx34CvDIsJKeOg/exec" allowfullscreen></iframe>
+  <!-- Toolbar -->
+  <div id="toolbar">
+    <div class="title">Medical Guideline Search Viewer</div>
+    <div class="toolbar-links">
+      <a href="https://script.google.com/macros/s/AKfycbzUFKUkOG1s2uuNZx0pKQQv5q5MnWJEeulOmJrQvkVo0FhxRCqZoVVA_F8yJ9Hdu4Spbg/exec" target="_blank" rel="noopener">NY Formulary</a>
+      <div class="book-container" title="Click to add more data to the vault">
+        <a href="https://drive.google.com/drive/folders/11mWfH7HohNkDInjcP8Mv54ek3uYLF33R?usp=drive_link" target="_blank" rel="noopener">
+          <img src="https://i.postimg.cc/qMZyJfXF/Chat-GPT-Image-Jun-23-2025-04-02-36-PM.png" alt="Book of Spells" />
+        </a>
+        <div class="book-label">Click Grimoire to enter new knowledge</div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Wizard and Bubbles -->
+  <div id="wizardContainer">
+    <img src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
+    <div id="welcomeBubble"></div>
+    <div id="chatBubble"></div>
+  </div>
+
+  <!-- Search -->
+  <input id="searchBox" placeholder="Type keywords to search documents..." autocomplete="off" autofocus />
+  <div id="results"></div>
+  <div id="contentViewer">Search for a document to view its contents.</div>
+
+  <script>
+    // Your Apps Script web app URL here (replace with your deployed URL)
+    const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbzVIh7fj2ziYWL56P0Gu6I4HHOgkDg1PwVZRQV21u5btbczCCY63V8lPx34CvDIsJKeOg/exec';
+
+    const welcomePhrases = [
+      "Welcome to the Wizard Guideline Vault!!",
+      "The Wizard Vault welcomes you!",
+      "Greetings, seeker of medical wisdom!",
+      "Step right into the Wizard Guideline Vault!",
+      "Your magical journey begins here!",
+      "The Wizard Vault awaits your command!",
+      "Prepare to unlock ancient medical secrets!",
+      "Ah, a new visitor to the Wizard Vault!"
+    ];
+
+    const wizardRemarks = {
+      default: [
+        "Ah, the magic of medicine!",
+        "Let me dig into my scrolls...",
+        "One keyword away from healing wisdom!",
+        "Spells ready, just say the word.",
+        "Searching for the secret incantation...",
+        "Patiently waiting for your command."
+      ],
+      lumbar: [
+        "Lumbar, eh? Spinal secrets coming right up!",
+        "Looking for lumbar lore? You're in luck!",
+        "Ah, the lower back — a classic quest!",
+        "Lumbar fusion? Time to weave some healing magic!"
+      ],
+      fusion: [
+        "Fusion... sounds like spellbinding surgery!",
+        "Uniting bones and magic alike!",
+        "The art of joining — just like magic!"
+      ],
+      ankle: [
+        "Ankle troubles? Let me conjure the cures.",
+        "Stabilizing that ankle like a true wizard.",
+        "Walking tall, with a little wizardly help!"
+      ],
+      therapy: [
+        "Physical therapy — the wizard’s path to strength.",
+        "Stretch, strengthen, and spellcast recovery!",
+        "Healing with motion and magic combined."
+      ],
+      surgery: [
+        "Surgery incoming — steady hands and sharp wands!",
+        "Preparing the magical operating theater.",
+        "Scalpel or spell? Why not both!"
+      ],
+      medical: [
+        "Ah, the vast world of medicine, at your service.",
+        "Consulting my mystical medical manuscripts.",
+        "Healing knowledge, delivered with flair!"
+      ]
+    };
+
+    const noResultsRemarks = [
+      "Hmm, no matches... perhaps the stars need aligning?",
+      "I sense no document here... try another spell?",
+      "Even wizards hit dead ends. Try different words!",
+      "Alas, the archives yield no results for that.",
+      "The magic isn't in this keyword, try something else.",
+      "No document found — the quest continues!"
+    ];
+
+    const welcomeBubble = document.getElementById('welcomeBubble');
+    const chatBubble = document.getElementById('chatBubble');
+    const searchBox = document.getElementById('searchBox');
+    const resultsDiv = document.getElementById('results');
+    const contentViewer = document.getElementById('contentViewer');
+
+    function showWelcome() {
+      const phrase = welcomePhrases[Math.floor(Math.random() * welcomePhrases.length)];
+      welcomeBubble.textContent = phrase;
+      welcomeBubble.style.display = 'block';
+      setTimeout(() => welcomeBubble.style.display = 'none', 7000);
+    }
+
+    let chatTimeout;
+    function showChatBubble(text) {
+      clearTimeout(chatTimeout);
+      chatBubble.textContent = text;
+      chatBubble.style.display = 'block';
+      chatTimeout = setTimeout(() => {
+        chatBubble.style.display = 'none';
+      }, 7000);
+    }
+
+    function getRemarkForKeyword(keyword, noResults = false) {
+      if (noResults) {
+        return noResultsRemarks[Math.floor(Math.random() * noResultsRemarks.length)];
+      }
+      for (const key in wizardRemarks) {
+        if (keyword.includes(key)) {
+          return wizardRemarks[key][Math.floor(Math.random() * wizardRemarks[key].length)];
+        }
+      }
+      return wizardRemarks.default[Math.floor(Math.random() * wizardRemarks.default.length)];
+    }
+
+    let filteredDocs = [];
+    let selectedIndex = -1;
+    let searchTimeout;
+
+    searchBox.addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      const keyword = searchBox.value.trim().toLowerCase();
+      if (!keyword) {
+        filteredDocs = [];
+        selectedIndex = -1;
+        renderResults();
+        contentViewer.textContent = "Search for a document to view its contents.";
+        chatBubble.style.display = 'none';
+        return;
+      }
+
+      searchTimeout = setTimeout(() => {
+        fetch(`${API_BASE_URL}?action=search&keyword=${encodeURIComponent(keyword)}`)
+          .then(response => response.json())
+          .then(results => {
+            filteredDocs = results;
+            selectedIndex = -1;
+            renderResults();
+            if (filteredDocs.length === 0) {
+              contentViewer.textContent = "No documents found.";
+              showChatBubble(getRemarkForKeyword(keyword, true));
+            } else {
+              contentViewer.textContent = "Select a document to view its contents.";
+              showChatBubble(getRemarkForKeyword(keyword));
+            }
+          })
+          .catch(err => {
+            contentViewer.textContent = "Error searching documents.";
+            console.error(err);
+          });
+      }, 300);
+    });
+
+    function renderResults() {
+      resultsDiv.innerHTML = "";
+      if (filteredDocs.length === 0) {
+        resultsDiv.textContent = "No documents found.";
+        return;
+      }
+      filteredDocs.forEach((doc, i) => {
+        const div = document.createElement('div');
+        div.textContent = doc.name;
+        div.className = 'resultItem';
+        if (i === selectedIndex) div.classList.add('selected');
+        div.addEventListener('click', () => selectDocument(i));
+        resultsDiv.appendChild(div);
+      });
+    }
+
+    function selectDocument(index) {
+      if (index < 0 || index >= filteredDocs.length) return;
+      selectedIndex = index;
+      renderResults();
+      contentViewer.textContent = "Loading document...";
+      fetch(`${API_BASE_URL}?action=content&docId=${encodeURIComponent(filteredDocs[selectedIndex].id)}`)
+        .then(response => response.json())
+        .then(data => {
+          contentViewer.textContent = data.content || "(Empty Document)";
+        })
+        .catch(err => {
+          contentViewer.textContent = "Error loading document content.";
+          console.error(err);
+        });
+    }
+
+    document.addEventListener('keydown', e => {
+      if (!filteredDocs.length || e.target === searchBox) return;
+      if (e.key === "ArrowDown" && selectedIndex < filteredDocs.length - 1) {
+        e.preventDefault();
+        selectDocument(selectedIndex + 1);
+      } else if (e.key === "ArrowUp" && selectedIndex > 0) {
+        e.preventDefault();
+        selectDocument(selectedIndex - 1);
+      }
+    });
+
+    window.onload = showWelcome;
+  </script>
 </body>
 </html>
