@@ -8,28 +8,24 @@
       font-family: Arial, sans-serif;
       margin: 20px;
     }
-
     #toolbar {
       display: flex;
       justify-content: space-between;
-      align-items: center; /* vertically center */
+      align-items: center;
       margin-bottom: 10px;
       border-bottom: 2px solid #1dbae2;
       padding-bottom: 8px;
     }
-
     #toolbar .title {
       font-size: 22px;
       font-weight: bold;
       color: #000c86;
     }
-
     .toolbar-links {
       display: flex;
       align-items: center;
       gap: 20px;
     }
-
     .toolbar-links a {
       font-size: 16px;
       font-weight: 600;
@@ -37,13 +33,10 @@
       text-decoration: none;
       position: relative;
     }
-
     .toolbar-links a:hover {
       text-decoration: underline;
       color: #000c86;
     }
-
-    /* Book container for the clickable book image + label */
     .book-container {
       display: flex;
       flex-direction: column;
@@ -52,14 +45,12 @@
       user-select: none;
       margin-left: 10px;
     }
-
     .book-container img {
-      height: 180px; /* 3/4 of wizard's 240px */
+      height: 180px;
       animation: yellowGlow 2.5s ease-in-out infinite;
       display: block;
       border-radius: 8px;
     }
-
     .book-label {
       margin-top: 6px;
       font-size: 14px;
@@ -68,19 +59,16 @@
       font-family: 'Georgia', serif;
       user-select: none;
     }
-
     @keyframes yellowGlow {
       0% { filter: drop-shadow(0 0 5px gold); }
       50% { filter: drop-shadow(0 0 20px gold); }
       100% { filter: drop-shadow(0 0 5px gold); }
     }
-
     #wizardContainer {
       position: relative;
       width: 240px;
       margin: 0 auto 20px auto;
     }
-
     #wizardContainer img {
       width: 240px;
       height: auto;
@@ -88,13 +76,11 @@
       display: block;
       margin: 0 auto;
     }
-
     @keyframes glow {
       0% { filter: drop-shadow(0 0 5px #00d0ff); }
       50% { filter: drop-shadow(0 0 20px #00d0ff); }
       100% { filter: drop-shadow(0 0 5px #00d0ff); }
     }
-
     #welcomeBubble {
       position: absolute;
       top: 50%;
@@ -116,7 +102,6 @@
       z-index: 10;
       white-space: normal;
     }
-
     #welcomeBubble::after {
       content: "";
       position: absolute;
@@ -129,7 +114,6 @@
       border-left: 0;
       margin-top: -10px;
     }
-
     #chatBubble {
       position: absolute;
       top: 85%;
@@ -152,7 +136,6 @@
       z-index: 15;
       white-space: normal;
     }
-
     #chatBubble::after {
       content: "";
       position: absolute;
@@ -165,7 +148,6 @@
       border-left: 0;
       margin-top: -10px;
     }
-
     #searchBox {
       width: 300px;
       padding: 8px;
@@ -176,7 +158,6 @@
       border-radius: 4px;
       outline-color: #1dbae2;
     }
-
     #results {
       max-height: 200px;
       overflow-y: auto;
@@ -187,16 +168,13 @@
       font-size: 15px;
       user-select: none;
     }
-
     .resultItem {
       padding: 8px;
       cursor: pointer;
     }
-
     .resultItem:hover, .resultItem.selected {
       background-color: #d0eaff;
     }
-
     #contentViewer {
       white-space: pre-wrap;
       border: 1px solid #ccc;
@@ -208,7 +186,6 @@
       font-size: 16px;
       background-color: #fdfdfd;
     }
-
     @keyframes pop {
       0% { transform: scale(0.8); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
@@ -221,7 +198,7 @@
   <div id="toolbar">
     <div class="title">Medical Guideline Search Viewer</div>
     <div class="toolbar-links">
-      <a href="https://script.google.com/macros/s/AKfycbxkHujLjwUxHSTGE2Arz04IfPDtZECKYIyl7h6APtZAZPCZmr785sKpHuNWvQMUSRUOXQ/exec" target="_blank" rel="noopener">NY Formulary</a>
+      <a id="nyFormularyLink" href="#" target="_blank" rel="noopener">NY Formulary</a>
       <div class="book-container" title="Click to add more data to the vault">
         <a href="https://drive.google.com/drive/folders/11mWfH7HohNkDInjcP8Mv54ek3uYLF33R?usp=drive_link" target="_blank" rel="noopener">
           <img src="https://i.postimg.cc/qMZyJfXF/Chat-GPT-Image-Jun-23-2025-04-02-36-PM.png" alt="Book of Spells" />
@@ -244,7 +221,8 @@
   <div id="contentViewer">Search for a document to view its contents.</div>
 
   <script>
-    const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbxkHujLjwUxHSTGE2Arz04IfPDtZECKYIyl7h6APtZAZPCZmr785sKpHuNWvQMUSRUOXQ/exec';
+    // INSERT WEB APP URL HERE
+    const WEB_APP_BASE_URL = 'https://script.google.com/macros/s/AKfycbwr5vDD_g5BYBcHU6kvv4zdMBWoY1Lu4zMqV_YFi4--qwPf47Oz1GnxzlPmEScRcXExeg/exec';
 
     const welcomePhrases = [
       "Welcome to the Wizard Guideline Vault!!",
@@ -313,6 +291,10 @@
     const searchBox = document.getElementById('searchBox');
     const resultsDiv = document.getElementById('results');
     const contentViewer = document.getElementById('contentViewer');
+    const nyFormularyLink = document.getElementById('nyFormularyLink');
+
+    // Set NY Formulary link to web app URL for easy update
+    nyFormularyLink.href = WEB_APP_BASE_URL;
 
     function showWelcome() {
       const phrase = welcomePhrases[Math.floor(Math.random() * welcomePhrases.length)];
@@ -347,6 +329,24 @@
     let selectedIndex = -1;
     let searchTimeout;
 
+    async function fetchSearch(keyword) {
+      const url = new URL(WEB_APP_BASE_URL);
+      url.searchParams.set('action', 'searchDocs');
+      url.searchParams.set('keyword', keyword);
+      const response = await fetch(url.toString());
+      if (!response.ok) throw new Error('Error contacting server.');
+      return response.json();
+    }
+
+    async function fetchDocContent(docId) {
+      const url = new URL(WEB_APP_BASE_URL);
+      url.searchParams.set('action', 'getDocContent');
+      url.searchParams.set('docId', docId);
+      const response = await fetch(url.toString());
+      if (!response.ok) throw new Error('Error contacting server.');
+      return response.text();
+    }
+
     searchBox.addEventListener('input', () => {
       clearTimeout(searchTimeout);
       const keyword = searchBox.value.trim().toLowerCase();
@@ -359,28 +359,22 @@
         return;
       }
 
-      searchTimeout = setTimeout(() => {
-        fetch(`${API_BASE_URL}?action=searchDocs&keyword=${encodeURIComponent(keyword)}`)
-          .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            return response.json();
-          })
-          .then(results => {
-            filteredDocs = results;
-            selectedIndex = -1;
-            renderResults();
-            if (filteredDocs.length === 0) {
-              contentViewer.textContent = "No documents found.";
-              showChatBubble(getRemarkForKeyword(keyword, true));
-            } else {
-              contentViewer.textContent = "Select a document to view its contents.";
-              showChatBubble(getRemarkForKeyword(keyword));
-            }
-          })
-          .catch(() => {
-            contentViewer.textContent = "Error contacting server.";
-            showChatBubble("The magical connection was lost! Try again.");
-          });
+      searchTimeout = setTimeout(async () => {
+        try {
+          filteredDocs = await fetchSearch(keyword);
+          selectedIndex = -1;
+          renderResults();
+          if (filteredDocs.length === 0) {
+            contentViewer.textContent = "No documents found.";
+            showChatBubble(getRemarkForKeyword(keyword, true));
+          } else {
+            contentViewer.textContent = "Select a document to view its contents.";
+            showChatBubble(getRemarkForKeyword(keyword));
+          }
+        } catch (e) {
+          contentViewer.textContent = e.message;
+          showChatBubble("Error contacting server.");
+        }
       }, 300);
     });
 
@@ -400,22 +394,17 @@
       });
     }
 
-    function selectDocument(index) {
+    async function selectDocument(index) {
       if (index < 0 || index >= filteredDocs.length) return;
       selectedIndex = index;
       renderResults();
       contentViewer.textContent = "Loading document...";
-      fetch(`${API_BASE_URL}?action=getDocContent&docId=${filteredDocs[selectedIndex].id}`)
-        .then(response => {
-          if (!response.ok) throw new Error('Network response was not ok');
-          return response.text();
-        })
-        .then(text => {
-          contentViewer.textContent = text || "(Empty Document)";
-        })
-        .catch(() => {
-          contentViewer.textContent = "Error loading document content.";
-        });
+      try {
+        const text = await fetchDocContent(filteredDocs[selectedIndex].id);
+        contentViewer.textContent = text || "(Empty Document)";
+      } catch (e) {
+        contentViewer.textContent = e.message;
+      }
     }
 
     document.addEventListener('keydown', e => {
