@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Wizard Vault with Celtic Border</title>
-<style>
-  html, body {
-    margin: 0; padding: 0; height: 100vh; background: #fff;
-    display: flex; justify-content: center; align-items: center;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wizard Vault - Glowing Frame</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      background-image: url('border.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
 
-  body {
-    background-image: url('YOUR_BORDER_IMAGE_RAW_GITHUB_URL_HERE');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-  }
+    iframe {
+      border: none;
+      width: 900px;
+      height: 600px;
+      background-color: white;
+      box-shadow: 0 0 10px 3px #ffd700;
+      animation: glow 2s ease-in-out infinite;
+    }
 
-  iframe {
-    border: none;
-    width: 900px;   /* adjust to fit inside your border */
-    height: 600px;  /* adjust to fit inside your border */
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    background-color: white;
-  }
-</style>
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px 3px #ffd700;
+      }
+      50% {
+        box-shadow: 0 0 25px 8px #ffd700;
+      }
+      100% {
+        box-shadow: 0 0 10px 3px #ffd700;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <iframe id="appFrame" src="https://script.google.com/macros/s/AKfycbzVIh7fj2ziYWL56P0Gu6I4HHOgkDg1PwVZRQV21u5btbczCCY63V8lPx34CvDIsJKeOg/exec" allowfullscreen></iframe>
+  <iframe src="https://script.google.com/macros/s/AKfycbzVIh7fj2ziYWL56P0Gu6I4HHOgkDg1PwVZRQV21u5btbczCCY63V8lPx34CvDIsJKeOg/exec" allowfullscreen></iframe>
 
 </body>
 </html>
