@@ -58,11 +58,11 @@
       top: 60px;
       left: 20px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       border: 1px solid #ccc;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      max-height: 300px;
+      max-height: 70vh;
       overflow-y: auto;
       padding: 10px;
       z-index: 50;
@@ -104,45 +104,44 @@
       0% { opacity: 1; filter: drop-shadow(0 0 10px yellow); }
       100% { opacity: 0; filter: drop-shadow(0 0 0 transparent); }
     }
-    #dropdown-formulary {
+    #formulary-section {
       display: none;
       position: absolute;
       top: 60px;
       left: 0;
       right: 0;
-      bottom: 40px;
+      bottom: 0;
       background: rgba(245, 245, 245, 0.95);
-      overflow-y: auto;
       padding: 20px;
-      z-index: 50;
+      overflow-y: auto;
+      z-index: 60;
     }
-    #dropdown-formulary.show {
-      display: block;
-    }
-    .formulary-item {
-      background: #fff;
-      border: 1px solid #ccc;
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 8px;
+    #formulary-results .dropdown-item {
+      width: 100%;
     }
   </style>
 </head>
 <body>
   <div class="toolbar">
     <button onclick="goBack()">← Back</button>
-    <button onclick="toggleHeaders()">Headers</button>
-    <button onclick="toggleFormulary()">CA Formulary</button>
-    <button>Jurisdiction</button>
-    <button>Guideline Updates</button>
-    <button>Jargons</button>
+    <button onclick="toggleDropdown('headers')">Headers</button>
+    <button onclick="toggleDropdown('formulary')">CA Formulary</button>
+    <button onclick="navigate('jurisdiction')">Jurisdiction</button>
+    <button onclick="navigate('updates')">Guideline Updates</button>
+    <button onclick="navigate('jargons')">Jargons</button>
   </div>
-  <div class="page-content">
+
+  <div class="page-content" id="main-content">
     <h1>Welcome to the Medical Utility Tool</h1>
     <p>Select a tool from the toolbar above.</p>
-    <div id="dropdown-headers" class="dropdown"></div>
-    <div id="dropdown-formulary"></div>
   </div>
+
+  <div id="dropdown-headers" class="dropdown"></div>
+  <div id="formulary-section">
+    <input type="text" id="formulary-search" placeholder="Search drugs..." oninput="searchFormulary(this.value)" style="padding: 10px; width: 100%; margin-bottom: 10px;" />
+    <div id="formulary-results"></div>
+  </div>
+
   <div class="hint-strip" id="hint-strip">Loading hints...</div>
   <img id="copy-ghost" class="copy-ghost" src="https://i.postimg.cc/d0jsn69H/Ghost.png" width="120" />
 
@@ -152,49 +151,84 @@
       "Jargon: 'UR' = Utilization Review.",
       "Updates from July 2024 include TBI revisions.",
       "Use Headers tool to copy citations quickly.",
-      "Check CA Formulary for drug phase requirements."
+      "Check CA Formulary for drug phase requirements.",
+      "Guideline updates affect decision timelines.",
+      "Jargon: 'RFA' = Request for Authorization."
     ];
-    let hintIndex = 0;
-    setInterval(() => {
-      document.getElementById('hint-strip').textContent = hints[hintIndex];
-      hintIndex = (hintIndex + 1) % hints.length;
-    }, 7000);
 
     const headers = {
       "Shoulder Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nShoulder Disorders (MTUS Effective Date August 10, 2023)",
-      "Knee Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nKnee Disorders (MTUS Effective Date September 21, 2020)"
-      // add more as needed
+      "Knee Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nKnee Disorders (MTUS Effective Date September 21, 2020)",
+      "Low Back Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nLow Back Disorders (MTUS Effective Date November 23, 2021)",
+      "Cervical and Thoracic Spine": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nCervical and Thoracic Spine (MTUS Effective Date April 18, 2019)",
+      "Hand, Wrist, and Forearm Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nHand, Wrist, and Forearm Disorders (MTUS Effective Date November 10, 2023)",
+      "Ankle and Foot Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nAnkle and Foot Disorders (MTUS Effective Date April 18, 2019)",
+      "Elbow Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nElbow Disorders (MTUS Effective Date April 18, 2019)",
+      "Hip and Groin Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nHip and Groin Disorders (MTUS Effective Date October 7, 2019)",
+      "Chronic Pain": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nChronic Pain (Effective Date June 1, 2025)",
+      "Antiemetics": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nAntiemetics (MTUS Effective Date: October 26, 2020)",
+      "Cannabis": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nCannabis (MTUS Effective Date: June 1, 2025)",
+      "COVID-19 (Coronavirus)": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nCOVID-19 (Coronavirus) (MTUS Effective Date: November 10, 2023)",
+      "Eye Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nEye Disorders (MTUS Effective Date: December 1, 2017)",
+      "Interstitial Lung Diseases": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nInterstitial Lung Diseases (MTUS Effective Date: September 21, 2020)",
+      "Occupational Asthma": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nOccupational Asthma (MTUS Effective Date: September 21, 2020)",
+      "Opioids": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nOpioids (MTUS Effective Date: March 27, 2024)",
+      "Traumatic Brain Injury": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nTraumatic Brain Injury (MTUS Effective Date: October 31, 2018)",
+      "Workplace Mental Health": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nWorkplace Mental Health (MTUS Effective Date: August 11, 2019)",
+      "Posttraumatic Stress Disorder and Acute Stress Disorder": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nPosttraumatic Stress Disorder and Acute Stress Disorder (MTUS Effective Date: April 18, 2019)",
+      "Anxiety Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nAnxiety Disorders (MTUS Effective Date: July 19, 2021)",
+      "Depressive Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nDepressive Disorders (MTUS Effective Date: September 21, 2020)"
     };
+
+    const hintStrip = document.getElementById('hint-strip');
+    let hintIndex = 0;
+    setInterval(() => {
+      hintStrip.textContent = hints[hintIndex];
+      hintIndex = (hintIndex + 1) % hints.length;
+    }, 7000);
 
     function goBack() {
       alert('Going back to main home page...');
     }
 
-    function toggleHeaders() {
-      const headersDiv = document.getElementById('dropdown-headers');
-      const formularyDiv = document.getElementById('dropdown-formulary');
-      formularyDiv.classList.remove('show');
-      headersDiv.classList.toggle('show');
-      if (headersDiv.classList.contains('show')) {
-        let html = '';
-        for (let label in headers) {
-          html += `<div class="dropdown-item">
-            <strong>${label}</strong>
-            <button onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;')}">Copy</button>
-          </div>`;
+    function navigate(section) {
+      document.getElementById('main-content').innerHTML = `<h2>Loading ${section}...</h2>`;
+      closeDropdowns();
+    }
+
+    function toggleDropdown(type) {
+      const headerMenu = document.getElementById('dropdown-headers');
+      const formulary = document.getElementById('formulary-section');
+
+      if (type === 'headers') {
+        if (headerMenu.classList.contains('show')) {
+          headerMenu.classList.remove('show');
+        } else {
+          closeDropdowns();
+          let html = '';
+          for (let label in headers) {
+            html += `<div class="dropdown-item">
+              <strong>${label}</strong>
+              <button onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;')}">Copy</button>
+            </div>`;
+          }
+          headerMenu.innerHTML = html;
+          headerMenu.classList.add('show');
         }
-        headersDiv.innerHTML = html;
+      } else if (type === 'formulary') {
+        if (formulary.style.display === 'block') {
+          formulary.style.display = 'none';
+        } else {
+          closeDropdowns();
+          formulary.style.display = 'block';
+          loadFormulary();
+        }
       }
     }
 
-    function toggleFormulary() {
-      const formularyDiv = document.getElementById('dropdown-formulary');
-      const headersDiv = document.getElementById('dropdown-headers');
-      headersDiv.classList.remove('show');
-      formularyDiv.classList.toggle('show');
-      if (formularyDiv.classList.contains('show')) {
-        loadFormulary();
-      }
+    function closeDropdowns() {
+      document.getElementById('dropdown-headers').classList.remove('show');
+      document.getElementById('formulary-section').style.display = 'none';
     }
 
     function copyText(button) {
@@ -203,49 +237,42 @@
         const ghost = document.getElementById('copy-ghost');
         ghost.style.display = 'block';
         setTimeout(() => ghost.style.display = 'none', 5000);
-      });
+      }).catch(() => alert('Copy failed'));
     }
 
-    async function loadFormulary() {
-      const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv');
-      const text = await response.text();
-      const lines = text.trim().split('\n');
-      const headers = lines[0].split(',');
-      const data = lines.slice(1).map(row => {
-        const values = row.split(',');
-        return {
-          [headers[0]]: values[0],
-          [headers[1]]: values[1],
-          [headers[2]]: values.slice(2).join(',')
-        };
-      });
-
-      const container = document.getElementById('dropdown-formulary');
-      container.innerHTML = `<input type="text" placeholder="Search drug ingredient..." oninput="searchFormulary(this.value)"><div id="formulary-results"></div>`;
-      window.formularyData = data;
+    let formularyData = [];
+    function loadFormulary() {
+      if (formularyData.length > 0) return;
+      fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv')
+        .then(res => res.text())
+        .then(text => {
+          const rows = text.trim().split('\n').slice(1);
+          formularyData = rows.map(row => {
+            const cols = row.split(',');
+            return {
+              'Drug Ingredient': cols[0]?.trim(),
+              'Reference Brand Name': cols[1]?.trim(),
+              'General citation (All body parts)': cols.slice(2).join(',').trim()
+            };
+          });
+          searchFormulary('');
+        });
     }
 
-    function searchFormulary(query) {
-      const lower = query.toLowerCase();
-      const results = window.formularyData.filter(d => d['Drug Ingredient'].toLowerCase().includes(lower));
+    function searchFormulary(term) {
       const container = document.getElementById('formulary-results');
-      if (results.length === 0) {
+      term = term.toLowerCase();
+      const matches = formularyData.filter(item => item['Drug Ingredient'].toLowerCase().includes(term));
+      if (!matches.length) {
         container.innerHTML = '<p>No matching drugs found.</p>';
         return;
       }
-      container.innerHTML = results.map(item => `
-        <div class="formulary-item">
+      container.innerHTML = matches.map(item => `
+        <div class="dropdown-item">
           <strong>${item['Drug Ingredient']}</strong> — ${item['Reference Brand Name'] || 'N/A'}
-          <button onclick="copyCitation(\`${item['General citation (All body parts)'].replace(/`/g, '\\`')}\`)" style="float:right;">Copy</button>
-        </div>`).join('');
-    }
-
-    function copyCitation(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        const ghost = document.getElementById('copy-ghost');
-        ghost.style.display = 'block';
-        setTimeout(() => ghost.style.display = 'none', 5000);
-      });
+          <button onclick="copyText(this)" data-text="${item['General citation (All body parts)'].replace(/"/g, '&quot;')}">Copy</button>
+        </div>
+      `).join('');
     }
   </script>
 </body>
