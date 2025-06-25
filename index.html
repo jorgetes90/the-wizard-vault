@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Medical Utility Tool</title>
+  <title>Medical Utility Tool - Formulary Search</title>
   <style>
     body {
       margin: 0;
@@ -39,7 +39,6 @@
     .page-content {
       padding: 20px;
       position: relative;
-      min-height: 80vh;
     }
     .hint-strip {
       position: fixed;
@@ -53,7 +52,6 @@
       font-size: 14px;
       z-index: 99;
     }
-    /* Dropdown for headers */
     .dropdown {
       display: none;
       position: absolute;
@@ -93,57 +91,51 @@
       font-size: 12px;
       cursor: pointer;
     }
-    /* Formulary search container */
     #formulary-container {
-      display: none;
-      margin-top: 10px;
+      margin-top: 20px;
     }
-    #formulary-search {
+    #search-input {
       width: 100%;
-      padding: 8px;
+      padding: 8px 10px;
       font-size: 16px;
       border-radius: 6px;
       border: 1px solid #ccc;
       margin-bottom: 15px;
       box-sizing: border-box;
     }
-    #formulary-results {
+    #results {
       max-height: 400px;
       overflow-y: auto;
       background: white;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 10px;
-    }
-    .drug-item {
-      border-bottom: 1px solid #ddd;
-      padding: 10px 0;
-    }
-    .drug-item:last-child {
-      border-bottom: none;
-    }
-    .drug-item h3 {
-      margin: 0 0 6px 0;
-    }
-    .drug-item p {
-      margin: 2px 0;
       font-size: 14px;
     }
-    .drug-copy-btn {
-      margin-top: 6px;
-      padding: 5px 12px;
-      font-size: 13px;
-      cursor: pointer;
-      background: #2f2f4f;
+    .result-item {
+      border-bottom: 1px solid #ddd;
+      padding: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .result-text {
+      white-space: pre-line;
+      max-width: 80%;
+    }
+    .copy-btn {
+      background-color: #2f2f4f;
       color: white;
       border: none;
-      border-radius: 5px;
-      transition: background 0.3s;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      flex-shrink: 0;
     }
-    .drug-copy-btn:hover {
-      background: #4a4a6a;
+    .copy-btn:hover {
+      background-color: #4a4a6a;
     }
-    /* Ghost image on copy */
     .copy-ghost {
       position: fixed;
       top: 50%;
@@ -152,6 +144,7 @@
       z-index: 999;
       display: none;
       animation: glow-fade 5s ease-in-out;
+      width: 120px;
     }
     @keyframes glow-fade {
       0% { opacity: 1; filter: drop-shadow(0 0 10px yellow); }
@@ -174,23 +167,19 @@
     <p>Select a tool from the toolbar above.</p>
     <div id="dropdown" class="dropdown"></div>
 
-    <div id="formulary-container">
-      <input type="search" id="formulary-search" placeholder="Search drug ingredient..." autocomplete="off" />
-      <div id="formulary-results"></div>
+    <div id="formulary-container" style="display:none;">
+      <input type="text" id="search-input" placeholder="Search drugs by ingredient..." oninput="searchDrugs()" autocomplete="off" />
+      <div id="results">Loading formulary data...</div>
     </div>
   </div>
 
   <div class="hint-strip" id="hint-strip">Loading hints...</div>
-  <img
-    id="copy-ghost"
-    class="copy-ghost"
-    src="https://i.postimg.cc/d0jsn69H/Ghost.png"
-    width="120"
-    alt="Copied confirmation"
-  />
 
+  <img id="copy-ghost" class="copy-ghost" src="https://i.postimg.cc/d0jsn69H/Ghost.png" alt="Copied" />
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script>
-    // Hints rotating every 7 seconds
+    // Hints rotation
     const hints = [
       "Always refer to MTUS before approving UR decisions.",
       "Jargon: 'UR' = Utilization Review.",
@@ -231,14 +220,13 @@
       "Depressive Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nDepressive Disorders (MTUS Effective Date: September 21, 2020)"
     };
 
-    // Show/hide headers dropdown
+    // Show/Hide dropdown with headers
     function toggleDropdown() {
       const dropdown = document.getElementById('dropdown');
       if (dropdown.classList.contains('show')) {
         dropdown.classList.remove('show');
         return;
       }
-      // build dropdown HTML
       let html = '';
       for (let label in headers) {
         html += `<div class="dropdown-item">
@@ -248,113 +236,141 @@
       }
       dropdown.innerHTML = html;
       dropdown.classList.add('show');
-
-      // hide formulary container if open
+      // Hide formulary if open
       document.getElementById('formulary-container').style.display = 'none';
     }
 
-    // Copy function with ghost popup
+    // Copy text and show ghost popup
     function copyText(button) {
       const text = button.getAttribute('data-text');
       navigator.clipboard.writeText(text).then(() => {
         const ghost = document.getElementById('copy-ghost');
         ghost.style.display = 'block';
-        setTimeout(() => (ghost.style.display = 'none'), 5000);
+        setTimeout(() => ghost.style.display = 'none', 5000);
       }).catch(() => alert('Copy failed'));
     }
 
-    // Back button (just alert for now)
+    // Navigation placeholders
     function goBack() {
       alert('Going back to main home page...');
+      document.getElementById('main-content').innerHTML = `
+        <h1>Welcome to the Medical Utility Tool</h1>
+        <p>Select a tool from the toolbar above.</p>
+        <div id="dropdown" class="dropdown"></div>
+        <div id="formulary-container" style="display:none;">
+          <input type="text" id="search-input" placeholder="Search drugs by ingredient..." oninput="searchDrugs()" autocomplete="off" />
+          <div id="results">Loading formulary data...</div>
+        </div>
+      `;
+      dropdown = document.getElementById('dropdown');
+      dropdown.classList.remove('show');
+      formularyContainer = document.getElementById('formulary-container');
+      formularyContainer.style.display = 'none';
+      // Reload CSV data on return
+      loadFormularyData();
     }
 
-    // Navigation buttons stub
     function navigate(section) {
-      document.getElementById('main-content').innerHTML = `<h2>Loading ${section}...</h2>`;
+      alert(`Navigate to ${section} page (placeholder)`);
+      // Hide dropdown and formulary on other navs
       document.getElementById('dropdown').classList.remove('show');
       document.getElementById('formulary-container').style.display = 'none';
     }
 
     // Show formulary search UI
-    function showFormulary() {
-      document.getElementById('dropdown').classList.remove('show');
-      document.getElementById('formulary-container').style.display = 'block';
-      document.getElementById('formulary-search').value = '';
-      document.getElementById('formulary-results').innerHTML = '';
-      loadFormularyData();
-    }
-
     let formularyData = [];
-
-    // Load JSON formulary data
-    function loadFormularyData() {
-      if (formularyData.length > 0) return; // already loaded
-
-      fetch('2025CAformulary.json')
-        .then((response) => {
-          if (!response.ok) throw new Error('Network response was not ok');
-          return response.json();
-        })
-        .then((data) => {
-          formularyData = data;
-          // Enable search after data loads
-          setupSearch();
-        })
-        .catch((error) => {
-          document.getElementById('formulary-results').innerHTML =
-            '<p style="color:red;">Error loading formulary data.</p>';
-          console.error('Fetch error:', error);
-        });
+    function showFormulary() {
+      // Hide dropdown
+      document.getElementById('dropdown').classList.remove('show');
+      // Show formulary container
+      const container = document.getElementById('formulary-container');
+      container.style.display = 'block';
+      // Clear results and search input
+      document.getElementById('search-input').value = '';
+      document.getElementById('results').textContent = 'Loading formulary data...';
+      // Load data if empty
+      if (formularyData.length === 0) {
+        loadFormularyData();
+      } else {
+        document.getElementById('results').textContent = 'Please enter a search term.';
+      }
     }
 
-    // Setup live search handler
-    function setupSearch() {
-      const formularySearch = document.getElementById('formulary-search');
-      const formularyResults = document.getElementById('formulary-results');
-
-      formularySearch.addEventListener('input', () => {
-        const query = formularySearch.value.trim().toLowerCase();
-        if (!query) {
-          formularyResults.innerHTML = '';
-          return;
+    // Load formulary CSV data from Google Sheets URL
+    function loadFormularyData() {
+      const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv';
+      Papa.parse(csvUrl, {
+        download: true,
+        header: true,
+        complete: function(results) {
+          formularyData = results.data.filter(r => r['Drug ingredient'] && r['Drug ingredient'].trim() !== "");
+          document.getElementById('results').textContent = 'Please enter a search term.';
+        },
+        error: function(err) {
+          document.getElementById('results').textContent = 'Error loading formulary data.';
+          console.error('PapaParse error:', err);
         }
-        const filtered = formularyData.filter((drug) =>
-          drug['Drug ingredient'] &&
-          drug['Drug ingredient'].toLowerCase().includes(query)
-        );
-
-        if (filtered.length === 0) {
-          formularyResults.innerHTML = '<p>No matching drugs found.</p>';
-          return;
-        }
-
-        formularyResults.innerHTML = filtered
-          .map((drug) => {
-            // Prepare text to copy — all key-value pairs joined with new lines
-            const copyText = Object.entries(drug)
-              .map(([key, val]) => `${key}: ${val}`)
-              .join('\n');
-            return `
-              <div class="drug-item">
-                <h3>${drug['Drug ingredient'] || 'Unknown Drug'}</h3>
-                <p><strong>Reference Brand:</strong> ${drug['Reference brand'] || 'N/A'}</p>
-                <p><strong>General Citation:</strong> ${drug['General citation'] || 'N/A'}</p>
-                <button class="drug-copy-btn" onclick="copyFormularyText(this)" data-text="${copyText.replace(/"/g, '&quot;')}">Copy</button>
-              </div>`;
-          })
-          .join('');
       });
     }
 
-    // Copy for formulary search with ghost popup
-    function copyFormularyText(button) {
-      const text = button.getAttribute('data-text');
+    // Search drugs by partial ingredient match (case-insensitive)
+    function searchDrugs() {
+      const term = document.getElementById('search-input').value.trim().toLowerCase();
+      const resultsDiv = document.getElementById('results');
+      if (!term) {
+        resultsDiv.textContent = 'Please enter a search term.';
+        return;
+      }
+      const matches = formularyData.filter(item => {
+        return item['Drug ingredient'] && item['Drug ingredient'].toLowerCase().includes(term);
+      });
+      if (matches.length === 0) {
+        resultsDiv.textContent = 'No matching drugs found.';
+        return;
+      }
+      // Build results HTML
+      let html = '';
+      matches.forEach(item => {
+        const textToCopy = `
+Drug ingredient: ${item['Drug ingredient']}
+Reference brand: ${item['Reference brand'] || 'N/A'}
+General citation: ${item['General citation'] || 'N/A'}
+Phase A: ${item['Phase A'] || 'N/A'}
+Phase B: ${item['Phase B'] || 'N/A'}
+Perioperative: ${item['Perioperative'] || 'N/A'}
+Special considerations 1: ${item['Special considerations 1'] || 'N/A'}
+Special considerations 2: ${item['Special considerations 2'] || 'N/A'}
+Special considerations 3: ${item['Special considerations 3'] || 'N/A'}
+Special considerations 4: ${item['Special considerations 4'] || 'N/A'}
+`.trim();
+        html += `<div class="result-item">
+          <div class="result-text">${textToCopy.replace(/\n/g,'<br>')}</div>
+          <button class="copy-btn" onclick="copyTextFromString(\`${escapeBackticks(textToCopy)}\`)">Copy</button>
+        </div>`;
+      });
+      resultsDiv.innerHTML = html;
+    }
+
+    // Helper to escape backticks in template literal
+    function escapeBackticks(str) {
+      return str.replace(/`/g, '\\`').replace(/\$/g, '\\$');
+    }
+
+    // Copy from given string and show ghost image
+    function copyTextFromString(text) {
       navigator.clipboard.writeText(text).then(() => {
         const ghost = document.getElementById('copy-ghost');
         ghost.style.display = 'block';
-        setTimeout(() => (ghost.style.display = 'none'), 5000);
+        setTimeout(() => ghost.style.display = 'none', 5000);
       }).catch(() => alert('Copy failed'));
     }
+
+    // Initial load of headers dropdown empty
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initially hide dropdown & formulary container
+      document.getElementById('dropdown').classList.remove('show');
+      document.getElementById('formulary-container').style.display = 'none';
+    });
   </script>
 </body>
 </html>
