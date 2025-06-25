@@ -290,7 +290,7 @@
     function loadFormularyData() {
       if (formularyData.length > 0) return; // already loaded
 
-      fetch('2025 ds ur cheat sheet formulary.json')
+      fetch('2025CAformulary.json')
         .then((response) => {
           if (!response.ok) throw new Error('Network response was not ok');
           return response.json();
