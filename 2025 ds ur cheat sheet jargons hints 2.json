@@ -1,0 +1,1150 @@
+[
+ {
+   "REQUESTS": "Facet Joint Injections",
+   "OTHER NAMES": "Medial Branch Blocks",
+   "FIELD3": "",
+   "ACRONYMS": "ACL",
+   "DEFINITION": "anterior cruciate ligament"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "Facet Joint Intra-articular Injections",
+   "FIELD3": "",
+   "ACRONYMS": "AKA",
+   "DEFINITION": "above knee amputation"
+ },
+ {
+   "REQUESTS": "Radiofrequency Neurotomy",
+   "OTHER NAMES": "Radiofrequency Medial Branch Neurotomy",
+   "FIELD3": "",
+   "ACRONYMS": "BMP - lab test",
+   "DEFINITION": "basic metabolic panel"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "Radiofrequency Ablation",
+   "FIELD3": "",
+   "ACRONYMS": "BMP - graft",
+   "DEFINITION": "bone morphogenetic protein"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "Rhizotomy",
+   "FIELD3": "",
+   "ACRONYMS": "C/O",
+   "DEFINITION": "complaint of. / the patient's expressed concern"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "DC",
+   "DEFINITION": "discharge"
+ },
+ {
+   "REQUESTS": "Epidural Steroid Injection",
+   "OTHER NAMES": "Selective Nerve Root Block (Diagnostic block)",
+   "FIELD3": "",
+   "ACRONYMS": "D/C",
+   "DEFINITION": "discontinue"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "Interlaminar Injection",
+   "FIELD3": "",
+   "ACRONYMS": "DOE",
+   "DEFINITION": "dyspnea on exertion/ date of examination"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "Transforaminal Injection",
+   "FIELD3": "",
+   "ACRONYMS": "ETOH",
+   "DEFINITION": "alcohol"
+ },
+ {
+   "REQUESTS": "Sympathetic Blocks",
+   "OTHER NAMES": "Stellate Ganglion Blocks",
+   "FIELD3": "",
+   "ACRONYMS": "FX",
+   "DEFINITION": "fracture"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "Thoracic Sympathetic Blocks",
+   "FIELD3": "",
+   "ACRONYMS": "H&H",
+   "DEFINITION": "hemoglobin and hematocrit"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "Lumbar Sympathetic Blocks",
+   "FIELD3": "",
+   "ACRONYMS": "H&P",
+   "DEFINITION": "history and physical examination"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "Regional Sympathetic Blocks",
+   "FIELD3": "",
+   "ACRONYMS": "H/O or h/o",
+   "DEFINITION": "history of/past event that occurred"
+ },
+ {
+   "REQUESTS": "Physical therapy",
+   "OTHER NAMES": "physical medicine",
+   "FIELD3": "",
+   "ACRONYMS": "HA",
+   "DEFINITION": "headache"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "therapeutic exercise",
+   "FIELD3": "",
+   "ACRONYMS": "HTN",
+   "DEFINITION": "hypertension"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "occupational therapy",
+   "FIELD3": "",
+   "ACRONYMS": "I&D",
+   "DEFINITION": "incision and drainage"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "physiotherapy",
+   "FIELD3": "",
+   "ACRONYMS": "IMP",
+   "DEFINITION": "impression"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "formal rehabilition program",
+   "FIELD3": "",
+   "ACRONYMS": "JT",
+   "DEFINITION": "joint"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "supervised exercise",
+   "FIELD3": "",
+   "ACRONYMS": "LBP",
+   "DEFINITION": "low back pain"
+ },
+ {
+   "REQUESTS": "Chiropractic treatment",
+   "OTHER NAMES": "Manipulation therapy",
+   "FIELD3": "",
+   "ACRONYMS": "LLQ",
+   "DEFINITION": "left lower quadrant"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "Manual Therapy ",
+   "FIELD3": "",
+   "ACRONYMS": "LUQ",
+   "DEFINITION": "left upper quadrant"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "Lytes",
+   "DEFINITION": "electrolytes (K, Na, CO2, and Cl)"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "MCL",
+   "DEFINITION": "medial collateral ligament"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "od",
+   "DEFINITION": "right eye"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "os",
+   "DEFINITION": "left eye"
+ },
+ {
+   "REQUESTS": "Hyaluronic acid injection",
+   "OTHER NAMES": "Supartz injection",
+   "FIELD3": "",
+   "ACRONYMS": "ou",
+   "DEFINITION": "both eyes"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "Viscosupplementation",
+   "FIELD3": "",
+   "ACRONYMS": "ORIF",
+   "DEFINITION": "open reduction and internal fixation"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PCL",
+   "DEFINITION": "posterior cruciate ligament"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "Plt",
+   "DEFINITION": "platelets"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PMI",
+   "DEFINITION": "point of maximum impulse"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "REB",
+   "DEFINITION": "rebound"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RLQ",
+   "DEFINITION": "right lower quadrant"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RUQ",
+   "DEFINITION": "right upper quadrant"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "THR",
+   "DEFINITION": "total hip replacement"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "TKR",
+   "DEFINITION": "total knee replacement"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "ut dict",
+   "DEFINITION": "as directed"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "VSS",
+   "DEFINITION": "vital signs are stable"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "TTD",
+   "DEFINITION": "temporary total disability"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "TPD",
+   "DEFINITION": "temporary partial disability"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PTD",
+   "DEFINITION": "permanent total disability"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PPD",
+   "DEFINITION": "permanent partial disability"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "MMI",
+   "DEFINITION": "maximum medical improvement"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "FCE",
+   "DEFINITION": "functional capacity evaluation"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "IME",
+   "DEFINITION": "independent medical evaluation"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "AFO",
+   "DEFINITION": "ankle foot orthosis"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "AP",
+   "DEFINITION": "acupuncture physician"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "APTT",
+   "DEFINITION": "activated partial thromboplastin time"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "AS",
+   "DEFINITION": "auricle sinistrus (left ear)"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "ASAD",
+   "DEFINITION": "arthroscopic subacromial decompression"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "AU",
+   "DEFINITION": "auris utraque (both ears)"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "B/K",
+   "DEFINITION": "below knee"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "BZD",
+   "DEFINITION": "Benzodiazepine"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "CAOx4",
+   "DEFINITION": "concious, alert, and oriented x4"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "DIP",
+   "DEFINITION": "distal interphalangeal joint"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "DP",
+   "DEFINITION": "dorsalis pedis"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "DTR",
+   "DEFINITION": "deep tendon reflex"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "EMG",
+   "DEFINITION": "electromyogram"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "EOG",
+   "DEFINITION": "electrooculography"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "EUA",
+   "DEFINITION": "examination under anesthesia"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "Hx",
+   "DEFINITION": "history"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "IBW",
+   "DEFINITION": "ideal body weight"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "ICS",
+   "DEFINITION": "intercostal space"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "ICT",
+   "DEFINITION": "inflammation of connective tissue"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LAO",
+   "DEFINITION": "left anterior oblique"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LLL",
+   "DEFINITION": "left lower lobe"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LP",
+   "DEFINITION": "lumbar puncture"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LT",
+   "DEFINITION": "left"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LVEDP",
+   "DEFINITION": "left ventricular end diastolic pressure"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LVEF",
+   "DEFINITION": "left ventricular ejection fraction"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LVET",
+   "DEFINITION": "left ventricular ejection time"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LVH",
+   "DEFINITION": "left ventricular hypertrophy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "MAR",
+   "DEFINITION": "medication administration record"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "N/T",
+   "DEFINITION": "no tenderness/ not tender/ numbness and tingling"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "NAD",
+   "DEFINITION": "no acute distress"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "NCV",
+   "DEFINITION": "nerve conduction velocity"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "NDA",
+   "DEFINITION": "no drug allergy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "NKMA",
+   "DEFINITION": "no known medical allergies"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "NOS",
+   "DEFINITION": "not otherwise specified"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "NWB",
+   "DEFINITION": "non-weight bearing"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "OT",
+   "DEFINITION": "Occupational Therapy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PA",
+   "DEFINITION": "posteroanterior"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PCA",
+   "DEFINITION": "patient controlled analgesia; posterior communicating artery"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PET",
+   "DEFINITION": "positron emission tomography"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PH",
+   "DEFINITION": "past history"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PI",
+   "DEFINITION": "present illness"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PMHx",
+   "DEFINITION": "prior/previous medical history"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "POD",
+   "DEFINITION": "post-op day"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PROM",
+   "DEFINITION": "passive range of motion"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PT",
+   "DEFINITION": "prothrombin time"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PTT",
+   "DEFINITION": "partial thromboplastin time"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "PWB",
+   "DEFINITION": "partial weight bearing"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RBBB",
+   "DEFINITION": "right bundle branch block"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "REEDA",
+   "DEFINITION": "redness, edema, ecchymosis, drainage, approximation"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RLL",
+   "DEFINITION": "right lower lobe"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RML ",
+   "DEFINITION": "right middle lobe"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RPG",
+   "DEFINITION": "retrograde pyelogram"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RRR",
+   "DEFINITION": "regular rate and rhythm"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RT",
+   "DEFINITION": "radiation therapy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RUL",
+   "DEFINITION": "right upper lobe"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RVEF",
+   "DEFINITION": "right ventricular ejection fraction"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "Rx",
+   "DEFINITION": "prescription; pharmacy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "SCI",
+   "DEFINITION": "spinal cord injury"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "SPECT",
+   "DEFINITION": "single photon emission computed tomography"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "Sx",
+   "DEFINITION": "surgery"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "TBI",
+   "DEFINITION": "traumatic brain injury"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "TBSA",
+   "DEFINITION": "total body surface area"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "TMJ",
+   "DEFINITION": "temporomandibular joint"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "TWB",
+   "DEFINITION": "touch weight bear"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "Tx",
+   "DEFINITION": "treatment; traction"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "UPJ",
+   "DEFINITION": "uteropelvic junction"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "US",
+   "DEFINITION": "ultrasonic; ultrasound"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "UVJ",
+   "DEFINITION": "ureterovesical junction"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "W/C",
+   "DEFINITION": "wheelchair"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "WDI",
+   "DEFINITION": "warm, dry, intact skin assessment"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "WNL",
+   "DEFINITION": "within normal limits"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "XRT",
+   "DEFINITION": "x-ray therapy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "CAT",
+   "DEFINITION": "computerized axial tomography"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "EEG",
+   "DEFINITION": "electroencephalogram"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "EMG",
+   "DEFINITION": "electromyography"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "IVP",
+   "DEFINITION": "intravenous pyelogram"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "Rx",
+   "DEFINITION": "Prescription"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "XRT",
+   "DEFINITION": "radiotherapy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "NCV",
+   "DEFINITION": "nerve conduction studies"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "CHI",
+   "DEFINITION": "closed head injury"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "CMT",
+   "DEFINITION": "cervical motion tenderness"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "C/W",
+   "DEFINITION": "consistent with"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "E/O",
+   "DEFINITION": "evidence of"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "EPS",
+   "DEFINITION": "electro-physiologic study"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "FOOSH",
+   "DEFINITION": "fall on outstretched hand"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "F/U",
+   "DEFINITION": "follow-up"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "G + / G -",
+   "DEFINITION": "Guiac"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LBBB",
+   "DEFINITION": "left bundle branch block"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LCL",
+   "DEFINITION": "lateral collateral ligament"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LP",
+   "DEFINITION": "lumbar puncture"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "MCP",
+   "DEFINITION": "metacarpophalangeal"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "MTP",
+   "DEFINITION": "metatarsophalangeal"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "O/W",
+   "DEFINITION": "otherwise"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "P",
+   "DEFINITION": "after"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "POP",
+   "DEFINITION": "popliteal"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RCT",
+   "DEFINITION": "rotator cuff tear"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RFA",
+   "DEFINITION": "radio frequency ablation"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "R/I",
+   "DEFINITION": "rule in"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "R/O",
+   "DEFINITION": "rule out"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RSD",
+   "DEFINITION": "reflex sympathetic dystrophy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RTC",
+   "DEFINITION": "return to clinic"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "RUE",
+   "DEFINITION": "right upper extremity"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "SLR",
+   "DEFINITION": "straight leg raise"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "TDWBAT",
+   "DEFINITION": "touch down weight bearing as tolerated"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "THA",
+   "DEFINITION": "total hip arthroplasty"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "THR",
+   "DEFINITION": "total hip replacement"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "TMJ",
+   "DEFINITION": "temporo-mandibular joint"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "WBAT",
+   "DEFINITION": "weight bearing as tolerated"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "WDWN",
+   "DEFINITION": "well developed, well nourished"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "WNL",
+   "DEFINITION": "within normal limits"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "W/U",
+   "DEFINITION": "work up"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "X ",
+   "DEFINITION": "except"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "XLR",
+   "DEFINITION": "crossed leg raise"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "XRT",
+   "DEFINITION": "radiation therapy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "IST",
+   "DEFINITION": "Instrumented Assisted Soft Tissue Therapy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "EX",
+   "DEFINITION": "Exercise Therapy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "MFR",
+   "DEFINITION": "Myofasical Release"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "LINT Therapy",
+   "DEFINITION": "Localized Intense neurostimulation therapy"
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "BMA",
+   "DEFINITION": "Bone Marrow Aspirate "
+ },
+ {
+   "REQUESTS": "",
+   "OTHER NAMES": "",
+   "FIELD3": "",
+   "ACRONYMS": "",
+   "DEFINITION": ""
+ }
+]

@@ -1,0 +1,9722 @@
+[
+ {
+   "Jurisdiction": "California",
+   "FIELD2": "CA",
+   "Guideline": "CA MTUS",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "Drug Formulary",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Alabama",
+   "FIELD2": "AL",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Alaska",
+   "FIELD2": "AK",
+   "Guideline": "ODG-ALASKA  /APG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Alberta",
+   "FIELD2": "AB",
+   "Guideline": "ODG- ALBERTA",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Arizona",
+   "FIELD2": "AZ",
+   "Guideline": "ODG /APG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Arkansas",
+   "FIELD2": "AR",
+   "Guideline": "Own (1)",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "Drug Formulary",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Bahamas",
+   "FIELD2": "BS",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "British Columbia",
+   "FIELD2": "BC",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Colorado",
+   "FIELD2": "CO",
+   "Guideline": "Own (10)",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "Archives",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Connecticut",
+   "FIELD2": "CT ",
+   "Guideline": "Own (4) + ODG/APG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "District of Columbia",
+   "FIELD2": "DC",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Delaware",
+   "FIELD2": "DE",
+   "Guideline": "Own (6) + ODG/APG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Florida",
+   "FIELD2": "FL",
+   "Guideline": "ODG ",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Georgia",
+   "FIELD2": "GA",
+   "Guideline": "ODG/APG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Hawaii",
+   "FIELD2": "HI",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Idaho",
+   "FIELD2": "ID",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Illinois",
+   "FIELD2": "IL",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Indiana",
+   "FIELD2": "IN",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Iowa",
+   "FIELD2": "IA",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Kansas",
+   "FIELD2": "KS",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Kentucky",
+   "FIELD2": "KY",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Louisiana",
+   "FIELD2": "LA",
+   "Guideline": "Own",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Maine",
+   "FIELD2": "ME",
+   "Guideline": "Own (1)",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Manitoba",
+   "FIELD2": "MB",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Maryland",
+   "FIELD2": "MD",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Massachusetts",
+   "FIELD2": "MA",
+   "Guideline": "Own (28)/ODG (see special ins)",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Michigan",
+   "FIELD2": "MI",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Minnesota",
+   "FIELD2": "MN",
+   "Guideline": "Own (9)",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Mississippi",
+   "FIELD2": "MS",
+   "Guideline": "Own  (for payment only)",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "Opioid",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "Rising (+ODG)",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Missouri",
+   "FIELD2": "MO",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Montana",
+   "FIELD2": "MT",
+   "Guideline": "Own (9)",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Nebraska",
+   "FIELD2": "NE",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Nevada",
+   "FIELD2": "NV",
+   "Guideline": "APG + ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "New Brunswick",
+   "FIELD2": "NB",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "New Hampshire",
+   "FIELD2": "NH",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "New Jersey",
+   "FIELD2": "NJ",
+   "Guideline": "ODG ",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "NJ Care Path",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "New Mexico",
+   "FIELD2": "NM",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "New York",
+   "FIELD2": "NY",
+   "Guideline": "Own (5)",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Newfoundland",
+   "FIELD2": "NL",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "North Carolina",
+   "FIELD2": "NC",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "North Dakota",
+   "FIELD2": "ND",
+   "Guideline": "Own",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Ohio",
+   "FIELD2": "OH",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Oklahoma",
+   "FIELD2": "OK",
+   "Guideline": "Own",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Ontario",
+   "FIELD2": "ON",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Oregon",
+   "FIELD2": "OR",
+   "Guideline": "Own (1) & ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Pennsylvania",
+   "FIELD2": "PA",
+   "Guideline": "ODG/APG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Rhode Island",
+   "FIELD2": "RI",
+   "Guideline": "Own (37)/ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "South Carolina",
+   "FIELD2": "SC",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "South Dakota",
+   "FIELD2": "SD",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Tennessee",
+   "FIELD2": "TN",
+   "Guideline": "ODG/APG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Texas",
+   "FIELD2": "TX",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Utah",
+   "FIELD2": "UT",
+   "Guideline": "ODG/APG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Vermont",
+   "FIELD2": "VT",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Virginia",
+   "FIELD2": "VA",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Washington",
+   "FIELD2": "WA",
+   "Guideline": "Own (16)",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "West Virginia",
+   "FIELD2": "WV",
+   "Guideline": "Own (Series 20 ) + ODG",
+   "FIELD4": "USE MDguidelines to access"
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Wisconsin",
+   "FIELD2": "WI",
+   "Guideline": "if not addressed, use WI",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Wyoming",
+   "FIELD2": "WY",
+   "Guideline": "Own",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "Yukon",
+   "FIELD2": "YT",
+   "Guideline": "ODG",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ },
+ {
+   "Jurisdiction": "",
+   "FIELD2": "",
+   "Guideline": "",
+   "FIELD4": ""
+ }
+]
