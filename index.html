@@ -40,6 +40,7 @@
   .page-content {
     padding: 20px;
     position: relative;
+    min-height: 400px;
   }
 
   .hint-strip {
@@ -62,7 +63,7 @@
     top: 60px;
     left: 20px;
     right: 20px;
-    background: rgba(255 255 255 / 0.9);
+    background: rgba(255 255 255 / 0.85);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     max-height: 350px;
@@ -72,7 +73,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    backdrop-filter: saturate(180%) blur(8px);
+    backdrop-filter: saturate(180%) blur(10px);
   }
   .dropdown.show {
     display: flex;
@@ -83,7 +84,7 @@
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 8px;
-    width: calc(33.33% - 13px);
+    width: calc(33.33% - 14px);
     position: relative;
     font-size: 14px;
     box-shadow: 0 0 6px rgba(0,0,0,0.05);
@@ -103,6 +104,23 @@
     user-select: none;
   }
 
+  /* Formulary specific style overrides */
+  #dropdown-formulary {
+    flex-direction: column;
+    max-height: 500px;
+  }
+  #formulary-search {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+  }
+  #formulary-results .dropdown-item {
+    width: 100% !important;
+  }
+
   .copy-ghost {
     position: fixed;
     top: 50%;
@@ -113,7 +131,7 @@
     animation: glow-fade 5s ease-in-out;
   }
   @keyframes glow-fade {
-    0% { opacity: 1; filter: drop-shadow(0 0 10px yellow); }
+    0% { opacity: 1; filter: drop-shadow(0 0 15px yellow); }
     100% { opacity: 0; filter: drop-shadow(0 0 0 transparent); }
   }
 
@@ -134,9 +152,9 @@
     <p>Select a tool from the toolbar above.</p>
 
     <!-- Headers dropdown -->
-    <div id="dropdown-headers" class="dropdown"></div>
+    <div id="dropdown-headers" class="dropdown" aria-label="Headers dropdown"></div>
     <!-- Formulary dropdown -->
-    <div id="dropdown-formulary" class="dropdown" style="top: 60px;"></div>
+    <div id="dropdown-formulary" class="dropdown" aria-label="CA Formulary dropdown"></div>
   </div>
 
   <div class="hint-strip" id="hint-strip">Loading hints...</div>
@@ -239,78 +257,103 @@ Depressive Disorders (MTUS Effective Date: September 21, 2020)`
     }
   }
 
-  function buildHeadersDropdown() {
+  // Build Headers dropdown content
+  function buildHeadersDropdown(){
     const container = document.getElementById('dropdown-headers');
     container.innerHTML = '';
-    for (let label in headers) {
+    for(const label in headers){
       const item = document.createElement('div');
       item.className = 'dropdown-item';
-      const strong = document.createElement('strong');
-      strong.textContent = label;
-      item.appendChild(strong);
-
+      item.innerHTML = `<strong>${label}</strong>`;
       const btn = document.createElement('button');
       btn.textContent = 'Copy';
       btn.setAttribute('data-text', headers[label]);
       btn.addEventListener('click', copyText);
       item.appendChild(btn);
-
       container.appendChild(item);
     }
   }
 
-  // For demonstration: placeholder formulary data, can be replaced by your CSV/JSON loading later
-  let formularyData = [];
-
-  // Load formulary CSV from Google Sheets
-  function loadFormularyData() {
-    return new Promise((resolve, reject) => {
-      Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv', {
-        download: true,
-        header: true,
-        complete: function(results) {
-          formularyData = results.data.filter(row => row['Drug Ingredient']); // filter out empty rows
-          resolve();
-        },
-        error: function(err) {
-          alert('Error loading formulary data.');
-          reject(err);
-        }
-      });
-    });
+  // Copy text from headers
+  function copyText(e){
+    const text = e.target.getAttribute('data-text');
+    if(!text) return;
+    navigator.clipboard.writeText(text).then(() => {
+      showGhost();
+    }).catch(() => alert('Copy failed'));
   }
 
-  function buildFormularyDropdown() {
+  // Show ghost image on successful copy
+  function showGhost(){
+    const ghost = document.getElementById('copy-ghost');
+    ghost.style.display = 'block';
+    setTimeout(() => {
+      ghost.style.display = 'none';
+    }, 5000);
+  }
+
+  // Navigates to sections (placeholder)
+  function navigate(section){
+    document.getElementById('main-content').innerHTML = `<h2>Loading ${section}...</h2>`;
+    document.getElementById('dropdown-headers').classList.remove('show');
+    document.getElementById('dropdown-formulary').classList.remove('show');
+  }
+
+  // --- Formulary data and search ---
+
+  let formularyData = [];
+
+  function buildFormularyDropdown(){
     const container = document.getElementById('dropdown-formulary');
     container.innerHTML = `
-      <input type="search" id="formulary-search" placeholder="Search drug ingredient..." style="width:100%; padding:8px; margin-bottom:10px; font-size:16px;" />
-      <div id="formulary-results" style="max-height: 250px; overflow-y:auto;"></div>
+      <input type="text" id="formulary-search" placeholder="Search Drug Ingredient..." autocomplete="off" />
+      <div id="formulary-results"><p style="color:#666;">Type to search for drug ingredients...</p></div>
     `;
     document.getElementById('formulary-search').addEventListener('input', onFormularySearch);
 
-    // Load data if not already loaded
     if(formularyData.length === 0){
       loadFormularyData().then(() => {
         document.getElementById('formulary-search').focus();
+      }).catch(() => {
+        document.getElementById('formulary-results').innerHTML = '<p style="color:red;">Failed to load formulary data.</p>';
       });
     } else {
       document.getElementById('formulary-search').focus();
     }
   }
 
-  function onFormularySearch(e) {
+  async function loadFormularyData(){
+    // Load from your public Google Sheet CSV export URL:
+    const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv';
+
+    const response = await fetch(url);
+    if(!response.ok) throw new Error('Failed to fetch formulary data');
+    const csvText = await response.text();
+
+    // Parse CSV with PapaParse
+    const parsed = Papa.parse(csvText, {header:true, skipEmptyLines:true});
+    formularyData = parsed.data;
+  }
+
+  function onFormularySearch(e){
     const query = e.target.value.trim().toLowerCase();
     const resultsContainer = document.getElementById('formulary-results');
     resultsContainer.innerHTML = '';
-    if (!query) {
+
+    if(!query){
       resultsContainer.innerHTML = '<p style="color:#666;">Type to search for drug ingredients...</p>';
       return;
     }
-    const matches = formularyData.filter(item => item['Drug Ingredient'].toLowerCase().includes(query));
+
+    const matches = formularyData.filter(item => 
+      item['Drug Ingredient'] && item['Drug Ingredient'].toLowerCase().includes(query)
+    );
+
     if(matches.length === 0){
       resultsContainer.innerHTML = '<p style="color:#666;">No matching drugs found.</p>';
       return;
     }
+
     matches.forEach(item => {
       const div = document.createElement('div');
       div.className = 'dropdown-item';
@@ -319,6 +362,7 @@ Depressive Disorders (MTUS Effective Date: September 21, 2020)`
         <strong>${item['Drug Ingredient'] || 'N/A'}</strong><br />
         Reference Brand: ${item['Reference Brand Name'] || 'N/A'}
       `;
+
       const btn = document.createElement('button');
       btn.textContent = 'Copy';
       btn.addEventListener('click', () => {
@@ -329,9 +373,9 @@ Depressive Disorders (MTUS Effective Date: September 21, 2020)`
     });
   }
 
-  function copyFormularyText(item) {
+  function copyFormularyText(item){
     const textToCopy = item['General citation (All body parts)'] || '';
-    if (!textToCopy) {
+    if(!textToCopy){
       alert('No citation text available to copy.');
       return;
     }
@@ -339,33 +383,6 @@ Depressive Disorders (MTUS Effective Date: September 21, 2020)`
       showGhost();
     }).catch(() => alert('Copy failed'));
   }
-
-  // Copy from Headers dropdown
-  function copyText(e) {
-    const text = e.target.getAttribute('data-text');
-    navigator.clipboard.writeText(text).then(() => {
-      showGhost();
-    }).catch(() => alert('Copy failed'));
-  }
-
-  function showGhost() {
-    const ghost = document.getElementById('copy-ghost');
-    ghost.style.display = 'block';
-    setTimeout(() => {
-      ghost.style.display = 'none';
-    }, 5000);
-  }
-
-  function goBack() {
-    alert('Going back to main home page...');
-  }
-
-  function navigate(section) {
-    document.getElementById('main-content').innerHTML = `<h2>Loading ${section}...</h2>`;
-    document.getElementById('dropdown-headers').classList.remove('show');
-    document.getElementById('dropdown-formulary').classList.remove('show');
-  }
-
 </script>
 </body>
 </html>
