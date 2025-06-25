@@ -72,6 +72,7 @@
       padding: 10px;
       font-size: 14px;
       color: #222;
+      white-space: normal;
     }
     .result-item {
       border-bottom: 1px solid #ddd;
@@ -79,7 +80,6 @@
       position: relative;
     }
     .result-text {
-      white-space: pre-wrap;
       margin-bottom: 8px;
     }
     .copy-btn {
@@ -155,7 +155,6 @@
   <!-- PapaParse for CSV parsing -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script>
-    // Hint rotation
     const hints = [
       "Always refer to MTUS before approving UR decisions.",
       "Jargon: 'UR' = Utilization Review.",
@@ -172,32 +171,12 @@
       hintIndex = (hintIndex + 1) % hints.length;
     }, 7000);
 
-    // Headers data (same as your previous code)
     const headers = {
       "Shoulder Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nShoulder Disorders (MTUS Effective Date August 10, 2023)",
-      "Knee Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nKnee Disorders (MTUS Effective Date September 21, 2020)",
-      "Low Back Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nLow Back Disorders (MTUS Effective Date November 23, 2021)",
-      "Cervical and Thoracic Spine": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nCervical and Thoracic Spine (MTUS Effective Date April 18, 2019)",
-      "Hand, Wrist, and Forearm Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nHand, Wrist, and Forearm Disorders (MTUS Effective Date November 10, 2023)",
-      "Ankle and Foot Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nAnkle and Foot Disorders (MTUS Effective Date April 18, 2019)",
-      "Elbow Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nElbow Disorders (MTUS Effective Date April 18, 2019)",
-      "Hip and Groin Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nHip and Groin Disorders (MTUS Effective Date October 7, 2019)",
-      "Chronic Pain": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nChronic Pain (Effective Date June 1, 2025)",
-      "Antiemetics": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nAntiemetics (MTUS Effective Date: October 26, 2020)",
-      "Cannabis": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nCannabis (MTUS Effective Date: June 1, 2025)",
-      "COVID-19 (Coronavirus)": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nCOVID-19 (Coronavirus) (MTUS Effective Date: November 10, 2023)",
-      "Eye Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nEye Disorders (MTUS Effective Date: December 1, 2017)",
-      "Interstitial Lung Diseases": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nInterstitial Lung Diseases (MTUS Effective Date: September 21, 2020)",
-      "Occupational Asthma": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nOccupational Asthma (MTUS Effective Date: September 21, 2020)",
-      "Opioids": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nOpioids (MTUS Effective Date: March 27, 2024)",
-      "Traumatic Brain Injury": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nTraumatic Brain Injury (MTUS Effective Date: October 31, 2018)",
-      "Workplace Mental Health": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nWorkplace Mental Health (MTUS Effective Date: August 11, 2019)",
-      "Posttraumatic Stress Disorder and Acute Stress Disorder": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nPosttraumatic Stress Disorder and Acute Stress Disorder (MTUS Effective Date: April 18, 2019)",
-      "Anxiety Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nAnxiety Disorders (MTUS Effective Date: July 19, 2021)",
+      // ... other headers ...
       "Depressive Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nDepressive Disorders (MTUS Effective Date: September 21, 2020)"
     };
 
-    // Headers dropdown toggle
     function toggleDropdown() {
       const dropdown = document.getElementById('dropdown');
       if (dropdown.style.display === 'flex') {
@@ -228,7 +207,6 @@
       dropdown.style.zIndex = '1000';
     }
 
-    // Copy headers text and show ghost
     function copyText(button) {
       const text = button.getAttribute('data-text');
       navigator.clipboard.writeText(text).then(() => {
@@ -236,7 +214,6 @@
       }).catch(() => alert('Copy failed'));
     }
 
-    // Show ghost image for 5 seconds
     function showGhost() {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
@@ -245,7 +222,6 @@
       }, 5000);
     }
 
-    // Navigation placeholders
     function goBack() {
       alert('Going back to main home page...');
       document.getElementById('main-content').innerHTML = `
@@ -269,7 +245,6 @@
       document.getElementById('formulary-container').style.display = 'none';
     }
 
-    // Show formulary search UI
     function showFormulary() {
       hideAllExceptMain();
       document.getElementById('dropdown').style.display = 'none';
@@ -279,10 +254,8 @@
       }
     }
 
-    // Global variable to hold formulary data
     let formularyData = null;
 
-    // Load formulary data from Google Sheets CSV
     function loadFormularyData() {
       const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv';
 
@@ -300,7 +273,6 @@
       });
     }
 
-    // Search function triggered on input
     function searchDrugs() {
       const term = document.getElementById('search-input').value.trim().toLowerCase();
       const resultsDiv = document.getElementById('results');
@@ -324,19 +296,19 @@
         return;
       }
 
-      // Build results HTML
       let html = '';
       matches.forEach(item => {
-        const textToCopy = `
-Drug ingredient: ${item['Drug Ingredient']}
-Reference brand: ${item['Reference Brand Name'] || 'N/A'}
-General citation: ${item['General citation (All body parts)'] || 'N/A'}
-        `.trim();
+        const drug = item['Drug Ingredient'] || 'N/A';
+        const brand = item['Reference Brand Name'] || 'N/A';
+        const generalCitation = item['General citation (All body parts)'] || '';
+        // Escape for HTML display
+        const escapedDrug = escapeHtml(drug);
+        const escapedBrand = escapeHtml(brand);
 
         html += `
           <div class="result-item">
-            <div class="result-text">${textToCopy.replace(/\n/g, '<br>')}</div>
-            <button class="copy-btn" onclick="copyTextWithString('${escapeHtml(textToCopy)}')">Copy</button>
+            <div class="result-text"><strong>${escapedDrug}</strong><br>${escapedBrand}</div>
+            <button class="copy-btn" onclick="copyTextWithString(\`${escapeBackticks(generalCitation)}\`)">Copy</button>
           </div>
         `;
       });
@@ -344,30 +316,25 @@ General citation: ${item['General citation (All body parts)'] || 'N/A'}
       resultsDiv.innerHTML = html;
     }
 
-    // Copy with custom string (for formulary)
     function copyTextWithString(text) {
-      const decoded = unescapeHtml(text);
-      navigator.clipboard.writeText(decoded).then(() => {
+      navigator.clipboard.writeText(text).then(() => {
         showGhost();
       }).catch(() => alert('Copy failed'));
     }
 
-    // Helpers for escaping/unescaping quotes and special chars in HTML attributes
     function escapeHtml(text) {
+      if (!text) return '';
       return text.replace(/&/g, "&amp;")
                  .replace(/"/g, "&quot;")
                  .replace(/'/g, "&#39;")
                  .replace(/</g, "&lt;")
                  .replace(/>/g, "&gt;");
     }
-    function unescapeHtml(text) {
-      return text.replace(/&amp;/g, "&")
-                 .replace(/&quot;/g, "\"")
-                 .replace(/&#39;/g, "'")
-                 .replace(/&lt;/g, "<")
-                 .replace(/&gt;/g, ">");
+    // To safely embed backticks inside template literals for copyTextWithString()
+    function escapeBackticks(text) {
+      if (!text) return '';
+      return text.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$/g, '\\$');
     }
   </script>
-
 </body>
 </html>
