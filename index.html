@@ -24,7 +24,7 @@
       z-index: 1000;
     }
     .toolbar button {
-      background: #144a91cc;
+      background: #144a91cc; /* semi-transparent dark blue */
       border: none;
       padding: 10px 15px;
       margin: 0 5px;
@@ -55,7 +55,7 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      background: #0b2349cc;
+      background: #0b2349cc; /* semi-transparent dark blue */
       color: #ffe066;
       padding: 10px;
       text-align: center;
@@ -72,7 +72,7 @@
       top: 60px;
       left: 20px;
       right: 20px;
-      background: rgba(11, 35, 73, 0.85);
+      background: rgba(11, 35, 73, 0.85); /* see-through dark blue */
       border: 1px solid #144a91cc;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.7);
@@ -121,6 +121,7 @@
       background: #3b82f6;
     }
 
+    /* Formulary full page overlay */
     #formulary-overlay {
       display: none;
       position: fixed;
@@ -323,19 +324,22 @@
       headersVisible = false;
       return;
     }
+    // Build headers dropdown items
     let html = '';
     for (const label in headers) {
       html += `<div class="dropdown-item">
         <span>${label}</span>
-        <button aria-label="Copy citation for ${label}" onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;').replace(/\n/g, '\\n')}">Copy</button>
+        <button aria-label="Copy citation for ${label}" onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;')}">Copy</button>
       </div>`;
     }
     headersDropdown.innerHTML = html;
     headersDropdown.classList.add('show');
     headersVisible = true;
+    // If formulary overlay is open, close it
     if (formularyVisible) toggleFormulary();
   }
 
+  // Close headers if click outside
   document.addEventListener('click', (e) => {
     if (!headersDropdown.contains(e.target) && e.target !== headersBtn) {
       if (headersVisible) {
@@ -345,10 +349,9 @@
     }
   });
 
-  // Copy text with ghost effect - FIXED to properly handle multiline
+  // Copy text with ghost effect
   function copyText(button) {
-    let text = button.getAttribute('data-text');
-    text = text.replace(/\\n/g, '\n');
+    const text = button.getAttribute('data-text');
     navigator.clipboard.writeText(text).then(() => {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
@@ -356,6 +359,7 @@
     }).catch(() => alert('Copy failed'));
   }
 
+  // === Navigation stub ===
   function goBack() {
     alert('Going back to main home page...');
   }
@@ -388,6 +392,7 @@
     }
   }
 
+  // Simple CSV parser
   function parseCSV(str) {
     const lines = str.trim().split('\n');
     const headers = lines[0].split(/\t|,/).map(h => h.trim());
@@ -416,6 +421,7 @@
       resultsContainer.textContent = 'Enter a search term and click Search.';
       searchInput.value = '';
       searchInput.focus();
+      // If headers dropdown open, close it
       if (headersVisible) toggleHeaders();
       if (formularyData.length === 0) {
         fetchFormularyData();
@@ -429,38 +435,42 @@
       resultsContainer.textContent = 'Please enter a search term.';
       return;
     }
-    const filtered = formularyData.filter(item =>
-      item['Drug Ingredient'] && item['Drug Ingredient'].toLowerCase().includes(term)
+    const filtered = formularyData.filter(item => 
+      item['Drug Ingredient'] && 
+      item['Reference Brand Name'] && 
+      item['Drug Ingredient'].toLowerCase().includes(term)
     );
     if (filtered.length === 0) {
       resultsContainer.textContent = 'No matching drugs found.';
       return;
     }
-    resultsContainer.innerHTML = filtered.map(item => {
-      const drug = item['Drug Ingredient'] || '';
-      const brand = item['Reference Brand Name'] || '';
-      let citation = item['General citation (All body parts)'] || '';
-      citation = citation.replace(/\\n/g, '\n').replace(/"/g, '\\"');
-      // Use template literals for correct multiline copy
-      return `
-        <div class="formulary-entry">
-          <span>${drug} — ${brand}</span>
-          <button onclick="copyCitation(\`${citation}\`)">Copy</button>
-        </div>`;
+    // Build results list - show only Drug Ingredient — Reference Brand Name + copy button
+    const html = filtered.map(item => {
+      const drug = item['Drug Ingredient'];
+      const brand = item['Reference Brand Name'];
+      const citation = item['General citation (All body parts)'] || '';
+      const safeCitation = citation.replace(/"/g, '&quot;').replace(/\n/g, '\\n');
+      return `<div class="formulary-entry">
+        <span>${drug} — ${brand}</span>
+        <button onclick="copyCitation(\`${safeCitation}\`)">Copy</button>
+      </div>`;
     }).join('');
+    resultsContainer.innerHTML = html;
   }
 
   function copyCitation(text) {
-    navigator.clipboard.writeText(text).then(() => {
+    // Unescape newlines for clipboard text
+    const clipboardText = text.replace(/\\n/g, '\n');
+    navigator.clipboard.writeText(clipboardText).then(() => {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
-      setTimeout(() => ghost.style.display = 'none', 3000);
+      setTimeout(() => ghost.style.display = 'none', 5000);
     }).catch(() => alert('Copy failed'));
   }
 
-  formularyBtn.addEventListener('click', toggleFormulary);
+  // Event listeners
   searchButton.addEventListener('click', searchFormulary);
-  searchInput.addEventListener('keydown', (e) => {
+  searchInput.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
       e.preventDefault();
       searchFormulary();
@@ -469,3 +479,9 @@
 </script>
 </body>
 </html>
+
+
+
+
+
+
