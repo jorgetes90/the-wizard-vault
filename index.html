@@ -24,7 +24,7 @@
       z-index: 1000;
     }
     .toolbar button {
-      background: #144a91cc;
+      background: #144a91cc; /* semi-transparent dark blue */
       border: none;
       padding: 10px 15px;
       margin: 0 5px;
@@ -55,7 +55,7 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      background: #0b2349cc;
+      background: #0b2349cc; /* semi-transparent dark blue */
       color: #ffe066;
       padding: 10px;
       text-align: center;
@@ -72,7 +72,7 @@
       top: 60px;
       left: 20px;
       right: 20px;
-      background: rgba(11, 35, 73, 0.85);
+      background: rgba(11, 35, 73, 0.85); /* see-through dark blue */
       border: 1px solid #144a91cc;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.7);
@@ -121,6 +121,7 @@
       background: #3b82f6;
     }
 
+    /* Formulary full page overlay */
     #formulary-overlay {
       display: none;
       position: fixed;
@@ -257,6 +258,7 @@
 
   <img id="copy-ghost" class="copy-ghost" src="https://i.postimg.cc/d0jsn69H/Ghost.png" alt="Copied!" />
 
+  <!-- Full page formulary overlay -->
   <div id="formulary-overlay" aria-hidden="true">
     <div id="formulary-header">
       <h2>CA Drug Formulary Search</h2>
@@ -270,6 +272,7 @@
   </div>
 
 <script>
+  // === Headers Data ===
   const headers = {
     "Shoulder Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nShoulder Disorders (MTUS Effective Date August 10, 2023)",
     "Knee Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nKnee Disorders (MTUS Effective Date September 21, 2020)",
@@ -294,6 +297,7 @@
     "Depressive Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nDepressive Disorders (MTUS Effective Date: September 21, 2020)"
   };
 
+  // === Hints ===
   const hints = [
     "Always refer to MTUS before approving UR decisions.",
     "Jargon: 'UR' = Utilization Review.",
@@ -309,6 +313,7 @@
     hintIndex = (hintIndex + 1) % hints.length;
   }, 7000);
 
+  // === Headers dropdown ===
   const headersBtn = document.getElementById('headers-btn');
   const headersDropdown = document.getElementById('dropdown-headers');
   let headersVisible = false;
@@ -319,27 +324,21 @@
       headersVisible = false;
       return;
     }
+    // Build headers dropdown items
     let html = '';
     for (const label in headers) {
       html += `<div class="dropdown-item">
         <span>${label}</span>
-        <button aria-label="Copy citation for ${label}">Copy</button>
+        <button aria-label="Copy citation for ${label}" onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;')}">Copy</button>
       </div>`;
     }
     headersDropdown.innerHTML = html;
     headersDropdown.classList.add('show');
-    headersVisible = true;
-
-    // Set full text on buttons
-    document.querySelectorAll('#dropdown-headers button').forEach(btn => {
-      const label = btn.parentElement.querySelector('span').textContent;
-      btn.fullText = headers[label];
-      btn.onclick = () => copyText(btn);
-    });
-
+    // If formulary overlay is open, close it
     if (formularyVisible) toggleFormulary();
   }
 
+  // Close headers if click outside
   document.addEventListener('click', (e) => {
     if (!headersDropdown.contains(e.target) && e.target !== headersBtn) {
       if (headersVisible) {
@@ -349,8 +348,9 @@
     }
   });
 
+  // Copy text with ghost effect
   function copyText(button) {
-    const text = button.fullText || '';
+    const text = button.getAttribute('data-text');
     navigator.clipboard.writeText(text).then(() => {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
@@ -358,6 +358,7 @@
     }).catch(() => alert('Copy failed'));
   }
 
+  // === Navigation stub ===
   function goBack() {
     alert('Going back to main home page...');
   }
@@ -370,6 +371,7 @@
     if (formularyVisible) toggleFormulary();
   }
 
+  // === Formulary Search Overlay ===
   const formularyOverlay = document.getElementById('formulary-overlay');
   const formularyBtn = document.getElementById('formulary-btn');
   const searchInput = document.getElementById('search-input');
@@ -389,6 +391,7 @@
     }
   }
 
+  // Simple CSV parser
   function parseCSV(str) {
     const lines = str.trim().split('\n');
     const headers = lines[0].split(/\t|,/).map(h => h.trim());
@@ -417,60 +420,55 @@
       resultsContainer.textContent = 'Enter a search term and click Search.';
       searchInput.value = '';
       searchInput.focus();
-      if (headersVisible) toggleHeaders();
+      // If headers dropdown open, close it
+      if (headersVisible) {
+        headersDropdown.classList.remove('show');
+        headersVisible = false;
+      }
       if (formularyData.length === 0) {
+        resultsContainer.textContent = 'Loading formulary data...';
         fetchFormularyData();
       }
     }
   }
 
-  function searchFormulary() {
+  // Search and display
+  searchButton.addEventListener('click', () => {
     const term = searchInput.value.trim().toLowerCase();
     if (!term) {
       resultsContainer.textContent = 'Please enter a search term.';
       return;
     }
-    const filtered = formularyData.filter(row => {
-      return (row['Therapeutic Category'] && row['Therapeutic Category'].toLowerCase().includes(term)) ||
-             (row['Generic Name'] && row['Generic Name'].toLowerCase().includes(term));
-    });
-
-    if (filtered.length === 0) {
-      resultsContainer.textContent = 'No results found.';
+    const matches = formularyData.filter(d => (d['Generic Name'] && d['Generic Name'].toLowerCase().includes(term)) || (d['Therapeutic Category'] && d['Therapeutic Category'].toLowerCase().includes(term)));
+    if (matches.length === 0) {
+      resultsContainer.textContent = 'No matches found.';
       return;
     }
+    resultsContainer.innerHTML = matches.map(d => {
+      const drug = d['Generic Name'] || 'Unknown';
+      const brand = d['Therapeutic Category'] || '';
+      const citation = d['Template Text'] || d['Copy Text'] || '';
+      // Put full multiline text in data attribute safely using encodeURIComponent, copy with decodeURIComponent
+      return `<div class="formulary-entry">
+        <span>${drug} — ${brand}</span>
+        <button data-citation="${encodeURIComponent(citation)}" onclick="copyCitation(this)">Copy</button>
+      </div>`;
+    }).join('');
+  });
 
-    let html = '';
-    filtered.forEach((row, i) => {
-      const citation = row['General citation (All body parts)'] || '';
-      html += `
-        <div class="formulary-entry">
-          <span>${row['Therapeutic Category']} - ${row['Generic Name']}</span>
-          <button>Copy</button>
-        </div>
-      `;
-    });
-    resultsContainer.innerHTML = html;
-
-    // Assign full text and onclick for copy buttons
-    resultsContainer.querySelectorAll('button').forEach((btn, i) => {
-      btn.fullText = filtered[i]['General citation (All body parts)'] || '';
-      btn.onclick = () => copyCitation(btn.fullText);
-    });
-  }
-
-  function copyCitation(text) {
-    navigator.clipboard.writeText(text).then(() => {
+  function copyCitation(button) {
+    const encodedText = button.getAttribute('data-citation') || '';
+    const clipboardText = decodeURIComponent(encodedText);
+    navigator.clipboard.writeText(clipboardText).then(() => {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
       setTimeout(() => ghost.style.display = 'none', 5000);
     }).catch(() => alert('Copy failed'));
   }
 
-  searchButton.addEventListener('click', searchFormulary);
-  searchInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter') searchFormulary();
-  });
+  // Initialize hint strip immediately
+  document.getElementById('hint-strip').textContent = hints[0];
+
 </script>
 </body>
 </html>
