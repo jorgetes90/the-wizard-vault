@@ -455,9 +455,9 @@
       return;
     }
     const filtered = formularyData.filter(item => {
-      return (item['Therapeutic Category'] && item['Therapeutic Category'].toLowerCase().includes(term)) ||
-             (item['Generic Name'] && item['Generic Name'].toLowerCase().includes(term));
-    });
+  return (item['Drug Ingredient'] && item['Drug Ingredient'].toLowerCase().includes(term)) ||
+         (item['Reference Brand Name'] && item['Reference Brand Name'].toLowerCase().includes(term));
+});
     if (filtered.length === 0) {
       resultsContainer.textContent = 'No matches found.';
       return;
