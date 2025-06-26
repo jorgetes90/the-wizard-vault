@@ -437,6 +437,7 @@
     }
     const filtered = formularyData.filter(item => 
       item['Drug Ingredient'] && 
+      item['Reference Brand Name'] && 
       item['Drug Ingredient'].toLowerCase().includes(term)
     );
     if (filtered.length === 0) {
@@ -446,7 +447,7 @@
     // Build results list - show only Drug Ingredient — Reference Brand Name + copy button
     const html = filtered.map(item => {
       const drug = item['Drug Ingredient'];
-      const brand = item['Reference Brand Name'] || '';
+      const brand = item['Reference Brand Name'];
       const citation = item['General citation (All body parts)'] || '';
       const safeCitation = citation.replace(/"/g, '&quot;').replace(/\n/g, '\\n');
       return `<div class="formulary-entry">
@@ -458,6 +459,7 @@
   }
 
   function copyCitation(text) {
+    // Unescape newlines for clipboard text
     const clipboardText = text.replace(/\\n/g, '\n');
     navigator.clipboard.writeText(clipboardText).then(() => {
       const ghost = document.getElementById('copy-ghost');
@@ -477,3 +479,9 @@
 </script>
 </body>
 </html>
+
+
+
+
+
+
