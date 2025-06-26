@@ -17,10 +17,9 @@
       background-color: #1e1e2f;
       padding: 10px;
       color: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
     }
     .toolbar button {
       background: #2f2f4f;
@@ -31,13 +30,45 @@
       font-weight: bold;
       border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s;
     }
     .toolbar button:hover {
       background: #4a4a6a;
     }
-    .page-content {
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      max-height: 90vh;
+      overflow-y: auto;
       padding: 20px;
+      z-index: 500;
+    }
+    .dropdown.show {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .dropdown-item {
+      background: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dropdown-item button {
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-size: 12px;
+      cursor: pointer;
     }
     .hint-strip {
       position: fixed;
@@ -50,43 +81,6 @@
       font-style: italic;
       font-size: 14px;
       z-index: 99;
-    }
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 60px;
-      left: 20px;
-      right: 20px;
-      background: #ffffffd0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      max-height: 70vh;
-      overflow-y: auto;
-      padding: 10px;
-      z-index: 50;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .dropdown.show {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .dropdown-item {
-      background: #f9f9f9;
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 8px;
-      width: calc(50% - 10px);
-      position: relative;
-      font-size: 14px;
-    }
-    .dropdown-item button {
-      margin-top: 10px;
-      padding: 5px 10px;
-      font-size: 12px;
-      cursor: pointer;
     }
     .copy-ghost {
       position: fixed;
@@ -112,92 +106,80 @@
     <button onclick="navigate('updates')">Guideline Updates</button>
     <button onclick="navigate('jargons')">Jargons</button>
   </div>
+
   <div class="page-content">
     <h1>Welcome to the Medical Utility Tool</h1>
     <p>Select a tool from the toolbar above.</p>
   </div>
+
   <div id="dropdown-headers" class="dropdown"></div>
   <div id="dropdown-formulary" class="dropdown"></div>
   <div class="hint-strip" id="hint-strip">Loading hints...</div>
   <img id="copy-ghost" class="copy-ghost" src="https://i.postimg.cc/d0jsn69H/Ghost.png" width="120" />
+
   <script>
     const hints = [
       "Always refer to MTUS before approving UR decisions.",
-      "Jargon: 'UR' = Utilization Review.",
-      "Updates from July 2024 include TBI revisions.",
       "Use Headers tool to copy citations quickly.",
       "Check CA Formulary for drug phase requirements.",
-      "Guideline updates affect decision timelines.",
-      "Jargon: 'RFA' = Request for Authorization."
+      "Jargon: 'UR' = Utilization Review.",
+      "Updates from July 2024 include TBI revisions."
     ];
-    const headers = {
-      "Shoulder Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nShoulder Disorders (MTUS Effective Date August 10, 2023)",
-      "Knee Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nKnee Disorders (MTUS Effective Date September 21, 2020)",
-      "Low Back Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nLow Back Disorders (MTUS Effective Date November 23, 2021)",
-      "Cervical and Thoracic Spine": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nCervical and Thoracic Spine (MTUS Effective Date April 18, 2019)",
-      "Hand, Wrist, and Forearm Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nHand, Wrist, and Forearm Disorders (MTUS Effective Date November 10, 2023)",
-      "Ankle and Foot Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nAnkle and Foot Disorders (MTUS Effective Date April 18, 2019)",
-      "Elbow Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nElbow Disorders (MTUS Effective Date April 18, 2019)",
-      "Hip and Groin Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nHip and Groin Disorders (MTUS Effective Date October 7, 2019)"
-    };
-
     let hintIndex = 0;
     setInterval(() => {
       document.getElementById('hint-strip').textContent = hints[hintIndex];
       hintIndex = (hintIndex + 1) % hints.length;
     }, 7000);
 
+    const headers = {
+      "Shoulder Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nShoulder Disorders (MTUS Effective Date August 10, 2023)",
+      "Knee Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nKnee Disorders (MTUS Effective Date September 21, 2020)",
+      "Low Back Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nLow Back Disorders (MTUS Effective Date November 23, 2021)",
+      "Cervical and Thoracic Spine": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nCervical and Thoracic Spine (MTUS Effective Date April 18, 2019)"
+    };
+
     function goBack() {
       alert('Going back to main home page...');
     }
 
     function toggleDropdown(section) {
-      const headersDropdown = document.getElementById('dropdown-headers');
-      const formularyDropdown = document.getElementById('dropdown-formulary');
-      headersDropdown.classList.remove('show');
-      formularyDropdown.classList.remove('show');
-      if (section === 'headers') {
-        if (!headersDropdown.innerHTML) {
-          let html = '';
-          for (let label in headers) {
-            html += `<div class="dropdown-item">
-              <strong>${label}</strong>
-              <button onclick="copyText(\`${headers[label]}\`)">Copy</button>
-            </div>`;
-          }
-          headersDropdown.innerHTML = html;
+      const dropdowns = ['dropdown-headers', 'dropdown-formulary'];
+      dropdowns.forEach(id => {
+        const el = document.getElementById(id);
+        if (id === `dropdown-${section}`) {
+          el.classList.toggle('show');
+        } else {
+          el.classList.remove('show');
         }
-        headersDropdown.classList.toggle('show');
-      } else if (section === 'formulary') {
-        if (!formularyDropdown.innerHTML) {
-          const searchInput = document.createElement('input');
-          searchInput.placeholder = 'Search Drug Ingredient...';
-          searchInput.style = 'width: 100%; padding: 10px; margin-bottom: 10px;';
-          formularyDropdown.appendChild(searchInput);
-
-          const resultsContainer = document.createElement('div');
-          resultsContainer.id = 'formulary-results';
-          formularyDropdown.appendChild(resultsContainer);
-
-          searchInput.addEventListener('input', async () => {
-            const query = searchInput.value.toLowerCase();
-            const res = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv');
-            const text = await res.text();
-            const rows = text.trim().split('\n').slice(1).map(r => r.split(','));
-            const results = rows.filter(row => row[0].toLowerCase().includes(query));
-            resultsContainer.innerHTML = results.length ? results.map(row => `
-              <div class="dropdown-item">
-                ${row[0]} — ${row[1] || 'N/A'}
-                <button onclick="copyText(\`${row[2] || 'N/A'}\`)">Copy</button>
-              </div>`).join('') : '<p>No matching drugs found.</p>';
-          });
-        }
-        formularyDropdown.classList.toggle('show');
-      }
+      });
+      if (section === 'formulary') loadFormulary();
+      if (section === 'headers') loadHeaders();
     }
 
-    function navigate(section) {
-      document.querySelector('.page-content').innerHTML = `<h2>Loading ${section}...</h2>`;
+    function loadHeaders() {
+      const container = document.getElementById('dropdown-headers');
+      let html = '';
+      for (let label in headers) {
+        html += `<div class="dropdown-item">${label}<button onclick="copyText(\"${headers[label].replace(/\n/g, '\\n')}\")">Copy</button></div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function loadFormulary() {
+      fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv')
+        .then(res => res.text())
+        .then(csv => {
+          const rows = csv.split('\n').slice(1).map(row => row.split(',')).filter(r => r.length >= 3);
+          const container = document.getElementById('dropdown-formulary');
+          container.innerHTML = rows.map(([ingredient, brand, citation]) => {
+            return `<div class="dropdown-item">
+              ${ingredient.trim()} — ${brand.trim()}<button onclick="copyText(\`${citation.replace(/`/g, '\\`')}\`)">Copy</button>
+            </div>`;
+          }).join('');
+        })
+        .catch(() => {
+          document.getElementById('dropdown-formulary').innerHTML = '<div>Error loading formulary data.</div>';
+        });
     }
 
     function copyText(text) {
@@ -206,6 +188,10 @@
         ghost.style.display = 'block';
         setTimeout(() => ghost.style.display = 'none', 5000);
       });
+    }
+
+    function navigate(section) {
+      alert(`Navigating to ${section}...`);
     }
   </script>
 </body>
