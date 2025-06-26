@@ -24,7 +24,7 @@
       z-index: 1000;
     }
     .toolbar button {
-      background: #144a91cc; /* semi-transparent dark blue */
+      background: #144a91cc;
       border: none;
       padding: 10px 15px;
       margin: 0 5px;
@@ -55,7 +55,7 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      background: #0b2349cc; /* semi-transparent dark blue */
+      background: #0b2349cc;
       color: #ffe066;
       padding: 10px;
       text-align: center;
@@ -72,7 +72,7 @@
       top: 60px;
       left: 20px;
       right: 20px;
-      background: rgba(11, 35, 73, 0.85); /* see-through dark blue */
+      background: rgba(11, 35, 73, 0.85);
       border: 1px solid #144a91cc;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.7);
@@ -225,7 +225,7 @@
       transform: translate(-50%, -50%);
       z-index: 12000;
       display: none;
-      animation: glow-fade 5s ease-in-out;
+      animation: glow-fade 1.5s ease-in-out;
       pointer-events: none;
       user-select: none;
       width: 120px;
@@ -360,22 +360,21 @@
       headersVisible = false;
       return;
     }
-    // Build headers dropdown items
     let html = '';
     for (const label in headers) {
+      // Escape quotes in text for attribute
+      const safeText = headers[label].replace(/"/g, '&quot;').replace(/'/g, '&#39;');
       html += `<div class="dropdown-item">
         <span>${label}</span>
-        <button aria-label="Copy citation for ${label}" onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;')}">Copy</button>
+        <button aria-label="Copy citation for ${label}" onclick="copyText(this)" data-text="${safeText}">Copy</button>
       </div>`;
     }
     headersDropdown.innerHTML = html;
     headersDropdown.classList.add('show');
     headersVisible = true;
-    // If formulary overlay open, close it
     if (formularyVisible) toggleFormulary();
   }
 
-  // Close headers if click outside
   document.addEventListener('click', (e) => {
     if (!headersDropdown.contains(e.target) && e.target !== headersBtn) {
       if (headersVisible) {
@@ -389,9 +388,7 @@
   function copyText(button) {
     const text = button.getAttribute('data-text');
     navigator.clipboard.writeText(text).then(() => {
-      const ghost = document.getElementById('copy-ghost');
-      ghost.style.display = 'block';
-      setTimeout(() => ghost.style.display = 'none', 5000);
+      showCopyGhost();
     }).catch(() => alert('Copy failed'));
   }
 
@@ -417,7 +414,6 @@
   let formularyVisible = false;
   let formularyData = [];
 
-  // Load local JSON file once
   async function fetchFormularyData() {
     try {
       const res = await fetch('2025CAformulary.json');
@@ -433,98 +429,118 @@
   function toggleFormulary() {
     formularyVisible = !formularyVisible;
     formularyOverlay.style.display = formularyVisible ? 'block' : 'none';
+    formularyOverlay.setAttribute('aria-hidden', !formularyVisible);
     if (formularyVisible) {
-      searchInput.value = '';
-      resultsContainer.innerHTML = 'Enter a search term and click Search.';
       searchInput.focus();
       if (headersVisible) {
         headersDropdown.classList.remove('show');
         headersVisible = false;
       }
+      resultsContainer.textContent = 'Enter a search term and click Search.';
     }
   }
 
   searchButton.addEventListener('click', () => {
-    const term = searchInput.value.trim().toLowerCase();
-    if (!term) {
+    const query = searchInput.value.trim().toLowerCase();
+    if (!query) {
       resultsContainer.textContent = 'Please enter a search term.';
       return;
     }
-    const filtered = formularyData.filter(item => {
-      return (item['Therapeutic Category'] && item['Therapeutic Category'].toLowerCase().includes(term)) ||
-             (item['Generic Name'] && item['Generic Name'].toLowerCase().includes(term));
+    const matches = formularyData.filter(item => {
+      return item["Therapeutic Category"].toLowerCase().includes(query) || item["Generic Name"].toLowerCase().includes(query);
     });
-    if (filtered.length === 0) {
+    if (matches.length === 0) {
       resultsContainer.textContent = 'No matches found.';
       return;
     }
     // Build results HTML
     let html = '';
-    filtered.forEach(item => {
+    matches.forEach(item => {
+      const formattedText = formatCopyText(item);
+      // Escape for attribute
+      const safeCopy = formattedText.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
       html += `<div class="formulary-entry">
-        <div>${item['Generic Name']} - ${item['Therapeutic Category']}</div>
-        <button onclick='copyFormularyText(${JSON.stringify(item).replace(/'/g, "&apos;")})'>Copy</button>
+        <div><strong>${item["Therapeutic Category"]}</strong> - ${item["Generic Name"]}</div>
+        <button aria-label="Copy details for ${item["Generic Name"]}" onclick="copyFormularyText(this)" data-text="${safeCopy}">Copy</button>
       </div>`;
     });
     resultsContainer.innerHTML = html;
   });
 
-  // Copy formatted text from formulary entry
-  function copyFormularyText(item) {
-    // Build text to copy with template and phases
-    let textToCopy = `Therapeutic Category: ${item['Therapeutic Category']}\nGeneric Name: ${item['Generic Name']}\n\n`;
-    if (item['Phase A'] && item['Phase A'].toLowerCase() === 'x') textToCopy += `Phase A: ${item['Phase A Text'] || ''}\n\n`;
-    if (item['Phase B'] && item['Phase B'].toLowerCase() === 'x') textToCopy += `Phase B: ${item['Phase B Text'] || ''}\n\n`;
-    if (item['Perioperative'] && item['Perioperative'].toLowerCase() === 'x') textToCopy += `Perioperative: ${item['Perioperative Text'] || ''}\n\n`;
-    if (item['Special Considerations'] && item['Special Considerations'].toLowerCase() === 'x') textToCopy += `Special Considerations: ${item['Special Considerations Text'] || ''}\n\n`;
+  function formatCopyText(item) {
+    // Template header from item.Template (assumed column A)
+    // Append Therapeutic Category and Generic Name
+    // Append phases in order if 'x' present in Phase A, B, Perioperative
+    // Append special considerations 1-4 last if present
+    // We'll assume item keys like Template, Special1, Special2, Special3, Special4, PhaseA, PhaseB, Perioperative
 
-    navigator.clipboard.writeText(textToCopy).then(() => {
-      const ghost = document.getElementById('copy-ghost');
-      ghost.style.display = 'block';
-      setTimeout(() => ghost.style.display = 'none', 5000);
+    let text = '';
+    if (item.Template) text += item.Template + '\n\n';
+    text += `Therapeutic Category: ${item["Therapeutic Category"]}\nGeneric Name: ${item["Generic Name"]}\n\n`;
+
+    // Append phases in order
+    if (item["Phase A"] && item["Phase A"].toLowerCase() === 'x') {
+      if(item["PhaseA Full Text"]) text += item["PhaseA Full Text"] + '\n\n';
+    }
+    if (item["Phase B"] && item["Phase B"].toLowerCase() === 'x') {
+      if(item["PhaseB Full Text"]) text += item["PhaseB Full Text"] + '\n\n';
+    }
+    if (item["Perioperative"] && item["Perioperative"].toLowerCase() === 'x') {
+      if(item["Perioperative Full Text"]) text += item["Perioperative Full Text"] + '\n\n';
+    }
+    // Append special considerations last
+    for (let i = 1; i <= 4; i++) {
+      let key = `Special${i}`;
+      if (item[key] && item[key].trim() !== '') {
+        text += item[key] + '\n\n';
+      }
+    }
+    return text.trim();
+  }
+
+  function copyFormularyText(button) {
+    const text = button.getAttribute('data-text');
+    navigator.clipboard.writeText(text).then(() => {
+      showCopyGhost();
     }).catch(() => alert('Copy failed'));
   }
 
-  // === Wizard + Updates chat bubble ===
-  const chatBubble = document.getElementById('chat-bubble');
-  const updatesURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5XiMQ0sng07xIfp_peFYZd0R01FwcvrbGK4PHI2NIIVwoelHOntcX2HiuSjRFDW_yU6_Ldaf1Il9L/pub?gid=0&single=true&output=csv';
+  // Copy ghost popup show/hide
+  function showCopyGhost() {
+    const ghost = document.getElementById('copy-ghost');
+    ghost.style.display = 'block';
+    setTimeout(() => {
+      ghost.style.display = 'none';
+    }, 1500);
+  }
 
-  async function fetchUpdates() {
+  // === Wizard Chat Bubble Updates from Google Sheets CSV ===
+  const chatBubble = document.getElementById('chat-bubble');
+  const csvURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ9LEa47am1UpeQd0IMrgCIGqZ8EAZB8S-GakkkwOx_MQl7xi_yoVdJllhxTUfxMWlv6a6_1Ox7SNWx/pub?output=csv';
+
+  async function fetchWizardUpdates() {
     try {
-      const res = await fetch(updatesURL);
-      if (!res.ok) throw new Error('Network response not ok');
+      const res = await fetch(csvURL);
+      if (!res.ok) throw new Error('Failed to fetch wizard updates');
       const text = await res.text();
-      const rows = text.trim().split('\n').map(r => r.split(','));
-      const header = rows[0].map(h => h.trim().toLowerCase());
-      const updatesIndex = header.indexOf('updates');
-      if (updatesIndex === -1) {
-        chatBubble.textContent = "No 'Updates' column found.";
-        return;
+      const lines = text.trim().split('\n');
+      // Skip header row, extract second column as updates
+      const updates = [];
+      for(let i=1; i<lines.length; i++){
+        const cols = lines[i].split(',');
+        if(cols.length > 1) updates.push(cols[1].trim());
       }
-      // Collect all updates in the column "Updates"
-      let messages = [];
-      for(let i=1; i<rows.length; i++) {
-        const val = rows[i][updatesIndex];
-        if(val && val.trim()) messages.push(val.trim());
+      if(updates.length > 0){
+        chatBubble.textContent = updates[0];
+      } else {
+        chatBubble.textContent = 'No updates available.';
       }
-      if(messages.length === 0) {
-        chatBubble.textContent = "No updates found.";
-        return;
-      }
-      let i = 0;
-      chatBubble.textContent = messages[i];
-      setInterval(() => {
-        i = (i + 1) % messages.length;
-        chatBubble.textContent = messages[i];
-      }, 30000); // every 30 seconds
-    } catch (e) {
-      chatBubble.textContent = "Failed to load updates.";
+    } catch(e) {
+      chatBubble.textContent = 'Failed to load updates.';
       console.error(e);
     }
   }
-
-  fetchUpdates();
-
+  fetchWizardUpdates();
 </script>
 </body>
 </html>
