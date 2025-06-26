@@ -34,7 +34,6 @@
       cursor: pointer;
       transition: background 0.3s;
       user-select: none;
-      position: relative; /* For dropdown positioning */
     }
     .toolbar button:hover {
       background: #1f5db3ee;
@@ -50,7 +49,6 @@
       max-width: 900px;
       margin: 20px auto;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      overflow: visible;
     }
 
     .hint-strip {
@@ -71,22 +69,21 @@
     .dropdown {
       display: none;
       position: absolute;
-      top: 100%;  /* directly below the button */
-      left: 0;
-      background: rgba(11, 35, 73, 0.95); /* see-through dark blue */
+      top: 60px;
+      left: 20px;
+      right: 20px;
+      background: rgba(11, 35, 73, 0.85); /* see-through dark blue */
       border: 1px solid #144a91cc;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.7);
       max-height: 300px;
       overflow-y: auto;
       padding: 10px;
-      z-index: 1002; /* above wizard */
-      width: max-content;
-      min-width: 160px;
-      color: white;
-      font-size: 14px;
+      z-index: 9999;
       flex-wrap: wrap;
       gap: 10px;
+      color: white;
+      font-size: 14px;
     }
 
     .dropdown.show {
@@ -239,40 +236,33 @@
       100% { opacity: 0; }
     }
 
-    /* Wizard and chat bubble container and style pinned inside page-content top-left */
+    /* Wizard and chat bubble container and style */
     #wizard-container {
-      position: absolute;
-      top: 20px;
-      left: 20px;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 15px;
-      background: #0b2349cc;
-      padding: 10px 15px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-      max-width: 420px;
-      z-index: 1001;
-      user-select: none;
+      margin: 30px auto;
+      max-width: 600px;
+      padding: 10px;
     }
 
     #wizard-img {
-      width: 80px;
+      width: 120px;
       height: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      user-select: none;
     }
 
     #chat-bubble {
       background: #1f5db3ee;
       color: white;
-      padding: 12px 18px;
+      padding: 15px 20px;
       border-radius: 20px;
-      font-size: 14px;
+      max-width: 400px;
+      font-size: 16px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-      flex-grow: 1;
-      min-width: 200px;
-      max-width: 280px;
       user-select: none;
     }
   </style>
@@ -292,12 +282,6 @@
     <p>Select a tool from the toolbar above.</p>
 
     <div id="dropdown-headers" class="dropdown"></div>
-
-    <!-- Wizard and chat bubble pinned inside page-content -->
-    <div id="wizard-container">
-      <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
-      <div id="chat-bubble">Loading...</div>
-    </div>
   </div>
 
   <div class="hint-strip" id="hint-strip">Loading hints...</div>
@@ -315,6 +299,12 @@
       <button id="search-button">Search</button>
     </div>
     <div id="formulary-results">Enter a search term and click Search.</div>
+  </div>
+
+  <!-- Wizard and chat bubble -->
+  <div id="wizard-container">
+    <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
+    <div id="chat-bubble">Loading...</div>
   </div>
 
 <script>
@@ -379,12 +369,6 @@
       </div>`;
     }
     headersDropdown.innerHTML = html;
-
-    // Position dropdown under the button
-    headersDropdown.style.top = headersBtn.offsetHeight + 'px'; // below button
-    headersDropdown.style.left = headersBtn.offsetLeft + 'px';
-    headersDropdown.style.width = Math.max(200, headersBtn.offsetWidth * 2) + 'px';
-
     headersDropdown.classList.add('show');
     headersVisible = true;
     // If formulary overlay open, close it
@@ -426,79 +410,121 @@
 
   // === Formulary Search Overlay ===
   const formularyOverlay = document.getElementById('formulary-overlay');
+  const formularyBtn = document.getElementById('formulary-btn');
   const searchInput = document.getElementById('search-input');
   const searchButton = document.getElementById('search-button');
-  const resultsDiv = document.getElementById('formulary-results');
+  const resultsContainer = document.getElementById('formulary-results');
   let formularyVisible = false;
+  let formularyData = [];
 
-  // Dummy data for demonstration (replace with real data in your app)
-  const formularyData = [
-    {generic: "Acetaminophen", category: "Analgesic"},
-    {generic: "Ibuprofen", category: "NSAID"},
-    {generic: "Amoxicillin", category: "Antibiotic"},
-    {generic: "Diphenhydramine", category: "Antihistamine"},
-    {generic: "Lisinopril", category: "ACE Inhibitor"},
-    {generic: "Metformin", category: "Antidiabetic"}
-  ];
+  // Load local JSON file once
+  async function fetchFormularyData() {
+    try {
+      const res = await fetch('2025CAformulary.json');
+      if (!res.ok) throw new Error('Failed to load formulary JSON');
+      formularyData = await res.json();
+    } catch (e) {
+      resultsContainer.textContent = 'Failed to load formulary data.';
+      console.error(e);
+    }
+  }
+  fetchFormularyData();
 
   function toggleFormulary() {
+    formularyVisible = !formularyVisible;
+    formularyOverlay.style.display = formularyVisible ? 'block' : 'none';
     if (formularyVisible) {
-      formularyOverlay.style.display = 'none';
-      formularyVisible = false;
-      return;
-    }
-    formularyOverlay.style.display = 'block';
-    formularyVisible = true;
-    searchInput.value = '';
-    resultsDiv.textContent = 'Enter a search term and click Search.';
-    searchInput.focus();
-    if (headersVisible) {
-      headersDropdown.classList.remove('show');
-      headersVisible = false;
+      searchInput.value = '';
+      resultsContainer.innerHTML = 'Enter a search term and click Search.';
+      searchInput.focus();
+      if (headersVisible) {
+        headersDropdown.classList.remove('show');
+        headersVisible = false;
+      }
     }
   }
 
-  function performSearch() {
-    const query = searchInput.value.trim().toLowerCase();
-    if (!query) {
-      resultsDiv.textContent = 'Please enter a search term.';
+  searchButton.addEventListener('click', () => {
+    const term = searchInput.value.trim().toLowerCase();
+    if (!term) {
+      resultsContainer.textContent = 'Please enter a search term.';
       return;
     }
-    const filtered = formularyData.filter(item =>
-      item.generic.toLowerCase().includes(query) || item.category.toLowerCase().includes(query)
-    );
+    const filtered = formularyData.filter(item => {
+      return (item['Therapeutic Category'] && item['Therapeutic Category'].toLowerCase().includes(term)) ||
+             (item['Generic Name'] && item['Generic Name'].toLowerCase().includes(term));
+    });
     if (filtered.length === 0) {
-      resultsDiv.textContent = 'No results found.';
+      resultsContainer.textContent = 'No matches found.';
       return;
     }
+    // Build results HTML
     let html = '';
     filtered.forEach(item => {
       html += `<div class="formulary-entry">
-        <span><strong>${item.generic}</strong> — ${item.category}</span>
-        <button onclick="copyTextFromFormulary('${item.generic}', '${item.category}')">Copy</button>
+        <div>${item['Generic Name']} - ${item['Therapeutic Category']}</div>
+        <button onclick='copyFormularyText(${JSON.stringify(item).replace(/'/g, "&apos;")})'>Copy</button>
       </div>`;
     });
-    resultsDiv.innerHTML = html;
-  }
-
-  searchButton.addEventListener('click', performSearch);
-  searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      performSearch();
-    }
+    resultsContainer.innerHTML = html;
   });
 
-  function copyTextFromFormulary(generic, category) {
-    const text = `Therapeutic Category: ${category}\nGeneric Name: ${generic}`;
-    navigator.clipboard.writeText(text).then(() => {
+  // Copy formatted text from formulary entry
+  function copyFormularyText(item) {
+    // Build text to copy with template and phases
+    let textToCopy = `Therapeutic Category: ${item['Therapeutic Category']}\nGeneric Name: ${item['Generic Name']}\n\n`;
+    if (item['Phase A'] && item['Phase A'].toLowerCase() === 'x') textToCopy += `Phase A: ${item['Phase A Text'] || ''}\n\n`;
+    if (item['Phase B'] && item['Phase B'].toLowerCase() === 'x') textToCopy += `Phase B: ${item['Phase B Text'] || ''}\n\n`;
+    if (item['Perioperative'] && item['Perioperative'].toLowerCase() === 'x') textToCopy += `Perioperative: ${item['Perioperative Text'] || ''}\n\n`;
+    if (item['Special Considerations'] && item['Special Considerations'].toLowerCase() === 'x') textToCopy += `Special Considerations: ${item['Special Considerations Text'] || ''}\n\n`;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
       setTimeout(() => ghost.style.display = 'none', 5000);
     }).catch(() => alert('Copy failed'));
   }
 
-  // === Initialize wizard chat bubble text ===
-  document.getElementById('chat-bubble').textContent = 'Hello! Use toolbar buttons to access features.';
+  // === Wizard + Updates chat bubble ===
+  const chatBubble = document.getElementById('chat-bubble');
+  const updatesURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5XiMQ0sng07xIfp_peFYZd0R01FwcvrbGK4PHI2NIIVwoelHOntcX2HiuSjRFDW_yU6_Ldaf1Il9L/pub?gid=0&single=true&output=csv';
+
+  async function fetchUpdates() {
+    try {
+      const res = await fetch(updatesURL);
+      if (!res.ok) throw new Error('Network response not ok');
+      const text = await res.text();
+      const rows = text.trim().split('\n').map(r => r.split(','));
+      const header = rows[0].map(h => h.trim().toLowerCase());
+      const updatesIndex = header.indexOf('updates');
+      if (updatesIndex === -1) {
+        chatBubble.textContent = "No 'Updates' column found.";
+        return;
+      }
+      // Collect all updates in the column "Updates"
+      let messages = [];
+      for(let i=1; i<rows.length; i++) {
+        const val = rows[i][updatesIndex];
+        if(val && val.trim()) messages.push(val.trim());
+      }
+      if(messages.length === 0) {
+        chatBubble.textContent = "No updates found.";
+        return;
+      }
+      let i = 0;
+      chatBubble.textContent = messages[i];
+      setInterval(() => {
+        i = (i + 1) % messages.length;
+        chatBubble.textContent = messages[i];
+      }, 30000); // every 30 seconds
+    } catch (e) {
+      chatBubble.textContent = "Failed to load updates.";
+      console.error(e);
+    }
+  }
+
+  fetchUpdates();
+
 </script>
 </body>
 </html>
