@@ -80,6 +80,7 @@
       overflow-y: auto;
       padding: 10px;
       z-index: 9999;
+      flex-wrap: wrap;
       gap: 10px;
       color: white;
       font-size: 14px;
@@ -87,8 +88,8 @@
 
     .dropdown.show {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 10px;
     }
 
     .dropdown-item {
@@ -235,31 +236,34 @@
       100% { opacity: 0; }
     }
 
-    /* Wizard container and chat bubble */
+    /* Wizard and chat bubble container and style */
     #wizard-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 150px;
-      font-family: Arial, sans-serif;
-      z-index: 13000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px auto;
+      max-width: 600px;
+      padding: 10px;
+    }
+
+    #wizard-img {
+      width: 120px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
       user-select: none;
     }
-    #wizard-img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    }
+
     #chat-bubble {
-      margin-top: 5px;
-      background: #144a91cc;
+      background: #1f5db3ee;
       color: white;
-      padding: 10px;
-      border-radius: 12px;
-      font-size: 13px;
-      min-height: 40px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      text-align: center;
+      padding: 15px 20px;
+      border-radius: 20px;
+      max-width: 400px;
+      font-size: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      user-select: none;
     }
   </style>
 </head>
@@ -297,7 +301,7 @@
     <div id="formulary-results">Enter a search term and click Search.</div>
   </div>
 
-  <!-- Wizard and Chat Bubble -->
+  <!-- Wizard and chat bubble -->
   <div id="wizard-container">
     <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
     <div id="chat-bubble">Loading...</div>
@@ -417,101 +421,93 @@
   async function fetchFormularyData() {
     try {
       const res = await fetch('2025CAformulary.json');
-      if (!res.ok) throw new Error('Network response not ok');
+      if (!res.ok) throw new Error('Failed to load formulary JSON');
       formularyData = await res.json();
     } catch (e) {
-      resultsContainer.textContent = 'Error loading formulary data.';
-      console.error('Formulary data fetch error:', e);
+      resultsContainer.textContent = 'Failed to load formulary data.';
+      console.error(e);
     }
   }
+  fetchFormularyData();
 
   function toggleFormulary() {
+    formularyVisible = !formularyVisible;
+    formularyOverlay.style.display = formularyVisible ? 'block' : 'none';
     if (formularyVisible) {
-      formularyOverlay.style.display = 'none';
-      formularyVisible = false;
-      formularyBtn.style.background = 'rgba(20, 74, 145, 0.8)';
-    } else {
-      formularyOverlay.style.display = 'block';
-      formularyVisible = true;
-      formularyBtn.style.background = '#3b82f6';
-      resultsContainer.textContent = 'Enter a search term and click Search.';
       searchInput.value = '';
+      resultsContainer.innerHTML = 'Enter a search term and click Search.';
       searchInput.focus();
-      // If headers dropdown open, close it
-      if (headersVisible) toggleHeaders();
-      if (formularyData.length === 0) {
-        fetchFormularyData();
+      if (headersVisible) {
+        headersDropdown.classList.remove('show');
+        headersVisible = false;
       }
     }
   }
 
-  function searchFormulary() {
+  searchButton.addEventListener('click', () => {
     const term = searchInput.value.trim().toLowerCase();
     if (!term) {
       resultsContainer.textContent = 'Please enter a search term.';
       return;
     }
-    // Search Drug Ingredient or Reference Brand Name
-    const filtered = formularyData.filter(item =>
-      ((item['Drug Ingredient'] || '').toLowerCase().includes(term)) ||
-      ((item['Reference Brand Name'] || '').toLowerCase().includes(term))
-    );
+    const filtered = formularyData.filter(item => {
+      return (item['Therapeutic Category'] && item['Therapeutic Category'].toLowerCase().includes(term)) ||
+             (item['Generic Name'] && item['Generic Name'].toLowerCase().includes(term));
+    });
     if (filtered.length === 0) {
-      resultsContainer.textContent = 'No matching drugs found.';
+      resultsContainer.textContent = 'No matches found.';
       return;
     }
-    // Build results list - show Drug Ingredient — Reference Brand Name + copy button
-    const html = filtered.map(item => {
-      const drug = item['Drug Ingredient'] || '[No Ingredient]';
-      const brand = item['Reference Brand Name'] || '[No Brand]';
-      // Build full citation text with newlines for clipboard
-      const citation = item['General citation (All body parts)'] || 
-        `${drug} — ${brand}`; // fallback to name if no citation
-      const safeCitation = citation.replace(/"/g, '&quot;').replace(/\n/g, '\\n');
-      return `<div class="formulary-entry">
-        <span>${drug} — ${brand}</span>
-        <button onclick="copyCitation(\`${safeCitation}\`)">Copy</button>
+    // Build results HTML
+    let html = '';
+    filtered.forEach(item => {
+      html += `<div class="formulary-entry">
+        <div>${item['Generic Name']} - ${item['Therapeutic Category']}</div>
+        <button onclick='copyFormularyText(${JSON.stringify(item).replace(/'/g, "&apos;")})'>Copy</button>
       </div>`;
-    }).join('');
+    });
     resultsContainer.innerHTML = html;
-  }
+  });
 
-  function copyCitation(text) {
-    const clipboardText = text.replace(/\\n/g, '\n');
-    navigator.clipboard.writeText(clipboardText).then(() => {
+  // Copy formatted text from formulary entry
+  function copyFormularyText(item) {
+    // Build text to copy with template and phases
+    let textToCopy = `Therapeutic Category: ${item['Therapeutic Category']}\nGeneric Name: ${item['Generic Name']}\n\n`;
+    if (item['Phase A'] && item['Phase A'].toLowerCase() === 'x') textToCopy += `Phase A: ${item['Phase A Text'] || ''}\n\n`;
+    if (item['Phase B'] && item['Phase B'].toLowerCase() === 'x') textToCopy += `Phase B: ${item['Phase B Text'] || ''}\n\n`;
+    if (item['Perioperative'] && item['Perioperative'].toLowerCase() === 'x') textToCopy += `Perioperative: ${item['Perioperative Text'] || ''}\n\n`;
+    if (item['Special Considerations'] && item['Special Considerations'].toLowerCase() === 'x') textToCopy += `Special Considerations: ${item['Special Considerations Text'] || ''}\n\n`;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
       setTimeout(() => ghost.style.display = 'none', 5000);
     }).catch(() => alert('Copy failed'));
   }
 
-  // Event listeners
-  searchButton.addEventListener('click', searchFormulary);
-  searchInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      searchFormulary();
-    }
-  });
-
-  // Wizard chat bubble updates
+  // === Wizard + Updates chat bubble ===
   const chatBubble = document.getElementById('chat-bubble');
   const updatesURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5XiMQ0sng07xIfp_peFYZd0R01FwcvrbGK4PHI2NIIVwoelHOntcX2HiuSjRFDW_yU6_Ldaf1Il9L/pub?gid=0&single=true&output=csv';
 
   async function fetchUpdates() {
     try {
       const res = await fetch(updatesURL);
+      if (!res.ok) throw new Error('Network response not ok');
       const text = await res.text();
       const rows = text.trim().split('\n').map(r => r.split(','));
-      const header = rows[0];
-      const updatesIndex = header.indexOf("Updates");
+      const header = rows[0].map(h => h.trim().toLowerCase());
+      const updatesIndex = header.indexOf('updates');
       if (updatesIndex === -1) {
         chatBubble.textContent = "No 'Updates' column found.";
         return;
       }
-      const updateRow = rows[1]; // first row under header
-      const messages = updateRow.slice(updatesIndex).filter(msg => msg.trim() !== "");
-      if (messages.length === 0) {
+      // Collect all updates in the column "Updates"
+      let messages = [];
+      for(let i=1; i<rows.length; i++) {
+        const val = rows[i][updatesIndex];
+        if(val && val.trim()) messages.push(val.trim());
+      }
+      if(messages.length === 0) {
         chatBubble.textContent = "No updates found.";
         return;
       }
@@ -520,7 +516,7 @@
       setInterval(() => {
         i = (i + 1) % messages.length;
         chatBubble.textContent = messages[i];
-      }, 30000); // 30 seconds
+      }, 30000); // every 30 seconds
     } catch (e) {
       chatBubble.textContent = "Failed to load updates.";
       console.error(e);
@@ -528,6 +524,7 @@
   }
 
   fetchUpdates();
+
 </script>
 </body>
 </html>
