@@ -383,22 +383,23 @@
 
   async function fetchFormularyData() {
     try {
-      const res = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?output=csv');
+      const res = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv');
       const csvText = await res.text();
       formularyData = parseCSV(csvText);
+      console.log('Formulary data loaded:', formularyData); // DEBUG
     } catch (e) {
       resultsContainer.textContent = 'Error loading formulary data.';
       console.error('Formulary data fetch error:', e);
     }
   }
 
-  // Simple CSV parser
+  // CSV parser - splits strictly by comma (not tabs)
   function parseCSV(str) {
     const lines = str.trim().split('\n');
-    const headers = lines[0].split(/\t|,/).map(h => h.trim());
+    const headers = lines[0].split(',').map(h => h.trim());
     const data = [];
     for (let i = 1; i < lines.length; i++) {
-      const row = lines[i].split(/\t|,/);
+      const row = lines[i].split(',');
       if (row.length < headers.length) continue;
       const obj = {};
       for (let j = 0; j < headers.length; j++) {
@@ -479,9 +480,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
