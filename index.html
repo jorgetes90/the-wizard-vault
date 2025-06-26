@@ -24,7 +24,7 @@
       z-index: 1000;
     }
     .toolbar button {
-      background: #144a91cc;
+      background: #144a91cc; /* semi-transparent dark blue */
       border: none;
       padding: 10px 15px;
       margin: 0 5px;
@@ -34,6 +34,7 @@
       cursor: pointer;
       transition: background 0.3s;
       user-select: none;
+      position: relative; /* For dropdown positioning */
     }
     .toolbar button:hover {
       background: #1f5db3ee;
@@ -49,13 +50,14 @@
       max-width: 900px;
       margin: 20px auto;
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      overflow: visible;
     }
 
     .hint-strip {
       position: fixed;
       bottom: 0;
       width: 100%;
-      background: #0b2349cc;
+      background: #0b2349cc; /* semi-transparent dark blue */
       color: #ffe066;
       padding: 10px;
       text-align: center;
@@ -69,21 +71,22 @@
     .dropdown {
       display: none;
       position: absolute;
-      top: 60px;
-      left: 20px;
-      right: 20px;
-      background: rgba(11, 35, 73, 0.85);
+      top: 100%;  /* directly below the button */
+      left: 0;
+      background: rgba(11, 35, 73, 0.95); /* see-through dark blue */
       border: 1px solid #144a91cc;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.7);
       max-height: 300px;
       overflow-y: auto;
       padding: 10px;
-      z-index: 9999;
-      flex-wrap: wrap;
-      gap: 10px;
+      z-index: 1002; /* above wizard */
+      width: max-content;
+      min-width: 160px;
       color: white;
       font-size: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .dropdown.show {
@@ -225,7 +228,7 @@
       transform: translate(-50%, -50%);
       z-index: 12000;
       display: none;
-      animation: glow-fade 1.5s ease-in-out;
+      animation: glow-fade 5s ease-in-out;
       pointer-events: none;
       user-select: none;
       width: 120px;
@@ -236,33 +239,40 @@
       100% { opacity: 0; }
     }
 
-    /* Wizard and chat bubble container and style */
+    /* Wizard and chat bubble container and style pinned inside page-content top-left */
     #wizard-container {
+      position: absolute;
+      top: 20px;
+      left: 20px;
       display: flex;
       align-items: center;
-      justify-content: center;
       gap: 15px;
-      margin: 30px auto;
-      max-width: 600px;
-      padding: 10px;
+      background: #0b2349cc;
+      padding: 10px 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+      max-width: 420px;
+      z-index: 1001;
+      user-select: none;
     }
 
     #wizard-img {
-      width: 120px;
+      width: 80px;
       height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      user-select: none;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
     }
 
     #chat-bubble {
       background: #1f5db3ee;
       color: white;
-      padding: 15px 20px;
+      padding: 12px 18px;
       border-radius: 20px;
-      max-width: 400px;
-      font-size: 16px;
+      font-size: 14px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      flex-grow: 1;
+      min-width: 200px;
+      max-width: 280px;
       user-select: none;
     }
   </style>
@@ -282,6 +292,12 @@
     <p>Select a tool from the toolbar above.</p>
 
     <div id="dropdown-headers" class="dropdown"></div>
+
+    <!-- Wizard and chat bubble pinned inside page-content -->
+    <div id="wizard-container">
+      <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
+      <div id="chat-bubble">Loading...</div>
+    </div>
   </div>
 
   <div class="hint-strip" id="hint-strip">Loading hints...</div>
@@ -299,12 +315,6 @@
       <button id="search-button">Search</button>
     </div>
     <div id="formulary-results">Enter a search term and click Search.</div>
-  </div>
-
-  <!-- Wizard and chat bubble -->
-  <div id="wizard-container">
-    <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
-    <div id="chat-bubble">Loading...</div>
   </div>
 
 <script>
@@ -360,21 +370,28 @@
       headersVisible = false;
       return;
     }
+    // Build headers dropdown items
     let html = '';
     for (const label in headers) {
-      // Escape quotes in text for attribute
-      const safeText = headers[label].replace(/"/g, '&quot;').replace(/'/g, '&#39;');
       html += `<div class="dropdown-item">
         <span>${label}</span>
-        <button aria-label="Copy citation for ${label}" onclick="copyText(this)" data-text="${safeText}">Copy</button>
+        <button aria-label="Copy citation for ${label}" onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;')}">Copy</button>
       </div>`;
     }
     headersDropdown.innerHTML = html;
+
+    // Position dropdown under the button
+    headersDropdown.style.top = headersBtn.offsetHeight + 'px'; // below button
+    headersDropdown.style.left = headersBtn.offsetLeft + 'px';
+    headersDropdown.style.width = Math.max(200, headersBtn.offsetWidth * 2) + 'px';
+
     headersDropdown.classList.add('show');
     headersVisible = true;
+    // If formulary overlay open, close it
     if (formularyVisible) toggleFormulary();
   }
 
+  // Close headers if click outside
   document.addEventListener('click', (e) => {
     if (!headersDropdown.contains(e.target) && e.target !== headersBtn) {
       if (headersVisible) {
@@ -388,7 +405,9 @@
   function copyText(button) {
     const text = button.getAttribute('data-text');
     navigator.clipboard.writeText(text).then(() => {
-      showCopyGhost();
+      const ghost = document.getElementById('copy-ghost');
+      ghost.style.display = 'block';
+      setTimeout(() => ghost.style.display = 'none', 5000);
     }).catch(() => alert('Copy failed'));
   }
 
@@ -407,140 +426,79 @@
 
   // === Formulary Search Overlay ===
   const formularyOverlay = document.getElementById('formulary-overlay');
-  const formularyBtn = document.getElementById('formulary-btn');
   const searchInput = document.getElementById('search-input');
   const searchButton = document.getElementById('search-button');
-  const resultsContainer = document.getElementById('formulary-results');
+  const resultsDiv = document.getElementById('formulary-results');
   let formularyVisible = false;
-  let formularyData = [];
 
-  async function fetchFormularyData() {
-    try {
-      const res = await fetch('2025CAformulary.json');
-      if (!res.ok) throw new Error('Failed to load formulary JSON');
-      formularyData = await res.json();
-    } catch (e) {
-      resultsContainer.textContent = 'Failed to load formulary data.';
-      console.error(e);
-    }
-  }
-  fetchFormularyData();
+  // Dummy data for demonstration (replace with real data in your app)
+  const formularyData = [
+    {generic: "Acetaminophen", category: "Analgesic"},
+    {generic: "Ibuprofen", category: "NSAID"},
+    {generic: "Amoxicillin", category: "Antibiotic"},
+    {generic: "Diphenhydramine", category: "Antihistamine"},
+    {generic: "Lisinopril", category: "ACE Inhibitor"},
+    {generic: "Metformin", category: "Antidiabetic"}
+  ];
 
   function toggleFormulary() {
-    formularyVisible = !formularyVisible;
-    formularyOverlay.style.display = formularyVisible ? 'block' : 'none';
-    formularyOverlay.setAttribute('aria-hidden', !formularyVisible);
     if (formularyVisible) {
-      searchInput.focus();
-      if (headersVisible) {
-        headersDropdown.classList.remove('show');
-        headersVisible = false;
-      }
-      resultsContainer.textContent = 'Enter a search term and click Search.';
+      formularyOverlay.style.display = 'none';
+      formularyVisible = false;
+      return;
+    }
+    formularyOverlay.style.display = 'block';
+    formularyVisible = true;
+    searchInput.value = '';
+    resultsDiv.textContent = 'Enter a search term and click Search.';
+    searchInput.focus();
+    if (headersVisible) {
+      headersDropdown.classList.remove('show');
+      headersVisible = false;
     }
   }
 
-  searchButton.addEventListener('click', () => {
+  function performSearch() {
     const query = searchInput.value.trim().toLowerCase();
     if (!query) {
-      resultsContainer.textContent = 'Please enter a search term.';
+      resultsDiv.textContent = 'Please enter a search term.';
       return;
     }
-    const matches = formularyData.filter(item => {
-      return item["Therapeutic Category"].toLowerCase().includes(query) || item["Generic Name"].toLowerCase().includes(query);
-    });
-    if (matches.length === 0) {
-      resultsContainer.textContent = 'No matches found.';
+    const filtered = formularyData.filter(item =>
+      item.generic.toLowerCase().includes(query) || item.category.toLowerCase().includes(query)
+    );
+    if (filtered.length === 0) {
+      resultsDiv.textContent = 'No results found.';
       return;
     }
-    // Build results HTML
     let html = '';
-    matches.forEach(item => {
-      const formattedText = formatCopyText(item);
-      // Escape for attribute
-      const safeCopy = formattedText.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    filtered.forEach(item => {
       html += `<div class="formulary-entry">
-        <div><strong>${item["Therapeutic Category"]}</strong> - ${item["Generic Name"]}</div>
-        <button aria-label="Copy details for ${item["Generic Name"]}" onclick="copyFormularyText(this)" data-text="${safeCopy}">Copy</button>
+        <span><strong>${item.generic}</strong> — ${item.category}</span>
+        <button onclick="copyTextFromFormulary('${item.generic}', '${item.category}')">Copy</button>
       </div>`;
     });
-    resultsContainer.innerHTML = html;
-  });
-
-  function formatCopyText(item) {
-    // Template header from item.Template (assumed column A)
-    // Append Therapeutic Category and Generic Name
-    // Append phases in order if 'x' present in Phase A, B, Perioperative
-    // Append special considerations 1-4 last if present
-    // We'll assume item keys like Template, Special1, Special2, Special3, Special4, PhaseA, PhaseB, Perioperative
-
-    let text = '';
-    if (item.Template) text += item.Template + '\n\n';
-    text += `Therapeutic Category: ${item["Therapeutic Category"]}\nGeneric Name: ${item["Generic Name"]}\n\n`;
-
-    // Append phases in order
-    if (item["Phase A"] && item["Phase A"].toLowerCase() === 'x') {
-      if(item["PhaseA Full Text"]) text += item["PhaseA Full Text"] + '\n\n';
-    }
-    if (item["Phase B"] && item["Phase B"].toLowerCase() === 'x') {
-      if(item["PhaseB Full Text"]) text += item["PhaseB Full Text"] + '\n\n';
-    }
-    if (item["Perioperative"] && item["Perioperative"].toLowerCase() === 'x') {
-      if(item["Perioperative Full Text"]) text += item["Perioperative Full Text"] + '\n\n';
-    }
-    // Append special considerations last
-    for (let i = 1; i <= 4; i++) {
-      let key = `Special${i}`;
-      if (item[key] && item[key].trim() !== '') {
-        text += item[key] + '\n\n';
-      }
-    }
-    return text.trim();
+    resultsDiv.innerHTML = html;
   }
 
-  function copyFormularyText(button) {
-    const text = button.getAttribute('data-text');
+  searchButton.addEventListener('click', performSearch);
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
+  });
+
+  function copyTextFromFormulary(generic, category) {
+    const text = `Therapeutic Category: ${category}\nGeneric Name: ${generic}`;
     navigator.clipboard.writeText(text).then(() => {
-      showCopyGhost();
+      const ghost = document.getElementById('copy-ghost');
+      ghost.style.display = 'block';
+      setTimeout(() => ghost.style.display = 'none', 5000);
     }).catch(() => alert('Copy failed'));
   }
 
-  // Copy ghost popup show/hide
-  function showCopyGhost() {
-    const ghost = document.getElementById('copy-ghost');
-    ghost.style.display = 'block';
-    setTimeout(() => {
-      ghost.style.display = 'none';
-    }, 1500);
-  }
-
-  // === Wizard Chat Bubble Updates from Google Sheets CSV ===
-  const chatBubble = document.getElementById('chat-bubble');
-  const csvURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ9LEa47am1UpeQd0IMrgCIGqZ8EAZB8S-GakkkwOx_MQl7xi_yoVdJllhxTUfxMWlv6a6_1Ox7SNWx/pub?output=csv';
-
-  async function fetchWizardUpdates() {
-    try {
-      const res = await fetch(csvURL);
-      if (!res.ok) throw new Error('Failed to fetch wizard updates');
-      const text = await res.text();
-      const lines = text.trim().split('\n');
-      // Skip header row, extract second column as updates
-      const updates = [];
-      for(let i=1; i<lines.length; i++){
-        const cols = lines[i].split(',');
-        if(cols.length > 1) updates.push(cols[1].trim());
-      }
-      if(updates.length > 0){
-        chatBubble.textContent = updates[0];
-      } else {
-        chatBubble.textContent = 'No updates available.';
-      }
-    } catch(e) {
-      chatBubble.textContent = 'Failed to load updates.';
-      console.error(e);
-    }
-  }
-  fetchWizardUpdates();
+  // === Initialize wizard chat bubble text ===
+  document.getElementById('chat-bubble').textContent = 'Hello! Use toolbar buttons to access features.';
 </script>
 </body>
 </html>
