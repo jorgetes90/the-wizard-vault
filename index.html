@@ -52,29 +52,27 @@
       font-size: 14px;
       z-index: 99;
     }
-    .dropdown {
+    .dropdown, .formulary-section {
       display: none;
       position: absolute;
       top: 60px;
       left: 20px;
       right: 20px;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.9);
       border: 1px solid #ccc;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      max-height: 70vh;
+      max-height: 80vh;
       overflow-y: auto;
       padding: 10px;
       z-index: 50;
-      flex-wrap: wrap;
-      gap: 10px;
     }
-    .dropdown.show {
+    .dropdown.show, .formulary-section.show {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
-    .dropdown-item {
+    .dropdown-item, .drug-item {
       background: #f9f9f9;
       border: 1px solid #ccc;
       padding: 10px;
@@ -83,7 +81,7 @@
       position: relative;
       font-size: 14px;
     }
-    .dropdown-item button {
+    .dropdown-item button, .drug-item button {
       position: absolute;
       top: 10px;
       right: 10px;
@@ -104,28 +102,13 @@
       0% { opacity: 1; filter: drop-shadow(0 0 10px yellow); }
       100% { opacity: 0; filter: drop-shadow(0 0 0 transparent); }
     }
-    #formulary-section {
-      display: none;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(245, 245, 245, 0.95);
-      padding: 20px;
-      overflow-y: auto;
-      z-index: 60;
-    }
-    #formulary-results .dropdown-item {
-      width: 100%;
-    }
   </style>
 </head>
 <body>
   <div class="toolbar">
     <button onclick="goBack()">← Back</button>
-    <button onclick="toggleDropdown('headers')">Headers</button>
-    <button onclick="toggleDropdown('formulary')">CA Formulary</button>
+    <button onclick="toggleDropdown('dropdown-headers')">Headers</button>
+    <button onclick="toggleDropdown('dropdown-formulary')">CA Formulary</button>
     <button onclick="navigate('jurisdiction')">Jurisdiction</button>
     <button onclick="navigate('updates')">Guideline Updates</button>
     <button onclick="navigate('jargons')">Jargons</button>
@@ -134,12 +117,11 @@
   <div class="page-content" id="main-content">
     <h1>Welcome to the Medical Utility Tool</h1>
     <p>Select a tool from the toolbar above.</p>
-  </div>
-
-  <div id="dropdown-headers" class="dropdown"></div>
-  <div id="formulary-section">
-    <input type="text" id="formulary-search" placeholder="Search drugs..." oninput="searchFormulary(this.value)" style="padding: 10px; width: 100%; margin-bottom: 10px;" />
-    <div id="formulary-results"></div>
+    <div id="dropdown-headers" class="dropdown"></div>
+    <div id="dropdown-formulary" class="formulary-section">
+      <input type="text" id="drug-search" placeholder="Search drug by name..." oninput="filterDrugs()" style="width: 100%; padding: 10px; margin-bottom: 10px;" />
+      <div id="drug-results"></div>
+    </div>
   </div>
 
   <div class="hint-strip" id="hint-strip">Loading hints...</div>
@@ -180,10 +162,9 @@
       "Depressive Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nDepressive Disorders (MTUS Effective Date: September 21, 2020)"
     };
 
-    const hintStrip = document.getElementById('hint-strip');
     let hintIndex = 0;
     setInterval(() => {
-      hintStrip.textContent = hints[hintIndex];
+      document.getElementById('hint-strip').textContent = hints[hintIndex];
       hintIndex = (hintIndex + 1) % hints.length;
     }, 7000);
 
@@ -193,42 +174,11 @@
 
     function navigate(section) {
       document.getElementById('main-content').innerHTML = `<h2>Loading ${section}...</h2>`;
-      closeDropdowns();
     }
 
-    function toggleDropdown(type) {
-      const headerMenu = document.getElementById('dropdown-headers');
-      const formulary = document.getElementById('formulary-section');
-
-      if (type === 'headers') {
-        if (headerMenu.classList.contains('show')) {
-          headerMenu.classList.remove('show');
-        } else {
-          closeDropdowns();
-          let html = '';
-          for (let label in headers) {
-            html += `<div class="dropdown-item">
-              <strong>${label}</strong>
-              <button onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;')}">Copy</button>
-            </div>`;
-          }
-          headerMenu.innerHTML = html;
-          headerMenu.classList.add('show');
-        }
-      } else if (type === 'formulary') {
-        if (formulary.style.display === 'block') {
-          formulary.style.display = 'none';
-        } else {
-          closeDropdowns();
-          formulary.style.display = 'block';
-          loadFormulary();
-        }
-      }
-    }
-
-    function closeDropdowns() {
-      document.getElementById('dropdown-headers').classList.remove('show');
-      document.getElementById('formulary-section').style.display = 'none';
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      dropdown.classList.toggle('show');
     }
 
     function copyText(button) {
@@ -240,39 +190,50 @@
       }).catch(() => alert('Copy failed'));
     }
 
-    let formularyData = [];
-    function loadFormulary() {
-      if (formularyData.length > 0) return;
+    function filterDrugs() {
+      const query = document.getElementById('drug-search').value.toLowerCase();
+      const results = document.getElementById('drug-results');
+      results.innerHTML = 'Loading...';
       fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv')
         .then(res => res.text())
         .then(text => {
           const rows = text.trim().split('\n').slice(1);
-          formularyData = rows.map(row => {
-            const cols = row.split(',');
-            return {
-              'Drug Ingredient': cols[0]?.trim(),
-              'Reference Brand Name': cols[1]?.trim(),
-              'General citation (All body parts)': cols.slice(2).join(',').trim()
-            };
+          const items = rows.map(row => {
+            const [ingredient, brand, citation] = row.split(',');
+            return { ingredient, brand, citation };
           });
-          searchFormulary('');
+          const filtered = items.filter(item => item.ingredient && item.ingredient.toLowerCase().includes(query));
+          if (filtered.length === 0) {
+            results.innerHTML = 'No matching drugs found.';
+            return;
+          }
+          results.innerHTML = filtered.map(item => `
+            <div class="drug-item">
+              <strong>${item.ingredient}</strong> — ${item.brand || 'N/A'}
+              <button onclick="copyCitation(this)" data-cite="${item.citation.replace(/"/g, '&quot;')}">Copy</button>
+            </div>`).join('');
+        })
+        .catch(() => {
+          results.innerHTML = 'Error loading formulary data.';
         });
     }
 
-    function searchFormulary(term) {
-      const container = document.getElementById('formulary-results');
-      term = term.toLowerCase();
-      const matches = formularyData.filter(item => item['Drug Ingredient'].toLowerCase().includes(term));
-      if (!matches.length) {
-        container.innerHTML = '<p>No matching drugs found.</p>';
-        return;
-      }
-      container.innerHTML = matches.map(item => `
+    function copyCitation(btn) {
+      const citation = btn.getAttribute('data-cite');
+      navigator.clipboard.writeText(citation).then(() => {
+        const ghost = document.getElementById('copy-ghost');
+        ghost.style.display = 'block';
+        setTimeout(() => ghost.style.display = 'none', 5000);
+      });
+    }
+
+    window.onload = () => {
+      const dropdown = document.getElementById('dropdown-headers');
+      dropdown.innerHTML = Object.entries(headers).map(([label, text]) => `
         <div class="dropdown-item">
-          <strong>${item['Drug Ingredient']}</strong> — ${item['Reference Brand Name'] || 'N/A'}
-          <button onclick="copyText(this)" data-text="${item['General citation (All body parts)'].replace(/"/g, '&quot;')}">Copy</button>
-        </div>
-      `).join('');
+          <strong>${label}</strong>
+          <button onclick="copyText(this)" data-text="${text.replace(/"/g, '&quot;')}">Copy</button>
+        </div>`).join('');
     }
   </script>
 </body>
