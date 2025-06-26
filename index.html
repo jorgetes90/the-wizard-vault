@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -265,9 +265,9 @@
   font-size: 16px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.4);
   user-select: none;
-  white-space: pre-wrap;       /* ⬅️ KEY: preserves line breaks from CSV */
-  word-break: break-word;      /* ⬅️ Wrap long words properly */
-  overflow-wrap: break-word;   /* ⬅️ Extra safety for long content */
+  white-space: pre-wrap;       /* ⬅️ preserves line breaks */
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
   </style>
 </head>
@@ -435,16 +435,19 @@
   fetchFormularyData();
 
   function toggleFormulary() {
-    formularyVisible = !formularyVisible;
-    formularyOverlay.style.display = formularyVisible ? 'block' : 'none';
     if (formularyVisible) {
-      searchInput.value = '';
+      formularyOverlay.style.display = 'none';
+      formularyVisible = false;
       resultsContainer.innerHTML = 'Enter a search term and click Search.';
-      searchInput.focus();
+      searchInput.value = '';
+    } else {
+      formularyOverlay.style.display = 'block';
+      formularyVisible = true;
       if (headersVisible) {
         headersDropdown.classList.remove('show');
         headersVisible = false;
       }
+      searchInput.focus();
     }
   }
 
@@ -454,33 +457,33 @@
       resultsContainer.textContent = 'Please enter a search term.';
       return;
     }
-    const filtered = formularyData.filter(item => {
-  return (item['Drug Ingredient'] && item['Drug Ingredient'].toLowerCase().includes(term)) ||
-         (item['Reference Brand Name'] && item['Reference Brand Name'].toLowerCase().includes(term));
-});
-    if (filtered.length === 0) {
-      resultsContainer.textContent = 'No matches found.';
+    const matches = formularyData.filter(item => {
+      return (
+        (item['Drug Ingredient'] && item['Drug Ingredient'].toLowerCase().includes(term)) ||
+        (item['Reference Brand Name'] && item['Reference Brand Name'].toLowerCase().includes(term))
+      );
+    });
+
+    if (matches.length === 0) {
+      resultsContainer.textContent = 'No results found.';
       return;
     }
-    // Build results HTML
+
+    // Build result entries with copy buttons
     let html = '';
-    filtered.forEach(item => {
+    matches.forEach(item => {
+      // Safe JSON stringify for onclick
+      const safeJson = JSON.stringify(item).replace(/'/g, "&apos;");
       html += `<div class="formulary-entry">
-        <div>${item['Generic Name']} - ${item['Therapeutic Category']}</div>
-        <button onclick='copyFormularyText(${JSON.stringify(item).replace(/'/g, "&apos;")})'>Copy</button>
+        <div>${item['Drug Ingredient'] || 'N/A'} - ${item['Reference Brand Name'] || 'N/A'}</div>
+        <button onclick='copyFormularyText(${safeJson})'>Copy</button>
       </div>`;
     });
     resultsContainer.innerHTML = html;
   });
 
-  // Copy formatted text from formulary entry
   function copyFormularyText(item) {
-    // Build text to copy with template and phases
-    let textToCopy = `Therapeutic Category: ${item['Therapeutic Category']}\nGeneric Name: ${item['Generic Name']}\n\n`;
-    if (item['Phase A'] && item['Phase A'].toLowerCase() === 'x') textToCopy += `Phase A: ${item['Phase A Text'] || ''}\n\n`;
-    if (item['Phase B'] && item['Phase B'].toLowerCase() === 'x') textToCopy += `Phase B: ${item['Phase B Text'] || ''}\n\n`;
-    if (item['Perioperative'] && item['Perioperative'].toLowerCase() === 'x') textToCopy += `Perioperative: ${item['Perioperative Text'] || ''}\n\n`;
-    if (item['Special Considerations'] && item['Special Considerations'].toLowerCase() === 'x') textToCopy += `Special Considerations: ${item['Special Considerations Text'] || ''}\n\n`;
+    let textToCopy = `Drug Ingredient: ${item['Drug Ingredient'] || ''}\nReference Brand Name: ${item['Reference Brand Name'] || ''}\n\n${item['General citation (All body parts)'] || ''}`;
 
     navigator.clipboard.writeText(textToCopy).then(() => {
       const ghost = document.getElementById('copy-ghost');
@@ -489,45 +492,17 @@
     }).catch(() => alert('Copy failed'));
   }
 
-  // === Wizard + Updates chat bubble test ===
-  const chatBubble = document.getElementById('chat-bubble');
-  const updatesURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5XiMQ0sng07xIfp_peFYZd0R01FwcvrbGK4PHI2NIIVwoelHOntcX2HiuSjRFDW_yU6_Ldaf1Il9L/pub?gid=0&single=true&output=csv';
-
-  async function fetchUpdates() {
-    try {
-      const res = await fetch(updatesURL);
-      if (!res.ok) throw new Error('Network response not ok');
-      const text = await res.text();
-      const rows = text.trim().split('\n').map(r => r.split(','));
-      const header = rows[0].map(h => h.trim().toLowerCase());
-      const updatesIndex = header.indexOf('updates');
-      if (updatesIndex === -1) {
-        chatBubble.textContent = "No 'Updates' column found.";
-        return;
-      }
-      // Collect all updates in the column "Updates"
-      let messages = [];
-      for(let i=1; i<rows.length; i++) {
-        const val = rows[i][updatesIndex];
-        if(val && val.trim()) messages.push(val.trim());
-      }
-      if(messages.length === 0) {
-        chatBubble.textContent = "No updates found.";
-        return;
-      }
-      let i = 0;
-      chatBubble.textContent = messages[i];
-      setInterval(() => {
-        i = (i + 1) % messages.length;
-        chatBubble.textContent = messages[i];
-      }, 30000); // every 30 seconds
-    } catch (e) {
-      chatBubble.textContent = "Failed to load updates.";
-      console.error(e);
+  // Optional: Press Enter key triggers search
+  searchInput.addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+      searchButton.click();
     }
-  }
+  });
 
-  fetchUpdates();
+  // === Wizard & Chat Bubble ===
+  const chatBubble = document.getElementById('chat-bubble');
+  // Example welcome text
+  chatBubble.textContent = "Hello! Welcome to the Medical Utility Tool.\nSelect a tool from above.";
 
 </script>
 </body>
