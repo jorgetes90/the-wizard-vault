@@ -464,4 +464,46 @@
   });
 </script>
 </body>
+  <!-- Wizard and Chat Bubble -->
+<div id="wizard-container">
+  <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
+  <div id="chat-bubble">Loading...</div>
+</div>
+
+<script>
+  const chatBubble = document.getElementById('chat-bubble');
+  const updatesURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5XiMQ0sng07xIfp_peFYZd0R01FwcvrbGK4PHI2NIIVwoelHOntcX2HiuSjRFDW_yU6_Ldaf1Il9L/pub?gid=0&single=true&output=csv';
+
+  async function fetchUpdates() {
+    try {
+      const res = await fetch(updatesURL);
+      const text = await res.text();
+      const rows = text.trim().split('\n').map(r => r.split(','));
+      const header = rows[0];
+      const updatesIndex = header.indexOf("Updates");
+      if (updatesIndex === -1) {
+        chatBubble.textContent = "No 'Updates' column found.";
+        return;
+      }
+      const updateRow = rows[1]; // first row under header
+      const messages = updateRow.slice(updatesIndex).filter(msg => msg.trim() !== "");
+      if (messages.length === 0) {
+        chatBubble.textContent = "No updates found.";
+        return;
+      }
+      let i = 0;
+      chatBubble.textContent = messages[i];
+      setInterval(() => {
+        i = (i + 1) % messages.length;
+        chatBubble.textContent = messages[i];
+      }, 30000); // 30 seconds
+    } catch (e) {
+      chatBubble.textContent = "Failed to load updates.";
+      console.error(e);
+    }
+  }
+
+  fetchUpdates();
+</script>
+
 </html>
