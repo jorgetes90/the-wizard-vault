@@ -522,6 +522,7 @@ function copyText(button) {
 function copyFormularyText(item) {
   const textToCopy = item['General citation (All body parts)'] || '';
 
+  // Create a hidden textarea and inject the text
   const textarea = document.createElement('textarea');
   textarea.value = textToCopy;
   textarea.setAttribute('readonly', '');
@@ -529,28 +530,21 @@ function copyFormularyText(item) {
   textarea.style.left = '-9999px';
   document.body.appendChild(textarea);
 
-  const selection = document.getSelection();
-  const selectedRange = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
-
+  // Select and copy the text
   textarea.select();
   try {
-    const successful = document.execCommand('copy');
-    if (successful) {
-      const ghost = document.getElementById('copy-ghost');
-      ghost.style.display = 'block';
-      setTimeout(() => ghost.style.display = 'none', 5000);
-    } else {
-      alert('Copy failed');
-    }
+    document.execCommand('copy');
+
+    // Show the ghost
+    const ghost = document.getElementById('copy-ghost');
+    ghost.style.display = 'block';
+    setTimeout(() => ghost.style.display = 'none', 5000);
   } catch (err) {
     alert('Copy failed');
   }
 
+  // Cleanup
   document.body.removeChild(textarea);
-  if (selectedRange) {
-    selection.removeAllRanges();
-    selection.addRange(selectedRange);
-  }
 }
 
 
