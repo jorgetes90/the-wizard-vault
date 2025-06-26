@@ -24,7 +24,7 @@
       z-index: 1000;
     }
     .toolbar button {
-      background: #144a91cc; /* semi-transparent dark blue */
+      background: #144a91cc;
       border: none;
       padding: 10px 15px;
       margin: 0 5px;
@@ -55,7 +55,7 @@
       position: fixed;
       bottom: 0;
       width: 100%;
-      background: #0b2349cc; /* semi-transparent dark blue */
+      background: #0b2349cc;
       color: #ffe066;
       padding: 10px;
       text-align: center;
@@ -72,7 +72,7 @@
       top: 60px;
       left: 20px;
       right: 20px;
-      background: rgba(11, 35, 73, 0.85); /* see-through dark blue */
+      background: rgba(11, 35, 73, 0.85);
       border: 1px solid #144a91cc;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.7);
@@ -121,7 +121,6 @@
       background: #3b82f6;
     }
 
-    /* Formulary full page overlay */
     #formulary-overlay {
       display: none;
       position: fixed;
@@ -386,20 +385,21 @@
       const res = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?gid=52362647&single=true&output=csv');
       const csvText = await res.text();
       formularyData = parseCSV(csvText);
-      console.log('Formulary data loaded:', formularyData); // DEBUG
+      console.log('Formulary Data Loaded:', formularyData.length, 'entries');
+      console.log('First 3 entries:', formularyData.slice(0,3));
     } catch (e) {
       resultsContainer.textContent = 'Error loading formulary data.';
       console.error('Formulary data fetch error:', e);
     }
   }
 
-  // CSV parser - splits strictly by comma (not tabs)
+  // Tab-separated CSV parser
   function parseCSV(str) {
     const lines = str.trim().split('\n');
-    const headers = lines[0].split(',').map(h => h.trim());
+    const headers = lines[0].split('\t').map(h => h.trim());
     const data = [];
     for (let i = 1; i < lines.length; i++) {
-      const row = lines[i].split(',');
+      const row = lines[i].split('\t');
       if (row.length < headers.length) continue;
       const obj = {};
       for (let j = 0; j < headers.length; j++) {
@@ -419,62 +419,69 @@
       formularyOverlay.style.display = 'block';
       formularyVisible = true;
       formularyBtn.style.background = '#3b82f6';
-      resultsContainer.textContent = 'Enter a search term and click Search.';
-      searchInput.value = '';
-      searchInput.focus();
-      // If headers dropdown open, close it
-      if (headersVisible) toggleHeaders();
       if (formularyData.length === 0) {
+        resultsContainer.textContent = 'Loading data...';
         fetchFormularyData();
       }
+      searchInput.value = '';
+      resultsContainer.textContent = 'Enter a search term and click Search.';
+    }
+    // Close headers if open
+    if (headersVisible) {
+      headersDropdown.classList.remove('show');
+      headersVisible = false;
     }
   }
 
-  function searchFormulary() {
-    const term = searchInput.value.trim().toLowerCase();
-    if (!term) {
-      resultsContainer.textContent = 'Please enter a search term.';
-      return;
-    }
-    const filtered = formularyData.filter(item => 
-      item['Drug Ingredient'] && 
-      item['Reference Brand Name'] && 
-      item['Drug Ingredient'].toLowerCase().includes(term)
-    );
-    if (filtered.length === 0) {
-      resultsContainer.textContent = 'No matching drugs found.';
-      return;
-    }
-    // Build results list - show only Drug Ingredient — Reference Brand Name + copy button
-    const html = filtered.map(item => {
-      const drug = item['Drug Ingredient'];
-      const brand = item['Reference Brand Name'];
-      const citation = item['General citation (All body parts)'] || '';
-      const safeCitation = citation.replace(/"/g, '&quot;').replace(/\n/g, '\\n');
-      return `<div class="formulary-entry">
-        <span>${drug} — ${brand}</span>
-        <button onclick="copyCitation(\`${safeCitation}\`)">Copy</button>
-      </div>`;
-    }).join('');
-    resultsContainer.innerHTML = html;
+  function formatCopyText(entry) {
+    // You can customize this to include your template with special considerations and phases.
+    let text = `Therapeutic Category: ${entry["Drug Ingredient"]}\nGeneric Name: ${entry["Reference Brand Name"]}\n\n${entry["General citation (All body parts)"]}`;
+    return text;
   }
 
-  function copyCitation(text) {
-    // Unescape newlines for clipboard text
-    const clipboardText = text.replace(/\\n/g, '\n');
-    navigator.clipboard.writeText(clipboardText).then(() => {
+  function showResults(results) {
+    if (results.length === 0) {
+      resultsContainer.textContent = 'No results found.';
+      return;
+    }
+    resultsContainer.innerHTML = '';
+    for (const entry of results) {
+      const div = document.createElement('div');
+      div.className = 'formulary-entry';
+      const drugName = entry["Drug Ingredient"] || 'Unknown Drug';
+      const brandName = entry["Reference Brand Name"] || '';
+      div.innerHTML = `<span>${drugName} (${brandName})</span><button aria-label="Copy info for ${drugName}" onclick='copyEntry(${JSON.stringify(entry).replace(/'/g,"\\'")})'>Copy</button>`;
+      resultsContainer.appendChild(div);
+    }
+  }
+
+  function copyEntry(entry) {
+    const text = formatCopyText(entry);
+    navigator.clipboard.writeText(text).then(() => {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
       setTimeout(() => ghost.style.display = 'none', 5000);
     }).catch(() => alert('Copy failed'));
   }
 
-  // Event listeners
-  searchButton.addEventListener('click', searchFormulary);
-  searchInput.addEventListener('keydown', e => {
+  searchButton.addEventListener('click', () => {
+    const term = searchInput.value.trim().toLowerCase();
+    if (!term) {
+      resultsContainer.textContent = 'Please enter a search term.';
+      return;
+    }
+    const filtered = formularyData.filter(entry =>
+      (entry["Drug Ingredient"] && entry["Drug Ingredient"].toLowerCase().includes(term)) ||
+      (entry["Reference Brand Name"] && entry["Reference Brand Name"].toLowerCase().includes(term))
+    );
+    showResults(filtered);
+  });
+
+  // Optional: Search on enter key in input
+  searchInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      searchFormulary();
+      searchButton.click();
     }
   });
 </script>
