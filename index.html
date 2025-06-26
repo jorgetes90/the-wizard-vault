@@ -401,15 +401,40 @@
     }
   });
 
-  // Copy text with ghost effect
-  function copyText(button) {
-    const text = button.getAttribute('data-text');
-    navigator.clipboard.writeText(text).then(() => {
+// Copy text with ghost effect (iframe-compatible)
+function copyText(button) {
+  const text = button.getAttribute('data-text');
+
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'absolute';
+  textarea.style.left = '-9999px';
+  document.body.appendChild(textarea);
+
+  const selection = document.getSelection();
+  const selectedRange = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+
+  textarea.select();
+  try {
+    const successful = document.execCommand('copy');
+    if (successful) {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
       setTimeout(() => ghost.style.display = 'none', 5000);
-    }).catch(() => alert('Copy failed'));
+    } else {
+      alert('Copy failed');
+    }
+  } catch (err) {
+    alert('Copy failed');
   }
+
+  document.body.removeChild(textarea);
+  if (selectedRange) {
+    selection.removeAllRanges();
+    selection.addRange(selectedRange);
+  }
+}
 
   // === Navigation stub ===
   function goBack() {
