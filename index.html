@@ -351,11 +351,14 @@
 
   // Copy text with ghost effect
   function copyText(button) {
-    const text = button.getAttribute('data-text');
-    navigator.clipboard.writeText(text).then(() => {
+    // Get raw text with \n as literal backslash-n sequences, decode them to real newlines
+    const rawText = button.getAttribute('data-text');
+    const decodedText = rawText.replace(/\\n/g, '\n');
+
+    navigator.clipboard.writeText(decodedText).then(() => {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
-      setTimeout(() => ghost.style.display = 'none', 5000);
+      setTimeout(() => { ghost.style.display = 'none'; }, 5000);
     }).catch(() => alert('Copy failed'));
   }
 
@@ -479,9 +482,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
