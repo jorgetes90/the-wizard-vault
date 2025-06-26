@@ -421,14 +421,23 @@
       resultsContainer.textContent = 'Enter a search term and click Search.';
       searchInput.value = '';
       searchInput.focus();
-      // If headers dropdown open, close it
-      if (headersVisible) toggleHeaders();
+      // If headers dropdown is open, close it
+      if (headersVisible) {
+        headersDropdown.classList.remove('show');
+        headersVisible = false;
+      }
       if (formularyData.length === 0) {
         fetchFormularyData();
       }
     }
   }
 
+  searchButton.addEventListener('click', searchFormulary);
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') searchFormulary();
+  });
+
+  // === FIXED searchFormulary function - ONLY THIS FUNCTION IS UPDATED ===
   function searchFormulary() {
     const term = searchInput.value.trim().toLowerCase();
     if (!term) {
@@ -444,44 +453,34 @@
       resultsContainer.textContent = 'No matching drugs found.';
       return;
     }
-    // Build results list - show only Drug Ingredient — Reference Brand Name + copy button
+    // Build results list with copy button and no inline onclick
     const html = filtered.map(item => {
       const drug = item['Drug Ingredient'];
       const brand = item['Reference Brand Name'];
+      // Build the full citation text (General citation) for copy
       const citation = item['General citation (All body parts)'] || '';
-      const safeCitation = citation.replace(/"/g, '&quot;').replace(/\n/g, '\\n');
+      // Escape double quotes for data attribute
+      const escapedCitation = citation.replace(/"/g, '&quot;');
       return `<div class="formulary-entry">
         <span>${drug} — ${brand}</span>
-        <button onclick="copyCitation(\`${safeCitation}\`)">Copy</button>
+        <button class="copy-btn" data-citation="${escapedCitation}">Copy</button>
       </div>`;
     }).join('');
     resultsContainer.innerHTML = html;
-  }
 
-  function copyCitation(text) {
-    // Unescape newlines for clipboard text
-    const clipboardText = text.replace(/\\n/g, '\n');
-    navigator.clipboard.writeText(clipboardText).then(() => {
-      const ghost = document.getElementById('copy-ghost');
-      ghost.style.display = 'block';
-      setTimeout(() => ghost.style.display = 'none', 5000);
-    }).catch(() => alert('Copy failed'));
+    // Add click listeners to copy buttons - copy multiline text properly
+    const copyButtons = resultsContainer.querySelectorAll('.copy-btn');
+    copyButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const text = btn.getAttribute('data-citation');
+        navigator.clipboard.writeText(text).then(() => {
+          const ghost = document.getElementById('copy-ghost');
+          ghost.style.display = 'block';
+          setTimeout(() => ghost.style.display = 'none', 5000);
+        }).catch(() => alert('Copy failed'));
+      });
+    });
   }
-
-  // Event listeners
-  searchButton.addEventListener('click', searchFormulary);
-  searchInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      searchFormulary();
-    }
-  });
 </script>
 </body>
 </html>
-
-
-
-
-
-
