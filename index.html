@@ -334,6 +334,7 @@
     }
     headersDropdown.innerHTML = html;
     headersDropdown.classList.add('show');
+    headersVisible = true;
     // If formulary overlay is open, close it
     if (formularyVisible) toggleFormulary();
   }
@@ -420,41 +421,49 @@
       resultsContainer.textContent = 'Enter a search term and click Search.';
       searchInput.value = '';
       searchInput.focus();
+      if (formularyData.length === 0) fetchFormularyData();
       // If headers dropdown open, close it
       if (headersVisible) {
         headersDropdown.classList.remove('show');
         headersVisible = false;
       }
-      if (formularyData.length === 0) {
-        resultsContainer.textContent = 'Loading formulary data...';
-        fetchFormularyData();
-      }
     }
   }
 
-  // Search and display
-  searchButton.addEventListener('click', () => {
+  searchButton.addEventListener('click', searchFormulary);
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') searchFormulary();
+  });
+
+  // === FIXED formulary copy button ===
+  function searchFormulary() {
     const term = searchInput.value.trim().toLowerCase();
     if (!term) {
       resultsContainer.textContent = 'Please enter a search term.';
       return;
     }
-    const matches = formularyData.filter(d => (d['Generic Name'] && d['Generic Name'].toLowerCase().includes(term)) || (d['Therapeutic Category'] && d['Therapeutic Category'].toLowerCase().includes(term)));
-    if (matches.length === 0) {
-      resultsContainer.textContent = 'No matches found.';
+    const filtered = formularyData.filter(item =>
+      item['Drug Ingredient'] &&
+      item['Reference Brand Name'] &&
+      item['Drug Ingredient'].toLowerCase().includes(term)
+    );
+    if (filtered.length === 0) {
+      resultsContainer.textContent = 'No matching drugs found.';
       return;
     }
-    resultsContainer.innerHTML = matches.map(d => {
-      const drug = d['Generic Name'] || 'Unknown';
-      const brand = d['Therapeutic Category'] || '';
-      const citation = d['Template Text'] || d['Copy Text'] || '';
-      // Put full multiline text in data attribute safely using encodeURIComponent, copy with decodeURIComponent
+    const html = filtered.map(item => {
+      const drug = item['Drug Ingredient'];
+      const brand = item['Reference Brand Name'];
+      // Get the full multiline citation text for copying
+      const citation = item['General citation (All body parts)'] || '';
+      // Store encoded citation in data attribute to preserve multiline exactly
       return `<div class="formulary-entry">
         <span>${drug} — ${brand}</span>
-        <button data-citation="${encodeURIComponent(citation)}" onclick="copyCitation(this)">Copy</button>
+        <button aria-label="Copy citation for ${drug}" data-citation="${encodeURIComponent(citation)}" onclick="copyCitation(this)">Copy</button>
       </div>`;
     }).join('');
-  });
+    resultsContainer.innerHTML = html;
+  }
 
   function copyCitation(button) {
     const encodedText = button.getAttribute('data-citation') || '';
@@ -465,10 +474,6 @@
       setTimeout(() => ghost.style.display = 'none', 5000);
     }).catch(() => alert('Copy failed'));
   }
-
-  // Initialize hint strip immediately
-  document.getElementById('hint-strip').textContent = hints[0];
-
 </script>
 </body>
 </html>
