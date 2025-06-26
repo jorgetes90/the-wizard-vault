@@ -483,14 +483,16 @@
   });
 
   function copyFormularyText(item) {
-    let textToCopy = `Drug Ingredient: ${item['Drug Ingredient'] || ''}\nReference Brand Name: ${item['Reference Brand Name'] || ''}\n\n${item['General citation (All body parts)'] || ''}`;
+  // Copy the 'General citation (All body parts)' field directly
+  let textToCopy = item['General citation (All body parts)'] || '';
 
-    navigator.clipboard.writeText(textToCopy).then(() => {
-      const ghost = document.getElementById('copy-ghost');
-      ghost.style.display = 'block';
-      setTimeout(() => ghost.style.display = 'none', 5000);
-    }).catch(() => alert('Copy failed'));
-  }
+  navigator.clipboard.writeText(textToCopy).then(() => {
+    const ghost = document.getElementById('copy-ghost');
+    ghost.style.display = 'block';
+    setTimeout(() => ghost.style.display = 'none', 5000);
+  }).catch(() => alert('Copy failed'));
+}
+
 
   // Optional: Press Enter key triggers search
   searchInput.addEventListener('keypress', e => {
