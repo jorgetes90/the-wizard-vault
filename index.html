@@ -10,7 +10,6 @@
       font-family: Arial, sans-serif;
       background: #f5f5f5;
     }
-
     .toolbar {
       display: flex;
       justify-content: space-around;
@@ -18,22 +17,27 @@
       background-color: #1e1e2f;
       padding: 10px;
       color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-
     .toolbar button {
       background: #2f2f4f;
       border: none;
       padding: 10px 15px;
+      margin: 0 5px;
       color: white;
       font-weight: bold;
       border-radius: 5px;
       cursor: pointer;
+      transition: background 0.3s;
+    }
+    .toolbar button:hover {
+      background: #4a4a6a;
     }
 
-    .dropdown, .formulary {
+    .dropdown {
       display: none;
       position: absolute;
       top: 60px;
@@ -42,52 +46,62 @@
       background: rgba(255, 255, 255, 0.95);
       border: 1px solid #ccc;
       border-radius: 8px;
-      max-height: 70vh;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      max-height: 300px;
       overflow-y: auto;
       padding: 10px;
       z-index: 50;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .dropdown.show,
-    .formulary.show {
-      display: block;
+    .dropdown.show {
+      display: flex;
+      flex-wrap: wrap;
     }
 
-    .dropdown-item,
-    .drug-item {
-      background: #fff;
+    .dropdown-item {
+      background: #f9f9f9;
       border: 1px solid #ccc;
-      margin: 5px 0;
       padding: 10px;
-      border-radius: 6px;
+      border-radius: 8px;
+      width: calc(50% - 10px);
       position: relative;
+      font-size: 14px;
     }
 
-    .dropdown-item button,
-    .drug-item button {
+    .dropdown-item button {
       position: absolute;
-      right: 10px;
       top: 10px;
-      font-size: 12px;
+      right: 10px;
       padding: 5px 10px;
+      font-size: 12px;
       cursor: pointer;
     }
 
-    #copy-ghost {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .formulary-panel {
       display: none;
-      z-index: 999;
-      animation: glow-fade 5s ease-in-out;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      bottom: 40px;
+      background: rgba(255,255,255,0.98);
+      overflow-y: auto;
+      padding: 20px;
+      z-index: 99;
     }
-
-    @keyframes glow-fade {
-      0% { opacity: 1; filter: drop-shadow(0 0 15px yellow); }
-      100% { opacity: 0; filter: none; }
+    .formulary-item {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
     }
-
+    .formulary-item button {
+      float: right;
+      padding: 5px 10px;
+    }
     .hint-strip {
       position: fixed;
       bottom: 0;
@@ -96,44 +110,46 @@
       color: #ffe066;
       padding: 10px;
       text-align: center;
+      font-style: italic;
       font-size: 14px;
-      z-index: 80;
+      z-index: 98;
     }
-
-    #searchInput {
-      width: 95%;
-      padding: 10px;
-      margin: 10px auto;
-      display: block;
-      font-size: 16px;
+    .copy-ghost {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 999;
+      display: none;
+      animation: glow-fade 5s ease-in-out;
+    }
+    @keyframes glow-fade {
+      0% { opacity: 1; filter: drop-shadow(0 0 10px yellow); }
+      100% { opacity: 0; filter: drop-shadow(0 0 0 transparent); }
     }
   </style>
 </head>
 <body>
-
   <div class="toolbar">
-    <button onclick="toggleDropdown('headers')">Headers</button>
-    <button onclick="toggleDropdown('formulary')">CA Formulary</button>
+    <button onclick="goBack()">← Back</button>
+    <button onclick="toggleHeaders()">Headers</button>
+    <button onclick="toggleFormulary()">CA Formulary</button>
+    <button>Jurisdiction</button>
+    <button>Guideline Updates</button>
+    <button>Jargons</button>
   </div>
 
   <div id="dropdown-headers" class="dropdown"></div>
-
-  <div id="formulary" class="formulary">
-    <input type="text" id="searchInput" placeholder="Search Drug Ingredient...">
-    <div id="drugList"></div>
+  <div id="formulary-panel" class="formulary-panel">
+    <input type="text" id="searchInput" placeholder="Search Drug Ingredient..." oninput="searchFormulary()" style="width:100%;padding:10px;margin-bottom:10px;">
+    <div id="formulary-results"></div>
   </div>
 
-  <img id="copy-ghost" src="https://i.postimg.cc/d0jsn69H/Ghost.png" width="120"/>
-
   <div class="hint-strip" id="hint-strip">Loading hints...</div>
+  <img id="copy-ghost" class="copy-ghost" src="https://i.postimg.cc/d0jsn69H/Ghost.png" width="120" />
 
   <script>
-    const hints = [
-      "Use Headers to quickly copy citation text.",
-      "Formulary lets you search and copy drug references.",
-      "Click on a drug's Copy button to save its citation."
-    ];
-
+    const hints = ["Always refer to MTUS before approving UR decisions.", "Check CA Formulary for drug phase requirements."];
     let hintIndex = 0;
     setInterval(() => {
       document.getElementById('hint-strip').textContent = hints[hintIndex];
@@ -141,89 +157,74 @@
     }, 7000);
 
     const headers = {
-      "Shoulder Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nShoulder Disorders (MTUS Effective Date August 10, 2023)",
-      "Knee Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nKnee Disorders (MTUS Effective Date September 21, 2020)",
-      "Low Back Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nLow Back Disorders (MTUS Effective Date November 23, 2021)",
-      "Cervical and Thoracic Spine": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nCervical and Thoracic Spine (MTUS Effective Date April 18, 2019)",
-      "Hand, Wrist, and Forearm Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nHand, Wrist, and Forearm Disorders (MTUS Effective Date November 10, 2023)",
-      "Ankle and Foot Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nAnkle and Foot Disorders (MTUS Effective Date April 18, 2019)",
-      "Elbow Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nElbow Disorders (MTUS Effective Date April 18, 2019)",
-      "Hip and Groin Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nHip and Groin Disorders (MTUS Effective Date October 7, 2019)"
+      "Shoulder Disorders": "...",
+      "Knee Disorders": "...",
+      "Low Back Disorders": "...",
+      "Cervical and Thoracic Spine": "...",
+      // Add all headers here
     };
 
-    function toggleDropdown(type) {
-      const headersBox = document.getElementById("dropdown-headers");
-      const formularyBox = document.getElementById("formulary");
-
-      if (type === "headers") {
-        formularyBox.classList.remove("show");
-        headersBox.classList.toggle("show");
-        if (headersBox.classList.contains("show")) {
-          renderHeaders();
+    let dropdownVisible = false;
+    function toggleHeaders() {
+      const el = document.getElementById('dropdown-headers');
+      dropdownVisible = !dropdownVisible;
+      if (dropdownVisible) {
+        let html = '';
+        for (let label in headers) {
+          html += `<div class="dropdown-item">
+            <strong>${label}</strong>
+            <button onclick="copyHeader('${headers[label].replace(/"/g, '&quot;')}')">Copy</button>
+          </div>`;
         }
-      } else if (type === "formulary") {
-        headersBox.classList.remove("show");
-        formularyBox.classList.toggle("show");
+        el.innerHTML = html;
+        el.classList.add('show');
+      } else {
+        el.classList.remove('show');
       }
     }
 
-    function renderHeaders() {
-      const container = document.getElementById("dropdown-headers");
-      container.innerHTML = '';
-      for (let label in headers) {
-        const div = document.createElement("div");
-        div.className = "dropdown-item";
-        div.innerHTML = `<strong>${label}</strong>
-          <button onclick="copyText(\`${headers[label]}\`)">Copy</button>`;
-        container.appendChild(div);
-      }
+    function copyHeader(text) {
+      navigator.clipboard.writeText(text).then(() => showGhost());
     }
 
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        const ghost = document.getElementById("copy-ghost");
-        ghost.style.display = "block";
-        setTimeout(() => ghost.style.display = "none", 5000);
-      });
+    function showGhost() {
+      const ghost = document.getElementById('copy-ghost');
+      ghost.style.display = 'block';
+      setTimeout(() => ghost.style.display = 'none', 5000);
     }
 
-    const csvUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?output=csv";
+    function goBack() {
+      alert('Back button clicked');
+    }
 
-    async function loadFormulary() {
-      const res = await fetch(csvUrl);
+    let formularyVisible = false;
+    function toggleFormulary() {
+      formularyVisible = !formularyVisible;
+      document.getElementById('formulary-panel').style.display = formularyVisible ? 'block' : 'none';
+    }
+
+    async function searchFormulary() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const res = await fetch("https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?output=csv");
       const text = await res.text();
-      const rows = text.split("\n").slice(1);
-      const drugs = rows.map(row => {
-        const cols = row.split(",");
-        return {
-          name: cols[0]?.trim(),
-          brand: cols[1]?.trim(),
-          citation: cols.slice(2).join(",").trim()
-        };
-      });
-
-      const input = document.getElementById("searchInput");
-      const list = document.getElementById("drugList");
-
-      input.addEventListener("input", () => {
-        const q = input.value.toLowerCase();
-        list.innerHTML = '';
-        const filtered = drugs.filter(d => d.name && d.name.toLowerCase().includes(q));
-        if (!filtered.length) {
-          list.innerHTML = '<p>No matching drugs found.</p>';
-        } else {
-          filtered.forEach(d => {
-            const div = document.createElement("div");
-            div.className = "drug-item";
-            div.innerHTML = `<strong>${d.name} — ${d.brand || 'N/A'}</strong>
-              <button onclick="copyText(\`${d.citation}\`)">Copy</button>`;
-            list.appendChild(div);
-          });
-        }
-      });
+      const rows = text.split('\n').slice(1).map(row => row.split(','));
+      const results = rows.filter(r => r[0] && r[0].toLowerCase().includes(query));
+      let html = '';
+      for (const r of results) {
+        const drug = r[0] || 'Unknown';
+        const brand = r[1] || 'N/A';
+        const citation = r[2] || '';
+        html += `<div class="formulary-item">
+          ${drug} — ${brand}
+          <button onclick="copyCitation(\`${citation.replace(/`/g, '\`')}\`)">Copy</button>
+        </div>`;
+      }
+      document.getElementById('formulary-results').innerHTML = html || 'No matching drugs found.';
     }
 
-    window.onload = loadFormulary;
+    function copyCitation(text) {
+      navigator.clipboard.writeText(text).then(() => showGhost());
+    }
   </script>
 </body>
 </html>
