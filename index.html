@@ -5,54 +5,236 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Medical Utility Tool</title>
   <style>
-    /* [existing styles retained from your last working copy] */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: white;
+    }
+    .toolbar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #0b2349;
+      padding: 10px;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .toolbar button {
+      background: #144a91cc; /* semi-transparent dark blue */
+      border: none;
+      padding: 10px 15px;
+      margin: 0 5px;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      user-select: none;
+    }
+    .toolbar button:hover {
+      background: #1f5db3ee;
+    }
+
+    .page-content {
+      padding: 20px;
+      position: relative;
+      min-height: 80vh;
+      background: white;
+      color: black;
+      border-radius: 8px;
+      max-width: 900px;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .hint-strip {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #0b2349cc; /* semi-transparent dark blue */
+      color: #ffe066;
+      padding: 10px;
+      text-align: center;
+      font-style: italic;
+      font-size: 14px;
+      z-index: 999;
+      user-select: none;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.5);
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      right: 20px;
+      background: rgba(11, 35, 73, 0.85); /* see-through dark blue */
+      border: 1px solid #144a91cc;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      max-height: 300px;
+      overflow-y: auto;
+      padding: 10px;
+      z-index: 9999;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .dropdown.show {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .dropdown-item {
+      background: rgba(20, 74, 145, 0.6);
+      border: 1px solid #2c77d3aa;
+      padding: 10px;
+      border-radius: 8px;
+      width: calc(50% - 15px);
+      position: relative;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .dropdown-item button {
+      background: #1f5db3ee;
+      border: none;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      font-weight: normal;
+      transition: background 0.3s;
+    }
+    .dropdown-item button:hover {
+      background: #3b82f6;
+    }
+
+    /* Formulary full page overlay */
+    #formulary-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(11, 35, 73, 0.95);
+      color: white;
+      z-index: 11000;
+      padding: 20px;
+      overflow-y: auto;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+    }
+    #formulary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    #formulary-header h2 {
+      margin: 0;
+    }
+    #formulary-close {
+      background: #1f5db3ee;
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #formulary-close:hover {
+      background: #3b82f6;
+    }
+    #search-container {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    #search-input {
+      flex-grow: 1;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+    #search-button {
+      padding: 8px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      border: none;
+      background: #1f5db3ee;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #search-button:hover {
+      background: #3b82f6;
+    }
+    #formulary-results {
+      max-height: 70vh;
+      overflow-y: auto;
+      border: 1px solid #2c77d3aa;
+      border-radius: 8px;
+      background: rgba(20,74,145,0.2);
+      padding: 10px;
+      user-select: none;
+    }
+    .formulary-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 10px;
+      border-bottom: 1px solid #2c77d3aa;
+      font-weight: bold;
+    }
+    .formulary-entry:last-child {
+      border-bottom: none;
+    }
+    .formulary-entry button {
+      background: #1f5db3ee;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 5px;
+      color: white;
+      font-weight: normal;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .formulary-entry button:hover {
+      background: #3b82f6;
+    }
+
+    .copy-ghost {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 12000;
+      display: none;
+      animation: glow-fade 5s ease-in-out;
+      pointer-events: none;
+      user-select: none;
+      width: 360px;
+      filter: drop-shadow(0 0 20px #58a6ff);
+    }
+    @keyframes glow-fade {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
   </style>
 </head>
-<body>
-  <!-- [existing HTML structure retained from your last working copy] -->
-
-<script>
-  // [existing script content retained and updated]
-
-  function searchFormulary() {
-    const term = searchInput.value.trim().toLowerCase();
-    if (!term) {
-      resultsContainer.textContent = 'Please enter a search term.';
-      return;
-    }
-    const filtered = formularyData.filter(item => 
-      item['Drug Ingredient'] && 
-      item['Reference Brand Name'] && 
-      item['Drug Ingredient'].toLowerCase().includes(term)
-    );
-    if (filtered.length === 0) {
-      resultsContainer.textContent = 'No matching drugs found.';
-      return;
-    }
-    const html = filtered.map(item => {
-      const drug = item['Drug Ingredient'];
-      const brand = item['Reference Brand Name'];
-      const citation = item['General citation (All body parts)'] || '';
-      const displayName = `${drug} — ${brand}`;
-      const safeText = citation.replace(/"/g, '&quot;').replace(/`/g, '\`');
-      return `<div class="formulary-entry">
-        <span>${displayName}</span>
-        <button onclick="copyCitation(\`${safeText}\`)" aria-label="Copy citation for ${displayName}">Copy</button>
-      </div>`;
-    }).join('');
-    resultsContainer.innerHTML = html;
-  }
-
-  function copyCitation(text) {
-    const clipboardText = text.replace(/\\n/g, '\n');
-    navigator.clipboard.writeText(clipboardText).then(() => {
-      const ghost = document.getElementById('copy-ghost');
-      ghost.style.display = 'block';
-      setTimeout(() => ghost.style.display = 'none', 5000);
-    }).catch(() => alert('Copy failed'));
-  }
-
-  // [rest of the script remains unchanged]
-</script>
-</body>
-</html>
+<!-- BODY REMAINS UNCHANGED -->
