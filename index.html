@@ -236,41 +236,34 @@
       100% { opacity: 0; }
     }
 
-    /* Wizard + chat bubble centered on screen */
+    /* Wizard and chat bubble container and style */
     #wizard-container {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 15px;
-      z-index: 12000;
-      background: rgba(11,35,73,0.9);
-      padding: 20px 25px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.7);
-      user-select: none;
+      margin: 30px auto;
       max-width: 600px;
-      width: 90vw;
+      padding: 10px;
     }
+
     #wizard-img {
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
       user-select: none;
-      pointer-events: none;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
+
     #chat-bubble {
       background: #1f5db3ee;
       color: white;
-      padding: 12px 18px;
-      border-radius: 15px;
-      font-weight: bold;
+      padding: 15px 20px;
+      border-radius: 20px;
       max-width: 400px;
+      font-size: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
       user-select: none;
-      box-shadow: 0 0 12px rgba(0,0,0,0.6);
     }
   </style>
 </head>
@@ -308,8 +301,8 @@
     <div id="formulary-results">Enter a search term and click Search.</div>
   </div>
 
-  <!-- Wizard and Chat Bubble centered -->
-  <div id="wizard-container" aria-live="polite" aria-atomic="true" role="region">
+  <!-- Wizard and chat bubble -->
+  <div id="wizard-container">
     <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
     <div id="chat-bubble">Loading...</div>
   </div>
@@ -427,107 +420,110 @@
   // Load local JSON file once
   async function fetchFormularyData() {
     try {
-      const response = await fetch('2025 ds ur cheat sheet formulary.json');
-      if (!response.ok) throw new Error('Failed to fetch formulary data');
-      formularyData = await response.json();
-    } catch (err) {
+      const res = await fetch('2025CAformulary.json');
+      if (!res.ok) throw new Error('Failed to load formulary JSON');
+      formularyData = await res.json();
+    } catch (e) {
       resultsContainer.textContent = 'Failed to load formulary data.';
+      console.error(e);
     }
   }
   fetchFormularyData();
 
   function toggleFormulary() {
     formularyVisible = !formularyVisible;
+    formularyOverlay.style.display = formularyVisible ? 'block' : 'none';
     if (formularyVisible) {
-      formularyOverlay.style.display = 'block';
-      resultsContainer.textContent = 'Enter a search term and click Search.';
       searchInput.value = '';
+      resultsContainer.innerHTML = 'Enter a search term and click Search.';
       searchInput.focus();
       if (headersVisible) {
         headersDropdown.classList.remove('show');
         headersVisible = false;
       }
-    } else {
-      formularyOverlay.style.display = 'none';
     }
   }
 
-  // Search logic
-  function searchFormulary() {
-    const query = searchInput.value.trim().toLowerCase();
-    if (!query) {
+  searchButton.addEventListener('click', () => {
+    const term = searchInput.value.trim().toLowerCase();
+    if (!term) {
       resultsContainer.textContent = 'Please enter a search term.';
       return;
     }
-    const matches = formularyData.filter(entry => {
-      return entry.generic_name.toLowerCase().includes(query) || 
-             entry.therapeutic_category.toLowerCase().includes(query);
+    const filtered = formularyData.filter(item => {
+      return (item['Therapeutic Category'] && item['Therapeutic Category'].toLowerCase().includes(term)) ||
+             (item['Generic Name'] && item['Generic Name'].toLowerCase().includes(term));
     });
-    if (matches.length === 0) {
-      resultsContainer.textContent = 'No results found.';
+    if (filtered.length === 0) {
+      resultsContainer.textContent = 'No matches found.';
       return;
     }
-    resultsContainer.innerHTML = '';
-    matches.forEach(entry => {
-      const div = document.createElement('div');
-      div.className = 'formulary-entry';
-      div.innerHTML = `
-        <span><strong>${entry.generic_name}</strong> — ${entry.therapeutic_category}</span>
-        <button aria-label="Copy details for ${entry.generic_name}" data-entry='${JSON.stringify(entry)}'>Copy</button>
-      `;
-      resultsContainer.appendChild(div);
+    // Build results HTML
+    let html = '';
+    filtered.forEach(item => {
+      html += `<div class="formulary-entry">
+        <div>${item['Generic Name']} - ${item['Therapeutic Category']}</div>
+        <button onclick='copyFormularyText(${JSON.stringify(item).replace(/'/g, "&apos;")})'>Copy</button>
+      </div>`;
     });
+    resultsContainer.innerHTML = html;
+  });
+
+  // Copy formatted text from formulary entry
+  function copyFormularyText(item) {
+    // Build text to copy with template and phases
+    let textToCopy = `Therapeutic Category: ${item['Therapeutic Category']}\nGeneric Name: ${item['Generic Name']}\n\n`;
+    if (item['Phase A'] && item['Phase A'].toLowerCase() === 'x') textToCopy += `Phase A: ${item['Phase A Text'] || ''}\n\n`;
+    if (item['Phase B'] && item['Phase B'].toLowerCase() === 'x') textToCopy += `Phase B: ${item['Phase B Text'] || ''}\n\n`;
+    if (item['Perioperative'] && item['Perioperative'].toLowerCase() === 'x') textToCopy += `Perioperative: ${item['Perioperative Text'] || ''}\n\n`;
+    if (item['Special Considerations'] && item['Special Considerations'].toLowerCase() === 'x') textToCopy += `Special Considerations: ${item['Special Considerations Text'] || ''}\n\n`;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      const ghost = document.getElementById('copy-ghost');
+      ghost.style.display = 'block';
+      setTimeout(() => ghost.style.display = 'none', 5000);
+    }).catch(() => alert('Copy failed'));
   }
 
-  // Copy formulary entry with formatting
-  resultsContainer.addEventListener('click', e => {
-    if (e.target.tagName === 'BUTTON') {
-      const entry = JSON.parse(e.target.getAttribute('data-entry'));
-      let textToCopy = `Therapeutic Category: ${entry.therapeutic_category}\nGeneric Name: ${entry.generic_name}\n\n`;
+  // === Wizard + Updates chat bubble ===
+  const chatBubble = document.getElementById('chat-bubble');
+  const updatesURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5XiMQ0sng07xIfp_peFYZd0R01FwcvrbGK4PHI2NIIVwoelHOntcX2HiuSjRFDW_yU6_Ldaf1Il9L/pub?gid=0&single=true&output=csv';
 
-      // Append phase texts and special considerations in order if flagged (assuming x marks)
-      const specialConsiderations = ['special_consideration_1', 'special_consideration_2', 'special_consideration_3', 'special_consideration_4'];
-      const phases = ['phase_a', 'phase_b', 'perioperative'];
-
-      phases.forEach(phase => {
-        if (entry[phase] && entry[phase].toLowerCase() === 'x') {
-          textToCopy += entry[phase + '_text'] ? entry[phase + '_text'] + '\n\n' : '';
-        }
-      });
-
-      specialConsiderations.forEach(sc => {
-        if (entry[sc] && entry[sc].toLowerCase() === 'x') {
-          textToCopy += entry[sc + '_text'] ? entry[sc + '_text'] + '\n\n' : '';
-        }
-      });
-
-      navigator.clipboard.writeText(textToCopy.trim()).then(() => {
-        const ghost = document.getElementById('copy-ghost');
-        ghost.style.display = 'block';
-        setTimeout(() => ghost.style.display = 'none', 5000);
-      }).catch(() => alert('Copy failed'));
+  async function fetchUpdates() {
+    try {
+      const res = await fetch(updatesURL);
+      if (!res.ok) throw new Error('Network response not ok');
+      const text = await res.text();
+      const rows = text.trim().split('\n').map(r => r.split(','));
+      const header = rows[0].map(h => h.trim().toLowerCase());
+      const updatesIndex = header.indexOf('updates');
+      if (updatesIndex === -1) {
+        chatBubble.textContent = "No 'Updates' column found.";
+        return;
+      }
+      // Collect all updates in the column "Updates"
+      let messages = [];
+      for(let i=1; i<rows.length; i++) {
+        const val = rows[i][updatesIndex];
+        if(val && val.trim()) messages.push(val.trim());
+      }
+      if(messages.length === 0) {
+        chatBubble.textContent = "No updates found.";
+        return;
+      }
+      let i = 0;
+      chatBubble.textContent = messages[i];
+      setInterval(() => {
+        i = (i + 1) % messages.length;
+        chatBubble.textContent = messages[i];
+      }, 30000); // every 30 seconds
+    } catch (e) {
+      chatBubble.textContent = "Failed to load updates.";
+      console.error(e);
     }
-  });
+  }
 
-  searchButton.addEventListener('click', searchFormulary);
-  searchInput.addEventListener('keypress', e => {
-    if (e.key === 'Enter') searchFormulary();
-  });
-
-  // === Wizard bubble text update simulation ===
-  const wizardBubble = document.getElementById('chat-bubble');
-  const wizardMessages = [
-    "Hello! How can I assist you today?",
-    "You can search drug formularies or copy guideline citations.",
-    "Click Headers to see guideline citations you can copy.",
-    "Try the CA Formulary to find drug phase info.",
-    "I hope you find this tool helpful!"
-  ];
-  let wizardMsgIndex = 0;
-  setInterval(() => {
-    wizardBubble.textContent = wizardMessages[wizardMsgIndex];
-    wizardMsgIndex = (wizardMsgIndex + 1) % wizardMessages.length;
-  }, 8000);
+  fetchUpdates();
 
 </script>
 </body>
