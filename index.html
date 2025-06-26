@@ -5,57 +5,341 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Medical Utility Tool</title>
   <style>
-    /* CSS unchanged */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: white;
+    }
+    .toolbar {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #0b2349;
+      padding: 10px;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .toolbar button {
+      background: #144a91cc;
+      border: none;
+      padding: 10px 15px;
+      margin: 0 5px;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      user-select: none;
+    }
+    .toolbar button:hover {
+      background: #1f5db3ee;
+    }
+    .page-content {
+      padding: 20px;
+      position: relative;
+      min-height: 80vh;
+      background: white;
+      color: black;
+      border-radius: 8px;
+      max-width: 900px;
+      margin: 20px auto;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    .hint-strip {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #0b2349cc;
+      color: #ffe066;
+      padding: 10px;
+      text-align: center;
+      font-style: italic;
+      font-size: 14px;
+      z-index: 999;
+      user-select: none;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.5);
+    }
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      right: 20px;
+      background: rgba(11, 35, 73, 0.85);
+      border: 1px solid #144a91cc;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      max-height: 300px;
+      overflow-y: auto;
+      padding: 10px;
+      z-index: 9999;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: white;
+      font-size: 14px;
+    }
+    .dropdown.show {
+      display: flex;
+    }
+    .dropdown-item {
+      background: rgba(20, 74, 145, 0.6);
+      border: 1px solid #2c77d3aa;
+      padding: 10px;
+      border-radius: 8px;
+      width: calc(50% - 15px);
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .dropdown-item button {
+      background: #1f5db3ee;
+      border: none;
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      font-weight: normal;
+    }
+    .dropdown-item button:hover {
+      background: #3b82f6;
+    }
+    #formulary-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(11, 35, 73, 0.95);
+      color: white;
+      z-index: 11000;
+      padding: 20px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+    #formulary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    #formulary-header h2 { margin: 0; }
+    #formulary-close {
+      background: #1f5db3ee;
+      border: none;
+      color: white;
+      padding: 8px 14px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #formulary-close:hover {
+      background: #3b82f6;
+    }
+    #search-container {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    #search-input {
+      flex-grow: 1;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+    }
+    #search-button {
+      padding: 8px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      border: none;
+      background: #1f5db3ee;
+      color: white;
+      cursor: pointer;
+    }
+    #search-button:hover {
+      background: #3b82f6;
+    }
+    #formulary-results {
+      max-height: 70vh;
+      overflow-y: auto;
+      border: 1px solid #2c77d3aa;
+      border-radius: 8px;
+      background: rgba(20,74,145,0.2);
+      padding: 10px;
+    }
+    .formulary-entry {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 10px;
+      border-bottom: 1px solid #2c77d3aa;
+      font-weight: bold;
+    }
+    .formulary-entry:last-child { border-bottom: none; }
+    .formulary-entry button {
+      background: #1f5db3ee;
+      border: none;
+      padding: 5px 12px;
+      border-radius: 5px;
+      color: white;
+      font-weight: normal;
+      cursor: pointer;
+    }
+    .formulary-entry button:hover {
+      background: #3b82f6;
+    }
+    .copy-ghost {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 12000;
+      display: none;
+      animation: glow-fade 5s ease-in-out;
+      pointer-events: none;
+      width: 120px;
+      filter: drop-shadow(0 0 20px #58a6ff);
+    }
+    @keyframes glow-fade {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
-  <!-- Unchanged UI HTML above -->
-  <div id="formulary-results">Enter a search term and click Search.</div>
-  
-  <script>
-    // unchanged code up to searchFormulary()
+  <div class="toolbar">
+    <button onclick="goBack()">← Back</button>
+    <button id="headers-btn" onclick="toggleHeaders()">Headers</button>
+    <button id="formulary-btn" onclick="toggleFormulary()">CA Formulary</button>
+    <button onclick="navigate('jurisdiction')">Jurisdiction</button>
+    <button onclick="navigate('updates')">Guideline Updates</button>
+    <button onclick="navigate('jargons')">Jargons</button>
+  </div>
 
-    function searchFormulary() {
-      const term = searchInput.value.trim().toLowerCase();
-      if (!term) {
-        resultsContainer.textContent = 'Please enter a search term.';
-        return;
-      }
-      const filtered = formularyData.filter(item => 
-        item['Drug Ingredient'] && 
-        item['Reference Brand Name'] && 
-        item['Drug Ingredient'].toLowerCase().includes(term)
-      );
-      if (filtered.length === 0) {
-        resultsContainer.textContent = 'No matching drugs found.';
-        return;
-      }
-      // Show search results
-      const html = filtered.map((item, idx) => {
-        const drug = item['Drug Ingredient'];
-        const brand = item['Reference Brand Name'];
-        const citation = item['General citation (All body parts)'] || '';
-        const id = `citation-${idx}`;
-        return `
-          <div class="formulary-entry">
-            <span>${drug} — ${brand}</span>
-            <button onclick="copyCitationById('${id}')">Copy</button>
-            <pre id="${id}" style="display:none">${citation}</pre>
-          </div>`;
-      }).join('');
-      resultsContainer.innerHTML = html;
+  <div class="page-content" id="main-content">
+    <h1>Welcome to the Medical Utility Tool</h1>
+    <p>Select a tool from the toolbar above.</p>
+    <div id="dropdown-headers" class="dropdown"></div>
+  </div>
+
+  <div class="hint-strip" id="hint-strip">Loading hints...</div>
+  <img id="copy-ghost" class="copy-ghost" src="https://i.postimg.cc/d0jsn69H/Ghost.png" alt="Copied!" />
+
+  <div id="formulary-overlay" aria-hidden="true">
+    <div id="formulary-header">
+      <h2>CA Drug Formulary Search</h2>
+      <button id="formulary-close" onclick="toggleFormulary()">Close</button>
+    </div>
+    <div id="search-container">
+      <input id="search-input" type="search" placeholder="Search drug ingredient..." />
+      <button id="search-button">Search</button>
+    </div>
+    <div id="formulary-results">Enter a search term and click Search.</div>
+  </div>
+
+<script>
+  const formularyBtn = document.getElementById('formulary-btn');
+  const formularyOverlay = document.getElementById('formulary-overlay');
+  const searchInput = document.getElementById('search-input');
+  const searchButton = document.getElementById('search-button');
+  const resultsContainer = document.getElementById('formulary-results');
+  let formularyVisible = false;
+  let formularyData = [];
+
+  function toggleFormulary() {
+    formularyVisible = !formularyVisible;
+    formularyOverlay.style.display = formularyVisible ? 'block' : 'none';
+    formularyBtn.style.background = formularyVisible ? '#3b82f6' : 'rgba(20, 74, 145, 0.8)';
+    if (formularyVisible) {
+      searchInput.value = '';
+      resultsContainer.textContent = 'Enter a search term and click Search.';
+      searchInput.focus();
+      if (formularyData.length === 0) fetchFormularyData();
     }
+  }
 
-    function copyCitationById(id) {
-      const text = document.getElementById(id)?.textContent || '';
-      navigator.clipboard.writeText(text).then(() => {
-        const ghost = document.getElementById('copy-ghost');
-        ghost.style.display = 'block';
-        setTimeout(() => ghost.style.display = 'none', 5000);
-      }).catch(() => alert('Copy failed'));
+  async function fetchFormularyData() {
+    try {
+      const res = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQjeLiC5oKL6wkw7fqz00Gg7qFG22vJabTjVLO4u4sN_zBIrLAbhvxhfBoYnMF2P935KgsnRBDdmqRl/pub?output=csv');
+      const csvText = await res.text();
+      formularyData = parseCSV(csvText);
+    } catch (e) {
+      resultsContainer.textContent = 'Error loading formulary data.';
     }
+  }
 
-    // Event listeners (unchanged)
-  </script>
+  function parseCSV(str) {
+    const lines = str.trim().split('\n');
+    const headers = lines[0].split(/,|\t/).map(h => h.trim());
+    return lines.slice(1).map(line => {
+      const values = line.split(/,|\t/);
+      return headers.reduce((obj, key, i) => {
+        obj[key] = values[i] ? values[i].trim() : '';
+        return obj;
+      }, {});
+    });
+  }
+
+  function searchFormulary() {
+    const term = searchInput.value.trim().toLowerCase();
+    if (!term) {
+      resultsContainer.textContent = 'Please enter a search term.';
+      return;
+    }
+    const filtered = formularyData.filter(item =>
+      item['Drug Ingredient'] &&
+      item['Reference Brand Name'] &&
+      item['Drug Ingredient'].toLowerCase().includes(term)
+    );
+    if (filtered.length === 0) {
+      resultsContainer.textContent = 'No matching drugs found.';
+      return;
+    }
+    const html = filtered.map(item => {
+      const citation = (item['General citation (All body parts)'] || '')
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\n/g, '&#10;');
+      return `<div class="formulary-entry">
+        <span>${item['Drug Ingredient']} — ${item['Reference Brand Name']}</span>
+        <button onclick="copyCitation(this)" data-cite="${citation}">Copy</button>
+      </div>`;
+    }).join('');
+    resultsContainer.innerHTML = html;
+  }
+
+  function copyCitation(button) {
+    const encoded = button.getAttribute('data-cite');
+    const text = encoded
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&amp;/g, '&')
+      .replace(/&#10;/g, '\n');
+    navigator.clipboard.writeText(text).then(() => {
+      const ghost = document.getElementById('copy-ghost');
+      ghost.style.display = 'block';
+      setTimeout(() => ghost.style.display = 'none', 5000);
+    });
+  }
+
+  searchButton.addEventListener('click', searchFormulary);
+  searchInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      searchFormulary();
+    }
+  });
+</script>
 </body>
 </html>
