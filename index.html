@@ -192,8 +192,6 @@
       background: rgba(20,74,145,0.2);
       padding: 10px;
       user-select: none;
-      white-space: pre-wrap;
-      font-family: monospace, monospace;
     }
     .formulary-entry {
       display: flex;
@@ -274,6 +272,7 @@
   </div>
 
 <script>
+  // === Headers Data ===
   const headers = {
     "Shoulder Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nShoulder Disorders (MTUS Effective Date August 10, 2023)",
     "Knee Disorders": "California Medical Treatment Utilization Schedule (MTUS)/ACOEM Practice Guidelines\nKnee Disorders (MTUS Effective Date September 21, 2020)",
@@ -298,6 +297,7 @@
     "Depressive Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nDepressive Disorders (MTUS Effective Date: September 21, 2020)"
   };
 
+  // === Hints ===
   const hints = [
     "Always refer to MTUS before approving UR decisions.",
     "Jargon: 'UR' = Utilization Review.",
@@ -313,6 +313,7 @@
     hintIndex = (hintIndex + 1) % hints.length;
   }, 7000);
 
+  // === Headers dropdown ===
   const headersBtn = document.getElementById('headers-btn');
   const headersDropdown = document.getElementById('dropdown-headers');
   let headersVisible = false;
@@ -323,19 +324,22 @@
       headersVisible = false;
       return;
     }
+    // Build headers dropdown items
     let html = '';
     for (const label in headers) {
       html += `<div class="dropdown-item">
         <span>${label}</span>
-        <button aria-label="Copy citation for ${label}" onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;')}">${label}</button>
+        <button aria-label="Copy citation for ${label}" onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;')}">Copy</button>
       </div>`;
     }
     headersDropdown.innerHTML = html;
     headersDropdown.classList.add('show');
     headersVisible = true;
+    // If formulary overlay is open, close it
     if (formularyVisible) toggleFormulary();
   }
 
+  // Close headers if click outside
   document.addEventListener('click', (e) => {
     if (!headersDropdown.contains(e.target) && e.target !== headersBtn) {
       if (headersVisible) {
@@ -345,9 +349,9 @@
     }
   });
 
+  // Copy text with ghost effect
   function copyText(button) {
     const text = button.getAttribute('data-text');
-    // Use Clipboard API with multiline support
     navigator.clipboard.writeText(text).then(() => {
       const ghost = document.getElementById('copy-ghost');
       ghost.style.display = 'block';
@@ -355,6 +359,7 @@
     }).catch(() => alert('Copy failed'));
   }
 
+  // === Navigation stub ===
   function goBack() {
     alert('Going back to main home page...');
   }
@@ -367,6 +372,7 @@
     if (formularyVisible) toggleFormulary();
   }
 
+  // === Formulary Search Overlay ===
   const formularyOverlay = document.getElementById('formulary-overlay');
   const formularyBtn = document.getElementById('formulary-btn');
   const searchInput = document.getElementById('search-input');
@@ -386,6 +392,7 @@
     }
   }
 
+  // Simple CSV parser
   function parseCSV(str) {
     const lines = str.trim().split('\n');
     const headers = lines[0].split(/\t|,/).map(h => h.trim());
@@ -414,6 +421,7 @@
       resultsContainer.textContent = 'Enter a search term and click Search.';
       searchInput.value = '';
       searchInput.focus();
+      // If headers dropdown open, close it
       if (headersVisible) toggleHeaders();
       if (formularyData.length === 0) {
         fetchFormularyData();
@@ -429,16 +437,16 @@
     }
     const filtered = formularyData.filter(item => 
       item['Drug Ingredient'] && 
-      item['Reference Brand Name'] && 
       item['Drug Ingredient'].toLowerCase().includes(term)
     );
     if (filtered.length === 0) {
       resultsContainer.textContent = 'No matching drugs found.';
       return;
     }
+    // Build results list - show only Drug Ingredient — Reference Brand Name + copy button
     const html = filtered.map(item => {
       const drug = item['Drug Ingredient'];
-      const brand = item['Reference Brand Name'];
+      const brand = item['Reference Brand Name'] || '';
       const citation = item['General citation (All body parts)'] || '';
       const safeCitation = citation.replace(/"/g, '&quot;').replace(/\n/g, '\\n');
       return `<div class="formulary-entry">
@@ -458,6 +466,7 @@
     }).catch(() => alert('Copy failed'));
   }
 
+  // Event listeners
   searchButton.addEventListener('click', searchFormulary);
   searchInput.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
