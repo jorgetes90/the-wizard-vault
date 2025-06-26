@@ -519,15 +519,38 @@ function copyText(button) {
     resultsContainer.innerHTML = html;
   });
 
-  function copyFormularyText(item) {
-  // Copy the 'General citation (All body parts)' field directly
-  let textToCopy = item['General citation (All body parts)'] || '';
+function copyFormularyText(item) {
+  const textToCopy = item['General citation (All body parts)'] || '';
 
-  navigator.clipboard.writeText(textToCopy).then(() => {
-    const ghost = document.getElementById('copy-ghost');
-    ghost.style.display = 'block';
-    setTimeout(() => ghost.style.display = 'none', 5000);
-  }).catch(() => alert('Copy failed'));
+  const textarea = document.createElement('textarea');
+  textarea.value = textToCopy;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'absolute';
+  textarea.style.left = '-9999px';
+  document.body.appendChild(textarea);
+
+  const selection = document.getSelection();
+  const selectedRange = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
+
+  textarea.select();
+  try {
+    const successful = document.execCommand('copy');
+    if (successful) {
+      const ghost = document.getElementById('copy-ghost');
+      ghost.style.display = 'block';
+      setTimeout(() => ghost.style.display = 'none', 5000);
+    } else {
+      alert('Copy failed');
+    }
+  } catch (err) {
+    alert('Copy failed');
+  }
+
+  document.body.removeChild(textarea);
+  if (selectedRange) {
+    selection.removeAllRanges();
+    selection.addRange(selectedRange);
+  }
 }
 
 
