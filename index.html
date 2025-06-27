@@ -270,14 +270,15 @@
   user-select: none;
 }
 
-#chat-bubble {
-  color: white;
-  font-size: 15px;
-  line-height: 1.3;
-  white-space: normal;
+#bubble-body {
+  white-space: pre-line;       /* preserve line breaks */
+  overflow-wrap: break-word;
   word-break: break-word;
-  overflow-wrap: anywhere;
-  flex: 1;
+  max-height: 200px;           /* limit height */
+  overflow-y: auto;            /* vertical scrollbar if content too big */
+  padding-right: 8px;          /* prevent scrollbar overlap */
+  line-height: 1.3;
+  font-size: 15px;
 }
 
 
