@@ -282,9 +282,6 @@
 
 
   </style>
-
-  <!-- PapaParse CSV parser CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 </head>
 <body>
   <div class="toolbar">
@@ -430,162 +427,155 @@ function copyText(button) {
       ghost.style.display = 'block';
       setTimeout(() => ghost.style.display = 'none', 5000);
     } else {
-      alert('Copy failed, please copy manually.');
+      alert('Copy failed');
     }
   } catch (err) {
-    alert('Copy failed, please copy manually.');
+    alert('Copy failed');
   }
 
   document.body.removeChild(textarea);
-
   if (selectedRange) {
     selection.removeAllRanges();
     selection.addRange(selectedRange);
   }
 }
 
-// === CA Formulary ===
-const formularyBtn = document.getElementById('formulary-btn');
-const formularyOverlay = document.getElementById('formulary-overlay');
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
-const formularyResults = document.getElementById('formulary-results');
-let formularyVisible = false;
-
-function toggleFormulary() {
-  if (formularyVisible) {
-    formularyOverlay.style.display = 'none';
-    formularyVisible = false;
-  } else {
-    formularyOverlay.style.display = 'block';
-    formularyVisible = true;
-    searchInput.focus();
+  // === Navigation stub ===
+  function goBack() {
+    alert('Going back to main home page...');
   }
-}
-
-// Load the Formulary JSON once when first needed
-let formularyData = null;
-async function loadFormulary() {
-  if (formularyData) return formularyData;
-  try {
-    const response = await fetch('2025 ds ur cheat sheet formulary.json');
-    if (!response.ok) throw new Error('Failed to load formulary JSON');
-    const data = await response.json();
-    formularyData = data;
-    return data;
-  } catch (e) {
-    formularyResults.textContent = 'Error loading formulary data.';
-    return null;
-  }
-}
-
-function formatCopyText(entry) {
-  // Build the text block according to user's rules (phase A, B, perioperative, special considerations)
-  let copyText = entry.TemplateText || '';
-  // Insert Therapeutic Category and Generic Name
-  copyText = copyText.replace(/Therapeutic Category:/, `Therapeutic Category: ${entry.TherapeuticCategory || ''}`);
-  copyText = copyText.replace(/Generic Name:/, `Generic Name: ${entry.GenericName || ''} \n\nApplication of the Formulary\n` + (entry.ApplicationText || '') + '\n\n');
-
-  // Append phases and special considerations text
-  const phaseOrder = ['PhaseA', 'PhaseB', 'Perioperative'];
-  phaseOrder.forEach(phase => {
-    if (entry[phase] && entry[phase].toLowerCase() === 'x') {
-      const phaseText = entry[phase + 'Text'] || '';
-      copyText += `\n${phase}:\n${phaseText}\n`;
+  function navigate(section) {
+    document.getElementById('main-content').innerHTML = `<h2>Loading ${section}...</h2>`;
+    if (headersVisible) {
+      headersDropdown.classList.remove('show');
+      headersVisible = false;
     }
+    if (formularyVisible) toggleFormulary();
+  }
+
+  // === Formulary Search Overlay ===
+  const formularyOverlay = document.getElementById('formulary-overlay');
+  const formularyBtn = document.getElementById('formulary-btn');
+  const searchInput = document.getElementById('search-input');
+  const searchButton = document.getElementById('search-button');
+  const resultsContainer = document.getElementById('formulary-results');
+  let formularyVisible = false;
+  let formularyData = [];
+
+  // Load local JSON file once
+  async function fetchFormularyData() {
+    try {
+      const res = await fetch('2025CAformulary.json');
+      if (!res.ok) throw new Error('Failed to load formulary JSON');
+      formularyData = await res.json();
+    } catch (e) {
+      resultsContainer.textContent = 'Failed to load formulary data.';
+      console.error(e);
+    }
+  }
+  fetchFormularyData();
+
+  function toggleFormulary() {
+    if (formularyVisible) {
+      formularyOverlay.style.display = 'none';
+      formularyVisible = false;
+      resultsContainer.innerHTML = 'Enter a search term and click Search.';
+      searchInput.value = '';
+    } else {
+      formularyOverlay.style.display = 'block';
+      formularyVisible = true;
+      if (headersVisible) {
+        headersDropdown.classList.remove('show');
+        headersVisible = false;
+      }
+      searchInput.focus();
+    }
+  }
+
+  searchButton.addEventListener('click', () => {
+    const term = searchInput.value.trim().toLowerCase();
+    if (!term) {
+      resultsContainer.textContent = 'Please enter a search term.';
+      return;
+    }
+    const matches = formularyData.filter(item => {
+      return (
+        (item['Drug Ingredient'] && item['Drug Ingredient'].toLowerCase().includes(term)) ||
+        (item['Reference Brand Name'] && item['Reference Brand Name'].toLowerCase().includes(term))
+      );
+    });
+
+    if (matches.length === 0) {
+      resultsContainer.textContent = 'No results found.';
+      return;
+    }
+
+    // Build result entries with copy buttons
+    let html = '';
+    matches.forEach(item => {
+      // Safe JSON stringify for onclick
+      const safeJson = JSON.stringify(item).replace(/'/g, "&apos;");
+      html += `<div class="formulary-entry">
+        <div>${item['Drug Ingredient'] || 'N/A'} - ${item['Reference Brand Name'] || 'N/A'}</div>
+        <button onclick='copyFormularyText(${safeJson})'>Copy</button>
+      </div>`;
+    });
+    resultsContainer.innerHTML = html;
   });
 
-  // Special Considerations last
-  const specialText = [entry.SpecialConsideration1, entry.SpecialConsideration2, entry.SpecialConsideration3, entry.SpecialConsideration4].filter(Boolean).join('\n');
-  if (specialText) {
-    copyText += `\nSpecial Considerations:\n${specialText}`;
-  }
+function copyFormularyText(item) {
+  const textToCopy = item['General citation (All body parts)'] || '';
 
-  return copyText.trim();
-}
-
-searchButton.addEventListener('click', async () => {
-  const term = searchInput.value.trim().toLowerCase();
-  if (!term) {
-    formularyResults.textContent = 'Please enter a search term.';
-    return;
-  }
-  formularyResults.textContent = 'Searching...';
-  const data = await loadFormulary();
-  if (!data) return;
-  // Filter entries by therapeutic category or generic name match
-  const results = data.filter(entry => {
-    return (entry.TherapeuticCategory && entry.TherapeuticCategory.toLowerCase().includes(term)) ||
-      (entry.GenericName && entry.GenericName.toLowerCase().includes(term));
-  });
-
-  if (results.length === 0) {
-    formularyResults.textContent = 'No matches found.';
-    return;
-  }
-
-  let html = '';
-  for (const entry of results) {
-    const displayText = `${entry.TherapeuticCategory} - ${entry.GenericName}`;
-    html += `<div class="formulary-entry">
-      <span>${displayText}</span>
-      <button aria-label="Copy details for ${displayText}" onclick="copyFormularyEntry(this)">Copy</button>
-    </div>`;
-  }
-  formularyResults.innerHTML = html;
-});
-
-function copyFormularyEntry(button) {
-  const index = [...button.parentElement.parentElement.children].indexOf(button.parentElement);
-  if (!formularyData || index < 0 || index >= formularyData.length) return;
-  const entry = formularyData[index];
-  const text = formatCopyText(entry);
-
+  // Create a hidden textarea and inject the text
   const textarea = document.createElement('textarea');
-  textarea.value = text;
+  textarea.value = textToCopy;
   textarea.setAttribute('readonly', '');
   textarea.style.position = 'absolute';
   textarea.style.left = '-9999px';
   document.body.appendChild(textarea);
 
+  // Select and copy the text
   textarea.select();
   try {
     document.execCommand('copy');
+
+    // Show the ghost
     const ghost = document.getElementById('copy-ghost');
     ghost.style.display = 'block';
     setTimeout(() => ghost.style.display = 'none', 5000);
-  } catch {
-    alert('Copy failed, please copy manually.');
+  } catch (err) {
+    alert('Copy failed');
   }
 
+  // Cleanup
   document.body.removeChild(textarea);
 }
 
-// Navigation function (dummy, implement your navigation)
-function navigate(section) {
-  alert('Navigate to ' + section);
-}
 
-// === Wizard and chat bubble logic ===
-const chatBubble = document.getElementById('bubble-body');
+  // Optional: Press Enter key triggers search
+  searchInput.addEventListener('keypress', e => {
+    if (e.key === 'Enter') {
+      searchButton.click();
+    }
+  });
 
-const updatesURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ64Y-M5q56I2U-dAPcfVYQ0gOw7t_LxYBoA0e5xHJY0Di_LNi6g1NPea8wXoEV3Fk4k4VwZYYRzxBv/pub?gid=0&single=true&output=csv";
+  // === Wizard & Chat Bubble ===
+ const chatBubble = document.getElementById('chat-bubble');
+const updatesURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5XiMQ0sng07xIfp_peFYZd0R01FwcvrbGK4PHI2NIIVwoelHOntcX2HiuSjRFDW_yU6_Ldaf1Il9L/pub?gid=0&single=true&output=csv';
 
 async function fetchUpdates() {
   try {
     const res = await fetch(updatesURL);
     if (!res.ok) throw new Error('Network response not ok');
     const text = await res.text();
-
-    // Use PapaParse to parse CSV text properly
-    const parsed = Papa.parse(text, {
-      header: true,
-      skipEmptyLines: true,
-    });
-
-    const updates = parsed.data
-      .map(row => row['Updates'])
-      .filter(val => val && val.trim().length > 0);
+    const rows = text.trim().split('\n').map(row => row.split(','));
+    const headers = rows[0].map(h => h.trim());
+    const updatesIndex = headers.indexOf('Updates');
+    if (updatesIndex === -1) {
+      chatBubble.textContent = "No 'Updates' column found.";
+      return;
+    }
+    const updates = rows.slice(1).map(row => row[updatesIndex]).filter(val => val && val.trim().length > 0);
 
     if (updates.length === 0) {
       chatBubble.textContent = "No updates available.";
@@ -612,7 +602,7 @@ async function fetchUpdates() {
 
 fetchUpdates();
 
-</script>
 
+</script>
 </body>
 </html>
