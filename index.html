@@ -274,11 +274,12 @@
   color: white;
   font-size: 15px;
   line-height: 1.3;
-  white-space: normal;
+  white-space: pre-line; /* ← this preserves \n line breaks */
   word-break: break-word;
   overflow-wrap: break-word;
   flex: 1;
 }
+
 
   </style>
 </head>
@@ -587,7 +588,7 @@ async function fetchUpdates() {
       setInterval(() => {
         i = (i + 1) % updates.length;
         chatBubble.textContent = updates[i];
-      }, 3000);
+      }, 8000);
     }, 5000);
 
   } catch (err) {
