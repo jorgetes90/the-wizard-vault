@@ -274,11 +274,12 @@
   color: white;
   font-size: 15px;
   line-height: 1.3;
-  white-space: pre-line; /* ← this preserves \n line breaks */
+  white-space: normal;
   word-break: break-word;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
   flex: 1;
 }
+
 
 
   </style>
@@ -322,7 +323,7 @@
 <div id="wizard-container">
   <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
   <div id="chat-bubble">
-    <div id="bubble-header">🚨 <strong>Important!!</strong></div>
+    <div id="bubble-header">🚨 <strong> Updates!! :</strong></div>
     <div id="bubble-body">Loading...</div>
   </div>
 </div>
@@ -582,17 +583,17 @@ async function fetchUpdates() {
       return;
     }
 
-    // Show welcome message first for 5 seconds
-    chatBubble.textContent = "Welcome to the Medical Utility Tool";
-    let i = 0;
+ // Show welcome message first for 5 seconds
+document.getElementById('bubble-body').textContent = "Welcome to the Medical Utility Tool";
+let i = 0;
 
-    setTimeout(() => {
-      chatBubble.textContent = updates[i];
-      setInterval(() => {
-        i = (i + 1) % updates.length;
-        chatBubble.textContent = updates[i];
-      }, 8000);
-    }, 5000);
+setTimeout(() => {
+  document.getElementById('bubble-body').textContent = updates[i];
+  setInterval(() => {
+    i = (i + 1) % updates.length;
+    document.getElementById('bubble-body').textContent = updates[i];
+  }, 8000);
+}, 5000);
 
   } catch (err) {
     chatBubble.textContent = "Failed to load updates.";
