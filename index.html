@@ -414,229 +414,281 @@
     "Traumatic Brain Injury": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nTraumatic Brain Injury (MTUS Effective Date: October 31, 2018)",
     "Workplace Mental Health": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nWorkplace Mental Health (MTUS Effective Date: August 11, 2019)",
     "Posttraumatic Stress Disorder and Acute Stress Disorder": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nPosttraumatic Stress Disorder and Acute Stress Disorder (MTUS Effective Date: April 18, 2019)",
-    "Anxiety Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nAnxiety Disorders (MTUS Effective Date: July 19, 2021)",
-    "Depressive Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nDepressive Disorders (MTUS Effective Date: September 21, 2020)"
+    "Anxiety Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nAnxiety Disorders (MTUS Effective Date: July 19, 2023)",
+    "Depressive Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nDepressive Disorders (MTUS Effective Date: July 19, 2023)"
   };
 
-
-  // Populate dropdown headers menu with Copy buttons
-  const dropdown = document.getElementById('dropdown-headers');
-  function populateDropdown() {
-    dropdown.innerHTML = '';
-    Object.entries(headers).forEach(([title, content]) => {
-      const item = document.createElement('div');
-      item.className = 'dropdown-item';
-      item.setAttribute('role', 'menuitem');
-
-      const span = document.createElement('span');
-      span.textContent = title;
-      span.title = 'Click to copy header content';
-      span.style.cursor = 'pointer';
-      span.onclick = () => {
-        copyToClipboard(content);
-        alert(`Copied header: "${title}"`);
-      };
-
-      const btn = document.createElement('button');
-      btn.textContent = 'Copy';
-      btn.setAttribute('aria-label', `Copy header content for ${title}`);
-      btn.onclick = (e) => {
-        e.stopPropagation();
-        copyToClipboard(content);
-        alert(`Copied header: "${title}"`);
-      };
-
-      item.appendChild(span);
-      item.appendChild(btn);
-      dropdown.appendChild(item);
+  // Build headers dropdown menu items
+  const dropdownHeaders = document.getElementById('dropdown-headers');
+  for (const [header, content] of Object.entries(headers)) {
+    const item = document.createElement('div');
+    item.className = 'dropdown-item';
+    const span = document.createElement('span');
+    span.textContent = header;
+    span.tabIndex = 0;
+    span.setAttribute('role', 'menuitem');
+    // Clicking on header text copies the content
+    span.addEventListener('click', () => {
+      copyTextToClipboard(content);
+      showCopyGhost();
     });
+    span.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        copyTextToClipboard(content);
+        showCopyGhost();
+      }
+    });
+    // Copy button next to each header
+    const copyBtn = document.createElement('button');
+    copyBtn.textContent = 'Copy';
+    copyBtn.ariaLabel = `Copy text for ${header}`;
+    copyBtn.addEventListener('click', () => {
+      copyTextToClipboard(content);
+      showCopyGhost();
+    });
+    item.appendChild(span);
+    item.appendChild(copyBtn);
+    dropdownHeaders.appendChild(item);
   }
 
-  let headersVisible = false;
   function toggleHeaders() {
-    headersVisible = !headersVisible;
+    const dropdown = dropdownHeaders;
     const btn = document.getElementById('headers-btn');
-    btn.setAttribute('aria-expanded', headersVisible);
-    if (headersVisible) {
-      populateDropdown();
-      dropdown.classList.add('show');
-    } else {
+    if (dropdown.classList.contains('show')) {
       dropdown.classList.remove('show');
+      btn.setAttribute('aria-expanded', 'false');
+    } else {
+      dropdown.classList.add('show');
+      btn.setAttribute('aria-expanded', 'true');
+      dropdown.focus();
     }
   }
 
-  // Copy to clipboard function
-  function copyToClipboard(text) {
+  // Copy helper function
+  function copyTextToClipboard(text) {
     if (!navigator.clipboard) {
       // fallback
       const textarea = document.createElement('textarea');
       textarea.value = text;
-      textarea.setAttribute('readonly', '');
-      textarea.style.position = 'absolute';
-      textarea.style.left = '-9999px';
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
       document.body.appendChild(textarea);
       textarea.select();
       try {
         document.execCommand('copy');
-      } catch {
-        alert('Failed to copy');
+      } catch (err) {
+        alert('Copy failed');
       }
       document.body.removeChild(textarea);
       return;
     }
-    navigator.clipboard.writeText(text).catch(() => alert('Failed to copy'));
+    navigator.clipboard.writeText(text).catch(() => alert('Copy failed'));
   }
 
-  // Navigation buttons for Jurisdiction, Updates, Jargons
-  function navigate(page) {
-    alert(`Navigate to ${page} page (Not implemented)`);
+  // Show ghost image on copy
+  function showCopyGhost() {
+    const ghost = document.getElementById('copy-ghost');
+    if (!ghost) return;
+    ghost.style.display = 'block';
+    ghost.style.animation = 'none';
+    // Trigger reflow to restart animation
+    ghost.offsetHeight;
+    ghost.style.animation = null;
+    setTimeout(() => {
+      ghost.style.display = 'none';
+    }, 5000);
   }
 
-  // === Word Editor toggle ===
-  const wordEditorOverlay = document.getElementById('word-editor-overlay');
+  // === Word Editor Overlay ===
   const wordEditorBtn = document.getElementById('word-editor-btn');
-
+  const wordEditorOverlay = document.getElementById('word-editor-overlay');
+  let wordEditorOpen = false;
   function toggleWordEditor() {
-    const isOpen = wordEditorOverlay.style.display === 'flex';
-    if (isOpen) {
-      wordEditorOverlay.style.display = 'none';
-      wordEditorBtn.setAttribute('aria-expanded', 'false');
-      document.getElementById('main-content').focus();
-    } else {
+    wordEditorOpen = !wordEditorOpen;
+    if (wordEditorOpen) {
       wordEditorOverlay.style.display = 'flex';
       wordEditorBtn.setAttribute('aria-expanded', 'true');
-      wordEditorOverlay.setAttribute('aria-hidden', 'false');
-      wordEditorOverlay.querySelector('iframe').focus();
+      document.getElementById('main-content').setAttribute('aria-hidden', 'true');
+    } else {
+      wordEditorOverlay.style.display = 'none';
+      wordEditorBtn.setAttribute('aria-expanded', 'false');
+      document.getElementById('main-content').removeAttribute('aria-hidden');
     }
   }
+  wordEditorBtn.addEventListener('click', toggleWordEditor);
 
-  // === Formulary Search Overlay ===
-  const formularyOverlay = document.getElementById('formulary-overlay');
+  // === Formulary Overlay ===
   const formularyBtn = document.getElementById('formulary-btn');
-  const searchInput = document.getElementById('search-input');
-  const searchButton = document.getElementById('search-button');
-  const resultsContainer = document.getElementById('formulary-results');
-  let formularyVisible = false;
-  let formularyData = [];
+  const formularyOverlay = document.getElementById('formulary-overlay');
+  let formularyOpen = false;
 
-  // Load local JSON file once
-  async function fetchFormularyData() {
-    try {
-      const res = await fetch('2025CAformulary.json');
-      if (!res.ok) throw new Error('Failed to load formulary JSON');
-      formularyData = await res.json();
-    } catch (e) {
-      resultsContainer.textContent = 'Failed to load formulary data.';
-      console.error(e);
-    }
-  }
-  fetchFormularyData();
+  // Store loaded JSON data globally
+  let formularyData = null;
 
   function toggleFormulary() {
-    if (formularyVisible) {
-      formularyOverlay.style.display = 'none';
-      formularyVisible = false;
-      resultsContainer.innerHTML = 'Enter a search term and click Search.';
-      searchInput.value = '';
-    } else {
+    formularyOpen = !formularyOpen;
+    if (formularyOpen) {
       formularyOverlay.style.display = 'block';
-      formularyVisible = true;
-      if (headersVisible) {
-        dropdown.classList.remove('show');
-        headersVisible = false;
+      formularyBtn.setAttribute('aria-expanded', 'true');
+      document.getElementById('main-content').setAttribute('aria-hidden', 'true');
+      if (!formularyData) {
+        loadFormularyData();
+      }
+    } else {
+      formularyOverlay.style.display = 'none';
+      formularyBtn.setAttribute('aria-expanded', 'false');
+      document.getElementById('main-content').removeAttribute('aria-hidden');
+    }
+  }
+  formularyBtn.addEventListener('click', toggleFormulary);
+
+  document.getElementById('formulary-close').addEventListener('click', toggleFormulary);
+
+  async function loadFormularyData() {
+    try {
+      const response = await fetch('2025 ds ur cheat sheet formulary.json');
+      formularyData = await response.json();
+      document.getElementById('formulary-results').textContent = 'Formulary data loaded. Enter a search term and click Search.';
+    } catch (e) {
+      document.getElementById('formulary-results').textContent = 'Error loading formulary data.';
+    }
+  }
+
+  // Search button handler
+  document.getElementById('search-button').addEventListener('click', () => {
+    const term = document.getElementById('search-input').value.trim().toLowerCase();
+    if (!term) return;
+    performFormularySearch(term);
+  });
+
+  // Also search on Enter key in input
+  document.getElementById('search-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      document.getElementById('search-button').click();
+    }
+  });
+
+  function performFormularySearch(term) {
+    if (!formularyData) {
+      document.getElementById('formulary-results').textContent = 'Formulary data not loaded yet.';
+      return;
+    }
+
+    const results = formularyData.filter(drug => {
+      const generic = drug['Generic Name']?.toLowerCase() || '';
+      const category = drug['Therapeutic Category']?.toLowerCase() || '';
+      return generic.includes(term) || category.includes(term);
+    });
+
+    const container = document.getElementById('formulary-results');
+    container.innerHTML = '';
+
+    if (results.length === 0) {
+      container.textContent = 'No results found.';
+      return;
+    }
+
+    for (const drug of results) {
+      const entry = document.createElement('div');
+      entry.className = 'formulary-entry';
+
+      const label = document.createElement('span');
+      label.textContent = `${drug['Generic Name']} (${drug['Therapeutic Category']})`;
+      label.title = `${drug['Generic Name']} - ${drug['Therapeutic Category']}`;
+      label.style.userSelect = 'text';
+      label.style.flexGrow = '1';
+
+      const copyBtn = document.createElement('button');
+      copyBtn.textContent = 'Copy';
+      copyBtn.ariaLabel = `Copy formulary details for ${drug['Generic Name']}`;
+      copyBtn.addEventListener('click', () => {
+        const copyText = generateCopyText(drug);
+        copyTextToClipboard(copyText);
+        showCopyGhost();
+      });
+
+      entry.appendChild(label);
+      entry.appendChild(copyBtn);
+      container.appendChild(entry);
+    }
+  }
+
+  // Build the full copy text for a drug entry
+  function generateCopyText(drug) {
+    // Template format from your original spec:
+    // Template text (header), then Therapeutic Category + Generic Name,
+    // then Phase A, B, Perioperative if flagged (marked 'x'),
+    // then Special Considerations 1-4 at the end.
+    // For now, assume drug object fields match JSON keys exactly.
+
+    const templateText = `**${drug['Therapeutic Category']} — ${drug['Generic Name']}**\n\n`;
+
+    let phasesText = '';
+    if (drug['Phase A']?.toLowerCase() === 'x') phasesText += `Phase A: ${drug['Phase A Full Text'] || ''}\n\n`;
+    if (drug['Phase B']?.toLowerCase() === 'x') phasesText += `Phase B: ${drug['Phase B Full Text'] || ''}\n\n`;
+    if (drug['Perioperative']?.toLowerCase() === 'x') phasesText += `Perioperative: ${drug['Perioperative Full Text'] || ''}\n\n`;
+
+    let specialConsiderations = '';
+    for (let i = 1; i <= 4; i++) {
+      const key = `Special Consideration ${i}`;
+      if (drug[key]) {
+        specialConsiderations += `${drug[key]}\n\n`;
+      }
+    }
+
+    return `${templateText}${phasesText}${specialConsiderations}`.trim();
+  }
+
+  // === Hint strip content cycling ===
+  const hints = [
+    "You can copy guideline headers by clicking them or their Copy buttons.",
+    "Use the CA Formulary button to search for drug ingredients or categories.",
+    "The Word Editor button opens an embedded Word processor.",
+    "Click Copy buttons to see the ghost animation confirming the copy.",
+    "Press ESC to close dropdowns or overlays.",
+  ];
+  let hintIndex = 0;
+  const hintStrip = document.getElementById('hint-strip');
+  setInterval(() => {
+    hintIndex = (hintIndex + 1) % hints.length;
+    hintStrip.textContent = hints[hintIndex];
+  }, 10000);
+
+  // Navigation buttons placeholders
+  function navigate(page) {
+    alert(`Navigate to ${page} page (functionality not implemented).`);
+  }
+
+  // Close overlays and dropdowns on ESC key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      // Close headers dropdown
+      if (dropdownHeaders.classList.contains('show')) {
+        dropdownHeaders.classList.remove('show');
         document.getElementById('headers-btn').setAttribute('aria-expanded', 'false');
       }
-      searchInput.focus();
+      // Close formulary
+      if (formularyOpen) toggleFormulary();
+      // Close word editor
+      if (wordEditorOpen) toggleWordEditor();
     }
-  }
-
-  searchButton.addEventListener('click', () => {
-    const term = searchInput.value.trim().toLowerCase();
-    if (!term) {
-      resultsContainer.textContent = 'Please enter a search term.';
-      return;
-    }
-    const matches = formularyData.filter(item => {
-      return (
-        (item['Drug Ingredient'] && item['Drug Ingredient'].toLowerCase().includes(term)) ||
-        (item['Reference Brand Name'] && item['Reference Brand Name'].toLowerCase().includes(term))
-      );
-    });
-
-    if (matches.length === 0) {
-      resultsContainer.textContent = 'No results found.';
-      return;
-    }
-
-    // Build result entries with copy buttons
-    let html = '';
-    matches.forEach(item => {
-      // Safe JSON stringify for onclick
-      const safeJson = JSON.stringify(item).replace(/'/g, "&apos;");
-      html += `<div class="formulary-entry">
-        <div>${item['Drug Ingredient'] || 'N/A'} - ${item['Reference Brand Name'] || 'N/A'}</div>
-        <button onclick='copyFormularyText(${safeJson})'>Copy</button>
-      </div>`;
-    });
-    resultsContainer.innerHTML = html;
   });
 
-  function copyFormularyText(item) {
-    const textToCopy = item['General citation (All body parts)'] || '';
-
-    // Create a hidden textarea and inject the text
-    const textarea = document.createElement('textarea');
-    textarea.value = textToCopy;
-    textarea.setAttribute('readonly', '');
-    textarea.style.position = 'absolute';
-    textarea.style.left = '-9999px';
-    document.body.appendChild(textarea);
-
-    // Select and copy the text
-    textarea.select();
-    try {
-      document.execCommand('copy');
-
-      // Show the ghost
+  // === New snippet added exactly here ===
+  // Show #copy-ghost when clicking any header copy button
+  document.getElementById('dropdown-headers').addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON') {
       const ghost = document.getElementById('copy-ghost');
-      ghost.style.display = 'block';
-      setTimeout(() => ghost.style.display = 'none', 5000);
-    } catch (err) {
-      alert('Copy failed');
-    }
-
-    // Cleanup
-    document.body.removeChild(textarea);
-  }
-
-  // Optional: Press Enter key triggers search
-  searchInput.addEventListener('keypress', e => {
-    if (e.key === 'Enter') {
-      searchButton.click();
+      if (ghost) {
+        ghost.style.display = 'block';
+        setTimeout(() => {
+          ghost.style.display = 'none';
+        }, 5000);
+      }
     }
   });
-
-  // === Wizard Chat Bubble Updates ===
-  const bubbleBody = document.getElementById('bubble-body');
-  async function loadUpdates() {
-    try {
-      // Example: Load updates from JSON or API (stubbed here)
-      const updates = [
-        "Welcome to the Medical Utility Tool!",
-        "New CA Formulary data added.",
-        "Remember to check the Guidelines Updates section."
-      ];
-      let idx = 0;
-      setInterval(() => {
-        bubbleBody.textContent = updates[idx];
-        idx = (idx + 1) % updates.length;
-      }, 6000);
-    } catch {
-      bubbleBody.textContent = "Failed to load updates.";
-    }
-  }
-  loadUpdates();
-
 </script>
 </body>
 </html>
