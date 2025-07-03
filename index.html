@@ -270,18 +270,15 @@
   user-select: none;
 }
 
-#bubble-body {
-  white-space: pre-line;       /* preserve line breaks */
-  overflow-wrap: break-word;
-  word-break: break-word;
-  max-height: 200px;           /* limit height */
-  overflow-y: auto;            /* vertical scrollbar if content too big */
-  padding-right: 8px;          /* prevent scrollbar overlap */
-  line-height: 1.3;
+#chat-bubble {
+  color: white;
   font-size: 15px;
+  line-height: 1.3;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  flex: 1;
 }
-
-
 
   </style>
 </head>
@@ -320,14 +317,11 @@
     <div id="formulary-results">Enter a search term and click Search.</div>
   </div>
 
-<!-- Wizard and chat bubble -->
-<div id="wizard-container">
-  <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
-  <div id="chat-bubble">
-    <div id="bubble-header">🚨 <strong> Updates!! :</strong></div>
-    <div id="bubble-body">Loading...</div>
+  <!-- Wizard and chat bubble -->
+  <div id="wizard-container">
+    <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
+    <div id="chat-bubble">Loading...</div>
   </div>
-</div>
 
 <script>
   // === Headers Data ===
@@ -584,17 +578,17 @@ async function fetchUpdates() {
       return;
     }
 
- // Show welcome message first for 5 seconds
-document.getElementById('bubble-body').textContent = "Welcome to the Medical Utility Tool";
-let i = 0;
+    // Show welcome message first for 5 seconds
+    chatBubble.textContent = "Welcome to the Medical Utility Tool";
+    let i = 0;
 
-setTimeout(() => {
-  document.getElementById('bubble-body').textContent = updates[i];
-  setInterval(() => {
-    i = (i + 1) % updates.length;
-    document.getElementById('bubble-body').textContent = updates[i];
-  }, 8000);
-}, 5000);
+    setTimeout(() => {
+      chatBubble.textContent = updates[i];
+      setInterval(() => {
+        i = (i + 1) % updates.length;
+        chatBubble.textContent = updates[i];
+      }, 3000);
+    }, 5000);
 
   } catch (err) {
     chatBubble.textContent = "Failed to load updates.";
