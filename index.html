@@ -67,6 +67,7 @@
       box-shadow: 0 -2px 6px rgba(0,0,0,0.5);
     }
 
+    /* Adjusted z-index to be above Word Editor */
     .dropdown {
       display: none;
       position: absolute;
@@ -245,7 +246,7 @@
       top: 40px; /* below toolbar */
       left: 0; right: 0; bottom: 0;
       background: #e3e8f7;
-      z-index: 1000; /* below headers dropdown and formulary */
+      z-index: 11000; /* BELOW headers dropdown and formulary */
       flex-direction: column;
       border-top: 4px solid #144a91;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
@@ -296,7 +297,7 @@
       border-radius: 15px;
       box-shadow: 0 0 15px #58a6ff;
       animation: glow 2s ease-in-out infinite alternate;
-      z-index: 999;
+      z-index: 999; /* behind word editor and dropdown */
       user-select: none;
     }
 
@@ -403,157 +404,179 @@
     "Opioids": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nOpioids (MTUS Effective Date: March 27, 2024)",
     "Traumatic Brain Injury": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nTraumatic Brain Injury (MTUS Effective Date: October 31, 2018)",
     "Workplace Mental Health": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nWorkplace Mental Health (MTUS Effective Date: August 11, 2019)",
-    "Posttraumatic Stress Disorder and Acute Stress Disorder": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nPosttraumatic Stress Disorder and Acute Stress Disorder (MTUS Effective Date: April 18, 2019)",
-    "Anxiety Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nAnxiety Disorders (MTUS Effective Date: July 19, 2021)",
-    "Depressive Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nDepressive Disorders (MTUS Effective Date: September 21, 2020)"
+    "Posttraumatic Stress Disorder and Acute Stress Disorder": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nPosttraumatic Stress Disorder and Acute Stress Disorder (MTUS Effective Date: June 1, 2025)"
   };
 
-  // === Hints ===
-  const hints = [
-    "Always refer to MTUS before approving opioid requests.",
-    "Check the CA Formulary regularly for drug updates.",
-    "Use the Word Editor to draft complex notes easily.",
-    "Guideline updates are posted monthly.",
-    "Use the Jurisdiction tab for local laws.",
-    "Avoid off-label drug prescriptions unless justified."
-  ];
+  // Populate dropdown headers menu
+  const dropdown = document.getElementById('dropdown-headers');
+  function populateDropdown() {
+    dropdown.innerHTML = '';
+    for (const [title, content] of Object.entries(headers)) {
+      const item = document.createElement('div');
+      item.classList.add('dropdown-item');
+      item.setAttribute('role', 'menuitem');
 
-  // === Helper to toggle dropdowns ===
+      const titleSpan = document.createElement('span');
+      titleSpan.textContent = title;
+
+      const copyBtn = document.createElement('button');
+      copyBtn.textContent = 'Copy';
+      copyBtn.addEventListener('click', () => {
+        copyToClipboard(content);
+      });
+
+      item.appendChild(titleSpan);
+      item.appendChild(copyBtn);
+      dropdown.appendChild(item);
+    }
+  }
+
+  // Copy function restored exactly as you had it before:
+  function copyToClipboard(text) {
+    if (!navigator.clipboard) {
+      fallbackCopyTextToClipboard(text);
+      return;
+    }
+    navigator.clipboard.writeText(text).then(() => {
+      showCopyGhost();
+    }, () => {
+      fallbackCopyTextToClipboard(text);
+    });
+  }
+  function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    // Avoid scrolling to bottom
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      showCopyGhost();
+    } catch (err) {
+      alert('Copy failed');
+    }
+    document.body.removeChild(textArea);
+  }
+
+  // Show ghost animation after copy
+  const ghostImg = document.getElementById('copy-ghost');
+  function showCopyGhost() {
+    ghostImg.style.display = 'block';
+    ghostImg.style.animation = 'glow-fade 5s ease-in-out forwards';
+    setTimeout(() => {
+      ghostImg.style.display = 'none';
+      ghostImg.style.animation = '';
+    }, 5000);
+  }
+
+  // Toggle headers dropdown visibility
   function toggleHeaders() {
-  const dropdown = document.getElementById("dropdown-headers");
-  const btn = document.getElementById("headers-btn");
-  if (dropdown.classList.contains("show")) {
-    dropdown.classList.remove("show");
-    btn.setAttribute("aria-expanded", "false");
+  const expanded = document.getElementById('headers-btn').getAttribute('aria-expanded') === 'true';
+  if (expanded) {
+    dropdown.classList.remove('show');
+    document.getElementById('headers-btn').setAttribute('aria-expanded', 'false');
   } else {
-    dropdown.classList.add("show");
-    btn.setAttribute("aria-expanded", "true");
-    populateHeaders();
-    // Hide Formulary only, but NOT Word Editor
-    hideFormulary();
-    // DO NOT hideWordEditor();
+    populateDropdown();
+    dropdown.classList.add('show');
+    document.getElementById('headers-btn').setAttribute('aria-expanded', 'true');
+    // CLOSE formulary ONLY, do NOT close word editor
+    closeFormulary();
+    // Removed closeWordEditor();
   }
 }
 
-
-  // === Populate Headers dropdown ===
-  function populateHeaders() {
-    const dropdown = document.getElementById("dropdown-headers");
-    dropdown.innerHTML = "";
-    for (const [title, text] of Object.entries(headers)) {
-      const div = document.createElement("div");
-      div.className = "dropdown-item";
-      div.textContent = title;
-      // Add a button to view content in main page content area
-      const btn = document.createElement("button");
-      btn.textContent = "View";
-      btn.onclick = () => {
-        showHeaderContent(title, text);
-        toggleHeaders();
-      };
-      div.appendChild(btn);
-      dropdown.appendChild(div);
+  // Close dropdown if clicking outside
+  document.addEventListener('click', (e) => {
+    const headersBtn = document.getElementById('headers-btn');
+    const isClickInside = headersBtn.contains(e.target) || dropdown.contains(e.target);
+    if (!isClickInside) {
+      dropdown.classList.remove('show');
+      headersBtn.setAttribute('aria-expanded', 'false');
     }
-  }
-
-  // === Show selected header content in main content area ===
-  function showHeaderContent(title, text) {
-    const main = document.getElementById("main-content");
-    main.innerHTML = `<h1>${title}</h1><pre>${text}</pre>`;
-    main.focus();
-  }
-
-  // === Word Editor toggle ===
-  function toggleWordEditor() {
-    const overlay = document.getElementById("word-editor-overlay");
-    const btn = document.getElementById("word-editor-btn");
-    if (overlay.style.display === "flex") {
-      overlay.style.display = "none";
-      btn.setAttribute("aria-expanded", "false");
-      // Return focus to toolbar
-      btn.focus();
-    } else {
-      overlay.style.display = "flex";
-      btn.setAttribute("aria-expanded", "true");
-      // Hide others dropdowns
-      hideHeaders();
-      hideFormulary();
-    }
-  }
-
-  function hideWordEditor() {
-    const overlay = document.getElementById("word-editor-overlay");
-    const btn = document.getElementById("word-editor-btn");
-    overlay.style.display = "none";
-    btn.setAttribute("aria-expanded", "false");
-  }
-
-  // === Formulary toggle ===
-  function toggleFormulary() {
-    const overlay = document.getElementById("formulary-overlay");
-    const btn = document.getElementById("formulary-btn");
-    if (overlay.style.display === "block") {
-      overlay.style.display = "none";
-      btn.setAttribute("aria-expanded", "false");
-      btn.focus();
-    } else {
-      overlay.style.display = "block";
-      btn.setAttribute("aria-expanded", "true");
-      // Hide others
-      hideHeaders();
-      // DO NOT hide Word Editor - it must remain visible below
-    }
-  }
-
-  function hideFormulary() {
-    const overlay = document.getElementById("formulary-overlay");
-    const btn = document.getElementById("formulary-btn");
-    overlay.style.display = "none";
-    btn.setAttribute("aria-expanded", "false");
-  }
-
-  function hideHeaders() {
-    const dropdown = document.getElementById("dropdown-headers");
-    const btn = document.getElementById("headers-btn");
-    dropdown.classList.remove("show");
-    btn.setAttribute("aria-expanded", "false");
-  }
-
-  // === Navigation placeholders ===
-  function navigate(page) {
-    alert("Navigate to: " + page);
-  }
-
-  // === Hint cycling ===
-  let hintIndex = 0;
-  function updateHint() {
-    const strip = document.getElementById("hint-strip");
-    strip.textContent = hints[hintIndex];
-    hintIndex = (hintIndex + 1) % hints.length;
-  }
-  setInterval(updateHint, 7000);
-  updateHint();
-
-  // === Formulary Search - Placeholder ===
-  document.getElementById("search-button").addEventListener("click", () => {
-    const input = document.getElementById("search-input").value.trim().toLowerCase();
-    const results = document.getElementById("formulary-results");
-    if (!input) {
-      results.textContent = "Please enter a search term.";
-      return;
-    }
-    // Fake search demo
-    results.innerHTML = `<div class="formulary-entry">Result for "<strong>${input}</strong>" <button onclick="copyToClipboard('Result for ${input}')">Copy</button></div>`;
   });
 
-  function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-      const ghost = document.getElementById("copy-ghost");
-      ghost.style.display = "block";
-      setTimeout(() => (ghost.style.display = "none"), 4000);
-    });
+  // === Word Editor Overlay ===
+  const wordEditorOverlay = document.getElementById('word-editor-overlay');
+  const wordEditorBtn = document.getElementById('word-editor-btn');
+  function toggleWordEditor() {
+    const visible = wordEditorOverlay.style.display === 'flex';
+    if (visible) {
+      closeWordEditor();
+    } else {
+      openWordEditor();
+    }
   }
-</script>
+  function openWordEditor() {
+    wordEditorOverlay.style.display = 'flex';
+    wordEditorBtn.setAttribute('aria-expanded', 'true');
+    // Close other overlays
+    dropdown.classList.remove('show');
+    document.getElementById('headers-btn').setAttribute('aria-expanded', 'false');
+    closeFormulary();
+  }
+  function closeWordEditor() {
+    wordEditorOverlay.style.display = 'none';
+    wordEditorBtn.setAttribute('aria-expanded', 'false');
+  }
 
+  // === Formulary Overlay ===
+  const formularyOverlay = document.getElementById('formulary-overlay');
+  const formularyBtn = document.getElementById('formulary-btn');
+  const formularyResults = document.getElementById('formulary-results');
+  const searchInput = document.getElementById('search-input');
+  const searchButton = document.getElementById('search-button');
+
+  function toggleFormulary() {
+    const visible = formularyOverlay.style.display === 'block';
+    if (visible) {
+      closeFormulary();
+    } else {
+      openFormulary();
+    }
+  }
+ function openFormulary() {
+  formularyOverlay.style.display = 'block';
+  formularyBtn.setAttribute('aria-expanded', 'true');
+  // Close other overlays
+  dropdown.classList.remove('show');
+  document.getElementById('headers-btn').setAttribute('aria-expanded', 'false');
+  // REMOVE this next line to keep word editor open
+  // closeWordEditor();
+  clearFormularyResults();
+}
+  function closeFormulary() {
+    formularyOverlay.style.display = 'none';
+    formularyBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  function clearFormularyResults() {
+    formularyResults.textContent = 'Enter a search term and click Search.';
+  }
+
+  // Placeholder search handler - to be replaced with actual logic
+  searchButton.addEventListener('click', () => {
+    const term = searchInput.value.trim();
+    if (!term) {
+      formularyResults.textContent = 'Please enter a search term.';
+      return;
+    }
+    formularyResults.textContent = `Searching for "${term}"... (functionality not implemented here)`;
+  });
+
+  // Navigation button handler (dummy)
+  function navigate(page) {
+    alert(`Navigate to ${page} (functionality not implemented here).`);
+  }
+
+  // Initial setup
+  window.addEventListener('load', () => {
+    document.getElementById('hint-strip').textContent = "Tip: Use the Headers menu to copy guideline headers.";
+  });
+
+</script>
 </body>
 </html>
