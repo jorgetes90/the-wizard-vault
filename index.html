@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -106,6 +106,13 @@
       justify-content: space-between;
       align-items: center;
       user-select: none;
+      cursor: default;
+    }
+
+    .dropdown-item span {
+      flex: 1;
+      cursor: pointer;
+      user-select: text;
     }
 
     .dropdown-item button {
@@ -118,6 +125,8 @@
       color: white;
       font-weight: normal;
       transition: background 0.3s;
+      user-select: none;
+      margin-left: 10px;
     }
     .dropdown-item button:hover {
       background: #3b82f6;
@@ -407,7 +416,7 @@
     "Posttraumatic Stress Disorder and Acute Stress Disorder": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nPosttraumatic Stress Disorder and Acute Stress Disorder (MTUS Effective Date: June 1, 2025)"
   };
 
-  // Populate dropdown headers menu
+  // Populate dropdown headers menu with Copy buttons
   const dropdown = document.getElementById('dropdown-headers');
   function populateDropdown() {
     dropdown.innerHTML = '';
@@ -415,168 +424,231 @@
       const item = document.createElement('div');
       item.classList.add('dropdown-item');
       item.setAttribute('role', 'menuitem');
+      item.tabIndex = 0;
 
-      const titleSpan = document.createElement('span');
-      titleSpan.textContent = title;
+      // Title label (click inserts to Word Editor)
+      const label = document.createElement('span');
+      label.textContent = title;
+      label.title = 'Click to insert header into Word Editor';
+      label.style.flex = '1';
+      label.style.cursor = 'pointer';
+      label.onclick = () => {
+        insertHeaderToWordEditor(content);
+        toggleHeaders(false);
+        toggleWordEditor(true);
+      };
+      label.onkeydown = e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          label.click();
+        }
+      };
 
+      // Copy button (copies full content)
       const copyBtn = document.createElement('button');
       copyBtn.textContent = 'Copy';
-      copyBtn.addEventListener('click', () => {
-        copyToClipboard(content);
-      });
+      copyBtn.title = 'Copy header text to clipboard';
+      copyBtn.onclick = e => {
+        e.stopPropagation(); // prevent toggling editor on click
+        navigator.clipboard.writeText(content).then(() => {
+          showCopyGhost();
+        }).catch(() => {
+          alert('Failed to copy to clipboard.');
+        });
+      };
 
-      item.appendChild(titleSpan);
+      item.appendChild(label);
       item.appendChild(copyBtn);
       dropdown.appendChild(item);
     }
   }
 
-  // Copy function restored exactly as you had it before:
-  function copyToClipboard(text) {
-    if (!navigator.clipboard) {
-      fallbackCopyTextToClipboard(text);
-      return;
+  function toggleHeaders(forceShow) {
+    const expanded = document.getElementById('headers-btn').getAttribute('aria-expanded') === 'true';
+    const newState = typeof forceShow === 'boolean' ? forceShow : !expanded;
+    dropdown.classList.toggle('show', newState);
+    document.getElementById('headers-btn').setAttribute('aria-expanded', newState);
+    if (newState) {
+      dropdown.focus();
     }
-    navigator.clipboard.writeText(text).then(() => {
-      showCopyGhost();
-    }, () => {
-      fallbackCopyTextToClipboard(text);
-    });
-  }
-  function fallbackCopyTextToClipboard(text) {
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    // Avoid scrolling to bottom
-    textArea.style.top = "0";
-    textArea.style.left = "0";
-    textArea.style.position = "fixed";
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    try {
-      document.execCommand('copy');
-      showCopyGhost();
-    } catch (err) {
-      alert('Copy failed');
-    }
-    document.body.removeChild(textArea);
   }
 
-  // Show ghost animation after copy
-  const ghostImg = document.getElementById('copy-ghost');
+  // Insert header text into Word Editor iframe body, replacing its contents
+  function insertHeaderToWordEditor(text) {
+    const iframe = document.getElementById('word-editor-iframe');
+    try {
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      doc.body.innerText = text;
+    } catch (e) {
+      alert('Cannot access Word Editor iframe contents. Please ensure it is loaded and same-origin.');
+    }
+  }
+
+  // === Word Editor toggle ===
+  const wordEditorOverlay = document.getElementById('word-editor-overlay');
+  function toggleWordEditor(show) {
+    const currentlyVisible = wordEditorOverlay.style.display === 'flex';
+    const newState = typeof show === 'boolean' ? show : !currentlyVisible;
+    wordEditorOverlay.style.display = newState ? 'flex' : 'none';
+    document.getElementById('word-editor-btn').setAttribute('aria-expanded', newState);
+    if (newState) {
+      wordEditorOverlay.focus();
+    }
+  }
+
+  // === Formulary Overlay toggle ===
+  const formularyOverlay = document.getElementById('formulary-overlay');
+  function toggleFormulary(show) {
+    const currentlyVisible = formularyOverlay.style.display === 'block';
+    const newState = typeof show === 'boolean' ? show : !currentlyVisible;
+    formularyOverlay.style.display = newState ? 'block' : 'none';
+    document.getElementById('formulary-btn').setAttribute('aria-expanded', newState);
+    if (newState) {
+      document.getElementById('search-input').focus();
+    }
+  }
+
+  // === Navigation for other buttons ===
+  function navigate(section) {
+    alert(`Navigation to ${section} is not implemented in this demo.`);
+  }
+
+  // === Copy ghost animation ===
   function showCopyGhost() {
-    ghostImg.style.display = 'block';
-    ghostImg.style.animation = 'glow-fade 5s ease-in-out forwards';
+    const ghost = document.getElementById('copy-ghost');
+    ghost.style.display = 'block';
+    ghost.style.animation = 'glow-fade 5s ease-in-out';
     setTimeout(() => {
-      ghostImg.style.display = 'none';
-      ghostImg.style.animation = '';
+      ghost.style.display = 'none';
     }, 5000);
   }
 
-  // Toggle headers dropdown visibility
-  function toggleHeaders() {
-  const expanded = document.getElementById('headers-btn').getAttribute('aria-expanded') === 'true';
-  if (expanded) {
-    dropdown.classList.remove('show');
-    document.getElementById('headers-btn').setAttribute('aria-expanded', 'false');
-  } else {
-    populateDropdown();
-    dropdown.classList.add('show');
-    document.getElementById('headers-btn').setAttribute('aria-expanded', 'true');
-    // CLOSE formulary ONLY, do NOT close word editor
-    closeFormulary();
-    // Removed closeWordEditor();
-  }
-}
+  // === Drug Formulary Search ===
+  // Replace with your real data or load from external JSON as needed.
+  const drugFormularyData = [
+    {
+      genericName: "Ibuprofen",
+      brandName: "Advil",
+      therapeuticCategory: "NSAIDs",
+      specialConsiderations: ["Use with caution in renal impairment"],
+      phaseA: true,
+      phaseB: false,
+      perioperative: true,
+    },
+    {
+      genericName: "Acetaminophen",
+      brandName: "Tylenol",
+      therapeuticCategory: "Analgesics",
+      specialConsiderations: [],
+      phaseA: true,
+      phaseB: true,
+      perioperative: false,
+    },
+    {
+      genericName: "Lisinopril",
+      brandName: "Prinivil",
+      therapeuticCategory: "ACE inhibitors",
+      specialConsiderations: ["Monitor potassium levels"],
+      phaseA: false,
+      phaseB: true,
+      perioperative: false,
+    },
+  ];
 
-  // Close dropdown if clicking outside
-  document.addEventListener('click', (e) => {
-    const headersBtn = document.getElementById('headers-btn');
-    const isClickInside = headersBtn.contains(e.target) || dropdown.contains(e.target);
-    if (!isClickInside) {
-      dropdown.classList.remove('show');
-      headersBtn.setAttribute('aria-expanded', 'false');
+  // Format drug entry text for clipboard copy
+  function formatDrugEntry(drug) {
+    let text = `Therapeutic Category: ${drug.therapeuticCategory}\nGeneric Name: ${drug.genericName} (Brand: ${drug.brandName})\n`;
+    if (drug.phaseA) text += "\nPhase A: Use with caution per guidelines.\n";
+    if (drug.phaseB) text += "\nPhase B: Limited use recommended.\n";
+    if (drug.perioperative) text += "\nPerioperative: Avoid use before surgery.\n";
+    if (drug.specialConsiderations.length > 0) {
+      text += "\nSpecial Considerations:\n";
+      for (const sc of drug.specialConsiderations) {
+        text += `- ${sc}\n`;
+      }
     }
-  });
-
-  // === Word Editor Overlay ===
-  const wordEditorOverlay = document.getElementById('word-editor-overlay');
-  const wordEditorBtn = document.getElementById('word-editor-btn');
-  function toggleWordEditor() {
-    const visible = wordEditorOverlay.style.display === 'flex';
-    if (visible) {
-      closeWordEditor();
-    } else {
-      openWordEditor();
-    }
-  }
-  function openWordEditor() {
-    wordEditorOverlay.style.display = 'flex';
-    wordEditorBtn.setAttribute('aria-expanded', 'true');
-    // Close other overlays
-    dropdown.classList.remove('show');
-    document.getElementById('headers-btn').setAttribute('aria-expanded', 'false');
-    closeFormulary();
-  }
-  function closeWordEditor() {
-    wordEditorOverlay.style.display = 'none';
-    wordEditorBtn.setAttribute('aria-expanded', 'false');
+    return text.trim();
   }
 
-  // === Formulary Overlay ===
-  const formularyOverlay = document.getElementById('formulary-overlay');
-  const formularyBtn = document.getElementById('formulary-btn');
-  const formularyResults = document.getElementById('formulary-results');
   const searchInput = document.getElementById('search-input');
   const searchButton = document.getElementById('search-button');
+  const formularyResults = document.getElementById('formulary-results');
 
-  function toggleFormulary() {
-    const visible = formularyOverlay.style.display === 'block';
-    if (visible) {
-      closeFormulary();
-    } else {
-      openFormulary();
-    }
-  }
- function openFormulary() {
-  formularyOverlay.style.display = 'block';
-  formularyBtn.setAttribute('aria-expanded', 'true');
-  // Close other overlays
-  dropdown.classList.remove('show');
-  document.getElementById('headers-btn').setAttribute('aria-expanded', 'false');
-  // REMOVE this next line to keep word editor open
-  // closeWordEditor();
-  clearFormularyResults();
-}
-  function closeFormulary() {
-    formularyOverlay.style.display = 'none';
-    formularyBtn.setAttribute('aria-expanded', 'false');
-  }
-
-  function clearFormularyResults() {
-    formularyResults.textContent = 'Enter a search term and click Search.';
-  }
-
-  // Placeholder search handler - to be replaced with actual logic
   searchButton.addEventListener('click', () => {
-    const term = searchInput.value.trim();
+    const term = searchInput.value.trim().toLowerCase();
     if (!term) {
       formularyResults.textContent = 'Please enter a search term.';
       return;
     }
-    formularyResults.textContent = `Searching for "${term}"... (functionality not implemented here)`;
+
+    // Search by genericName or brandName substring match
+    const results = drugFormularyData.filter(drug =>
+      drug.genericName.toLowerCase().includes(term) ||
+      drug.brandName.toLowerCase().includes(term)
+    );
+
+    if (results.length === 0) {
+      formularyResults.textContent = `No results found for "${term}".`;
+      return;
+    }
+
+    // Clear previous results
+    formularyResults.innerHTML = '';
+
+    // Create entries with copy buttons
+    results.forEach(drug => {
+      const div = document.createElement('div');
+      div.className = 'formulary-entry';
+
+      const label = document.createElement('div');
+      label.style.flex = '1';
+      label.style.whiteSpace = 'normal';
+      label.textContent = `${drug.genericName} (Brand: ${drug.brandName}) - ${drug.therapeuticCategory}`;
+
+      const copyBtn = document.createElement('button');
+      copyBtn.textContent = 'Copy';
+      copyBtn.addEventListener('click', () => {
+        const formatted = formatDrugEntry(drug);
+        navigator.clipboard.writeText(formatted).then(() => {
+          showCopyGhost();
+        }).catch(() => {
+          alert('Failed to copy to clipboard.');
+        });
+      });
+
+      div.appendChild(label);
+      div.appendChild(copyBtn);
+      formularyResults.appendChild(div);
+    });
   });
 
-  // Navigation button handler (dummy)
-  function navigate(page) {
-    alert(`Navigate to ${page} (functionality not implemented here).`);
+  // Initialize dropdown on load
+  populateDropdown();
+
+  // === Hint strip updates ===
+  const hints = [
+    "Press Ctrl+Shift+F to toggle full page formulary.",
+    "Use Headers menu to insert guideline text quickly.",
+    "Word Editor supports rich text editing in a sandbox.",
+    "Copy buttons show a ghost animation on success."
+  ];
+
+  let hintIndex = 0;
+  const hintStrip = document.getElementById('hint-strip');
+  function updateHint() {
+    hintStrip.textContent = hints[hintIndex];
+    hintIndex = (hintIndex + 1) % hints.length;
   }
+  updateHint();
+  setInterval(updateHint, 7000);
 
-  // Initial setup
-  window.addEventListener('load', () => {
-    document.getElementById('hint-strip').textContent = "Tip: Use the Headers menu to copy guideline headers.";
+  // === Keyboard shortcuts ===
+  document.addEventListener('keydown', e => {
+    if (e.ctrlKey && e.shiftKey && e.code === 'KeyF') {
+      e.preventDefault();
+      toggleFormulary();
+    }
   });
-
 </script>
 </body>
 </html>
