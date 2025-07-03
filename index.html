@@ -1,5 +1,4 @@
-
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -22,7 +21,8 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.6);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 10000; /* toolbar always on top */
+      user-select: none;
     }
     .toolbar button {
       background: #144a91cc; /* semi-transparent dark blue */
@@ -62,11 +62,12 @@
       text-align: center;
       font-style: italic;
       font-size: 14px;
-      z-index: 999;
+      z-index: 9999;
       user-select: none;
       box-shadow: 0 -2px 6px rgba(0,0,0,0.5);
     }
 
+    /* Adjusted z-index to be above Word Editor */
     .dropdown {
       display: none;
       position: absolute;
@@ -80,7 +81,7 @@
       max-height: 300px;
       overflow-y: auto;
       padding: 10px;
-      z-index: 9999;
+      z-index: 11001; /* above word editor */
       flex-wrap: wrap;
       gap: 10px;
       color: white;
@@ -105,6 +106,13 @@
       justify-content: space-between;
       align-items: center;
       user-select: none;
+      cursor: default;
+    }
+
+    .dropdown-item span {
+      flex: 1;
+      cursor: pointer;
+      user-select: text;
     }
 
     .dropdown-item button {
@@ -117,6 +125,8 @@
       color: white;
       font-weight: normal;
       transition: background 0.3s;
+      user-select: none;
+      margin-left: 10px;
     }
     .dropdown-item button:hover {
       background: #3b82f6;
@@ -126,10 +136,11 @@
     #formulary-overlay {
       display: none;
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 40px; /* below toolbar */
+      left: 0; right: 0; bottom: 0;
       background: rgba(11, 35, 73, 0.95);
       color: white;
-      z-index: 11000;
+      z-index: 11002; /* above headers dropdown and word editor */
       padding: 20px;
       overflow-y: auto;
       font-size: 14px;
@@ -237,98 +248,149 @@
       100% { opacity: 0; }
     }
 
+    /* Word Editor full-page overlay */
+    #word-editor-overlay {
+      display: none;
+      position: fixed;
+      top: 40px; /* below toolbar */
+      left: 0; right: 0; bottom: 0;
+      background: #e3e8f7;
+      z-index: 11000; /* BELOW headers dropdown and formulary */
+      flex-direction: column;
+      border-top: 4px solid #144a91;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      user-select: text;
+    }
+
+    #word-editor-header {
+      background: #144a91cc;
+      color: white;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    #word-editor-back-btn {
+      background: #1f5db3ee;
+      border: none;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      user-select: none;
+    }
+    #word-editor-back-btn:hover {
+      background: #3b82f6;
+    }
+    #word-editor-iframe {
+      flex-grow: 1;
+      border: none;
+      width: 100%;
+      height: calc(100vh - 40px - 48px); /* full height minus toolbar and header */
+    }
+
     /* Wizard and chat bubble container and style */
     #wizard-container {
-  position: fixed;
-  top: 200px;
-  left: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  max-width: 350px;
-  padding: 8px 12px;
-  background: rgba(31, 93, 179, 0.85);
-  border-radius: 15px;
-  box-shadow: 0 0 15px #58a6ff;
-  animation: glow 2s ease-in-out infinite alternate;
-  z-index: 1000;
-  user-select: none;
-}
+      position: fixed;
+      top: 200px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 350px;
+      padding: 8px 12px;
+      background: rgba(31, 93, 179, 0.85);
+      border-radius: 15px;
+      box-shadow: 0 0 15px #58a6ff;
+      animation: glow 2s ease-in-out infinite alternate;
+      z-index: 999; /* behind word editor and dropdown */
+      user-select: none;
+    }
 
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 15px #58a6ff;
-  }
-  100% {
-    box-shadow: 0 0 30px #58a6ff;
-  }
-}
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 15px #58a6ff;
+      }
+      100% {
+        box-shadow: 0 0 30px #58a6ff;
+      }
+    }
 
-#wizard-img {
-  width: 150px;
-  height: auto;
-  border-radius: 10px;
-  user-select: none;
-}
+    #wizard-img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      user-select: none;
+    }
 
-#bubble-body {
-  white-space: pre-line;       /* preserve line breaks */
-  overflow-wrap: break-word;
-  word-break: break-word;
-  max-height: 200px;           /* limit height */
-  overflow-y: auto;            /* vertical scrollbar if content too big */
-  padding-right: 8px;          /* prevent scrollbar overlap */
-  line-height: 1.3;
-  font-size: 15px;
-}
-
-
+    #bubble-body {
+      white-space: pre-line;       /* preserve line breaks */
+      overflow-wrap: break-word;
+      word-break: break-word;
+      max-height: 200px;           /* limit height */
+      overflow-y: auto;            /* vertical scrollbar if content too big */
+      padding-right: 8px;          /* prevent scrollbar overlap */
+      line-height: 1.3;
+      font-size: 15px;
+    }
 
   </style>
 </head>
 <body>
-  <div class="toolbar">
+  <div class="toolbar" role="navigation" aria-label="Main toolbar">
     <button onclick="window.top.location.href='https://script.google.com/macros/s/AKfycbyL54f4XL0gl_FJAgl26TMRAX06TWJUyYQropWj1K0uBQnSAlOqSIuOqZfUVctp-3z5/exec'">← Back</button>
-    <button id="headers-btn" onclick="toggleHeaders()">Headers</button>
-    <button id="formulary-btn" onclick="toggleFormulary()">CA Formulary</button>
+    <button id="headers-btn" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-headers" onclick="toggleHeaders()">Headers</button>
+    <button id="word-editor-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleWordEditor()">Word Editor</button>
+    <button id="formulary-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleFormulary()">CA Formulary</button>
     <button onclick="navigate('jurisdiction')">Jurisdiction</button>
     <button onclick="navigate('updates')">Guideline Updates</button>
     <button onclick="navigate('jargons')">Jargons</button>
   </div>
 
-
-  <div class="page-content" id="main-content">
+  <div class="page-content" id="main-content" tabindex="-1">
     <h1>Welcome to the Medical Utility Tool</h1>
     <p>Select a tool from the toolbar above.</p>
 
-    <div id="dropdown-headers" class="dropdown"></div>
+    <div id="dropdown-headers" class="dropdown" role="menu" aria-label="Headers menu"></div>
   </div>
 
   <div class="hint-strip" id="hint-strip">Loading hints...</div>
 
   <img id="copy-ghost" class="copy-ghost" src="https://i.postimg.cc/d0jsn69H/Ghost.png" alt="Copied!" />
 
+  <!-- Word Editor overlay -->
+  <div id="word-editor-overlay" aria-hidden="true" role="dialog" aria-label="Word Editor">
+    <div id="word-editor-header">
+      Word Editor
+      <button id="word-editor-back-btn" aria-label="Close Word Editor" onclick="toggleWordEditor()">Back</button>
+    </div>
+    <iframe id="word-editor-iframe" src="https://tesecumj.neocities.org/" title="Embedded Word Editor"></iframe>
+  </div>
+
   <!-- Full page formulary overlay -->
-  <div id="formulary-overlay" aria-hidden="true">
+  <div id="formulary-overlay" aria-hidden="true" role="dialog" aria-label="California Drug Formulary Search">
     <div id="formulary-header">
       <h2>CA Drug Formulary Search</h2>
-      <button id="formulary-close" onclick="toggleFormulary()">Close</button>
+      <button id="formulary-close" aria-label="Close Formulary Search" onclick="toggleFormulary()">Close</button>
     </div>
     <div id="search-container">
-      <input id="search-input" type="search" placeholder="Search drug ingredient or brand name..." />
+      <input id="search-input" type="search" placeholder="Search drug ingredient or brand name..." aria-label="Search drug ingredient or brand name" />
       <button id="search-button">Search</button>
     </div>
     <div id="formulary-results">Enter a search term and click Search.</div>
   </div>
 
-<!-- Wizard and chat bubble -->
-<div id="wizard-container">
-  <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
-  <div id="chat-bubble">
-    <div id="bubble-header">🚨 <strong> Updates!! :</strong></div>
-    <div id="bubble-body">Loading...</div>
+  <!-- Wizard and chat bubble -->
+  <div id="wizard-container" aria-live="polite" aria-atomic="true" aria-relevant="additions">
+    <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
+    <div id="chat-bubble">
+      <div id="bubble-header">🚨 <strong> Updates!! :</strong></div>
+      <div id="bubble-body">Loading...</div>
+    </div>
   </div>
-</div>
 
 <script>
   // === Headers Data ===
@@ -351,260 +413,229 @@
     "Opioids": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nOpioids (MTUS Effective Date: March 27, 2024)",
     "Traumatic Brain Injury": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nTraumatic Brain Injury (MTUS Effective Date: October 31, 2018)",
     "Workplace Mental Health": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nWorkplace Mental Health (MTUS Effective Date: August 11, 2019)",
-    "Posttraumatic Stress Disorder and Acute Stress Disorder": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nPosttraumatic Stress Disorder and Acute Stress Disorder (MTUS Effective Date: April 18, 2019)",
-    "Anxiety Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nAnxiety Disorders (MTUS Effective Date: July 19, 2021)",
-    "Depressive Disorders": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nDepressive Disorders (MTUS Effective Date: September 21, 2020)"
+    "Posttraumatic Stress Disorder and Acute Stress Disorder": "California Medical Treatment Utilization Schedule (MTUS) / ACOEM Practice Guidelines\nPosttraumatic Stress Disorder and Acute Stress Disorder (MTUS Effective Date: June 1, 2025)"
   };
 
-  // === Hints ===
-  const hints = [
-    "Always refer to MTUS before approving UR decisions.",
-    "Jargon: 'UR' = Utilization Review.",
-    "Updates from July 2024 include TBI revisions.",
-    "Use Headers tool to copy citations quickly.",
-    "Check CA Formulary for drug phase requirements.",
-    "Guideline updates affect decision timelines.",
-    "Jargon: 'RFA' = Request for Authorization."
-  ];
-  let hintIndex = 0;
-  setInterval(() => {
-    document.getElementById('hint-strip').textContent = hints[hintIndex];
-    hintIndex = (hintIndex + 1) % hints.length;
-  }, 7000);
+  // Populate dropdown headers menu with Copy buttons
+  const dropdown = document.getElementById('dropdown-headers');
+  function populateDropdown() {
+    dropdown.innerHTML = '';
+    for (const [title, text] of Object.entries(headers)) {
+      const item = document.createElement('div');
+      item.className = 'dropdown-item';
+      item.tabIndex = 0;
+      item.setAttribute('role', 'menuitem');
 
-  // === Headers dropdown ===
-  const headersBtn = document.getElementById('headers-btn');
-  const headersDropdown = document.getElementById('dropdown-headers');
-  let headersVisible = false;
+      const span = document.createElement('span');
+      span.textContent = title;
+      span.title = 'Click to copy header text';
+      span.style.userSelect = 'text';
+      span.onclick = () => {
+        copyTextToClipboard(text);
+      };
+      item.appendChild(span);
+
+      const btn = document.createElement('button');
+      btn.textContent = 'Copy';
+      btn.setAttribute('aria-label', `Copy header text for ${title}`);
+      btn.onclick = (e) => {
+        e.stopPropagation();
+        copyTextToClipboard(text);
+      };
+      item.appendChild(btn);
+
+      dropdown.appendChild(item);
+    }
+  }
 
   function toggleHeaders() {
-    if (headersVisible) {
-      headersDropdown.classList.remove('show');
-      headersVisible = false;
-      return;
-    }
-    // Build headers dropdown items
-    let html = '';
-    for (const label in headers) {
-      html += `<div class="dropdown-item">
-        <span>${label}</span>
-        <button aria-label="Copy citation for ${label}" onclick="copyText(this)" data-text="${headers[label].replace(/"/g, '&quot;')}">Copy</button>
-      </div>`;
-    }
-    headersDropdown.innerHTML = html;
-    headersDropdown.classList.add('show');
-    headersVisible = true;
-    // If formulary overlay open, close it
-    if (formularyVisible) toggleFormulary();
-  }
-
-  // Close headers if click outside
-  document.addEventListener('click', (e) => {
-    if (!headersDropdown.contains(e.target) && e.target !== headersBtn) {
-      if (headersVisible) {
-        headersDropdown.classList.remove('show');
-        headersVisible = false;
-      }
-    }
-  });
-
-// Copy text with ghost effect (iframe-compatible)
-function copyText(button) {
-  const text = button.getAttribute('data-text');
-
-  const textarea = document.createElement('textarea');
-  textarea.value = text;
-  textarea.setAttribute('readonly', '');
-  textarea.style.position = 'absolute';
-  textarea.style.left = '-9999px';
-  document.body.appendChild(textarea);
-
-  const selection = document.getSelection();
-  const selectedRange = selection.rangeCount > 0 ? selection.getRangeAt(0) : false;
-
-  textarea.select();
-  try {
-    const successful = document.execCommand('copy');
-    if (successful) {
-      const ghost = document.getElementById('copy-ghost');
-      ghost.style.display = 'block';
-      setTimeout(() => ghost.style.display = 'none', 5000);
+    const btn = document.getElementById('headers-btn');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
+      dropdown.classList.remove('show');
+      btn.setAttribute('aria-expanded', 'false');
     } else {
-      alert('Copy failed');
+      populateDropdown();
+      dropdown.classList.add('show');
+      btn.setAttribute('aria-expanded', 'true');
     }
-  } catch (err) {
-    alert('Copy failed');
   }
 
-  document.body.removeChild(textarea);
-  if (selectedRange) {
-    selection.removeAllRanges();
-    selection.addRange(selectedRange);
-  }
-}
-
-  // === Navigation stub ===
-  function goBack() {
-    alert('Going back to main home page...');
-  }
-  function navigate(section) {
-    document.getElementById('main-content').innerHTML = `<h2>Loading ${section}...</h2>`;
-    if (headersVisible) {
-      headersDropdown.classList.remove('show');
-      headersVisible = false;
+  function copyTextToClipboard(text) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        showCopyGhost();
+      }).catch(() => {
+        alert('Copy failed');
+      });
+    } else {
+      // fallback for older browsers
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showCopyGhost();
+      } catch {
+        alert('Copy failed');
+      }
+      document.body.removeChild(textarea);
     }
-    if (formularyVisible) toggleFormulary();
   }
 
-  // === Formulary Search Overlay ===
+  // Copy ghost animation
+  const copyGhost = document.getElementById('copy-ghost');
+  let ghostTimeout = null;
+  function showCopyGhost() {
+    if (ghostTimeout) clearTimeout(ghostTimeout);
+    copyGhost.style.display = 'block';
+    copyGhost.style.opacity = '1';
+    ghostTimeout = setTimeout(() => {
+      copyGhost.style.opacity = '0';
+      setTimeout(() => {
+        copyGhost.style.display = 'none';
+      }, 1000);
+    }, 3000);
+  }
+
+  // Word Editor toggling
+  const wordEditorOverlay = document.getElementById('word-editor-overlay');
+  const wordEditorBtn = document.getElementById('word-editor-btn');
+  function toggleWordEditor() {
+    const isVisible = wordEditorOverlay.style.display === 'flex';
+    if (isVisible) {
+      wordEditorOverlay.style.display = 'none';
+      wordEditorBtn.setAttribute('aria-expanded', 'false');
+    } else {
+      wordEditorOverlay.style.display = 'flex';
+      wordEditorBtn.setAttribute('aria-expanded', 'true');
+      // Close other overlays if open
+      hideFormulary();
+      hideDropdown();
+    }
+  }
+
+  // Headers dropdown close helper
+  function hideDropdown() {
+    dropdown.classList.remove('show');
+    document.getElementById('headers-btn').setAttribute('aria-expanded', 'false');
+  }
+
+  // Formulary overlay toggle
   const formularyOverlay = document.getElementById('formulary-overlay');
   const formularyBtn = document.getElementById('formulary-btn');
+  function toggleFormulary() {
+    const isVisible = formularyOverlay.style.display === 'block';
+    if (isVisible) {
+      hideFormulary();
+    } else {
+      showFormulary();
+    }
+  }
+  function showFormulary() {
+    formularyOverlay.style.display = 'block';
+    formularyBtn.setAttribute('aria-expanded', 'true');
+    // Hide others
+    wordEditorOverlay.style.display = 'none';
+    wordEditorBtn.setAttribute('aria-expanded', 'false');
+    hideDropdown();
+  }
+  function hideFormulary() {
+    formularyOverlay.style.display = 'none';
+    formularyBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  // Navigation buttons
+  function navigate(page) {
+    const urls = {
+      jurisdiction: 'https://tesecumj.neocities.org/jurisdiction.html',
+      updates: 'https://tesecumj.neocities.org/updates.html',
+      jargons: 'https://tesecumj.neocities.org/jargons.html'
+    };
+    if (urls[page]) {
+      window.top.location.href = urls[page];
+    }
+  }
+
+  // Wizard bubble updates
+  const bubbleBody = document.getElementById('bubble-body');
+  const updatesText = `
+- 2025 Guidelines Updates Released
+- New MTUS versions available
+- Check CA formulary for latest drug info
+- Word Editor improved performance
+- Headers quick copy ready
+`.trim();
+  bubbleBody.textContent = updatesText;
+
+  // === CA Drug Formulary Search ===
+  // Paste your entire CA drug formulary array here (a few sample entries shown)
+  const caFormulary = [
+    ["acetaminophen", "tylenol", "analgesic"],
+    ["ibuprofen", "advil", "anti-inflammatory"],
+    ["naproxen", "aleve", "anti-inflammatory"],
+    ["amoxicillin", "amoxil", "antibiotic"],
+    ["hydrocodone", "vicodin", "opioid"],
+    // ... you can add all your full list here ...
+  ];
+
   const searchInput = document.getElementById('search-input');
   const searchButton = document.getElementById('search-button');
-  const resultsContainer = document.getElementById('formulary-results');
-  let formularyVisible = false;
-  let formularyData = [];
+  const resultsDiv = document.getElementById('formulary-results');
 
-  // Load local JSON file once
-  async function fetchFormularyData() {
-    try {
-      const res = await fetch('2025CAformulary.json');
-      if (!res.ok) throw new Error('Failed to load formulary JSON');
-      formularyData = await res.json();
-    } catch (e) {
-      resultsContainer.textContent = 'Failed to load formulary data.';
-      console.error(e);
-    }
-  }
-  fetchFormularyData();
+  function searchFormulary() {
+    const query = searchInput.value.trim().toLowerCase();
+    resultsDiv.innerHTML = '';
 
-  function toggleFormulary() {
-    if (formularyVisible) {
-      formularyOverlay.style.display = 'none';
-      formularyVisible = false;
-      resultsContainer.innerHTML = 'Enter a search term and click Search.';
-      searchInput.value = '';
-    } else {
-      formularyOverlay.style.display = 'block';
-      formularyVisible = true;
-      if (headersVisible) {
-        headersDropdown.classList.remove('show');
-        headersVisible = false;
-      }
-      searchInput.focus();
-    }
-  }
-
-  searchButton.addEventListener('click', () => {
-    const term = searchInput.value.trim().toLowerCase();
-    if (!term) {
-      resultsContainer.textContent = 'Please enter a search term.';
+    if (!query) {
+      resultsDiv.textContent = 'Please enter a search term.';
       return;
     }
-    const matches = formularyData.filter(item => {
-      return (
-        (item['Drug Ingredient'] && item['Drug Ingredient'].toLowerCase().includes(term)) ||
-        (item['Reference Brand Name'] && item['Reference Brand Name'].toLowerCase().includes(term))
-      );
-    });
+
+    // Filter entries where any field contains query substring
+    const matches = caFormulary.filter(entry => 
+      entry.some(field => field.toLowerCase().includes(query))
+    );
 
     if (matches.length === 0) {
-      resultsContainer.textContent = 'No results found.';
+      resultsDiv.textContent = 'No results found.';
       return;
     }
 
-    // Build result entries with copy buttons
-    let html = '';
-    matches.forEach(item => {
-      // Safe JSON stringify for onclick
-      const safeJson = JSON.stringify(item).replace(/'/g, "&apos;");
-      html += `<div class="formulary-entry">
-        <div>${item['Drug Ingredient'] || 'N/A'} - ${item['Reference Brand Name'] || 'N/A'}</div>
-        <button onclick='copyFormularyText(${safeJson})'>Copy</button>
-      </div>`;
+    // Show results with copy buttons
+    matches.forEach(entry => {
+      const entryDiv = document.createElement('div');
+      entryDiv.className = 'formulary-entry';
+      entryDiv.tabIndex = 0;
+
+      const textSpan = document.createElement('span');
+      textSpan.textContent = entry.join(' / ');
+      textSpan.style.flex = '1';
+      textSpan.style.userSelect = 'text';
+      entryDiv.appendChild(textSpan);
+
+      const copyBtn = document.createElement('button');
+      copyBtn.textContent = 'Copy';
+      copyBtn.setAttribute('aria-label', 'Copy formulary entry text');
+      copyBtn.onclick = () => {
+        copyTextToClipboard(entry.join(' / '));
+      };
+      entryDiv.appendChild(copyBtn);
+
+      resultsDiv.appendChild(entryDiv);
     });
-    resultsContainer.innerHTML = html;
-  });
-
-function copyFormularyText(item) {
-  const textToCopy = item['General citation (All body parts)'] || '';
-
-  // Create a hidden textarea and inject the text
-  const textarea = document.createElement('textarea');
-  textarea.value = textToCopy;
-  textarea.setAttribute('readonly', '');
-  textarea.style.position = 'absolute';
-  textarea.style.left = '-9999px';
-  document.body.appendChild(textarea);
-
-  // Select and copy the text
-  textarea.select();
-  try {
-    document.execCommand('copy');
-
-    // Show the ghost
-    const ghost = document.getElementById('copy-ghost');
-    ghost.style.display = 'block';
-    setTimeout(() => ghost.style.display = 'none', 5000);
-  } catch (err) {
-    alert('Copy failed');
   }
 
-  // Cleanup
-  document.body.removeChild(textarea);
-}
+  searchButton.addEventListener('click', searchFormulary);
 
-
-  // Optional: Press Enter key triggers search
-  searchInput.addEventListener('keypress', e => {
+  // Allow Enter key to trigger search
+  searchInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
-      searchButton.click();
+      e.preventDefault();
+      searchFormulary();
     }
   });
-
-  // === Wizard & Chat Bubble ===
- const chatBubble = document.getElementById('chat-bubble');
-const updatesURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5XiMQ0sng07xIfp_peFYZd0R01FwcvrbGK4PHI2NIIVwoelHOntcX2HiuSjRFDW_yU6_Ldaf1Il9L/pub?gid=0&single=true&output=csv';
-
-async function fetchUpdates() {
-  try {
-    const res = await fetch(updatesURL);
-    if (!res.ok) throw new Error('Network response not ok');
-    const text = await res.text();
-    const rows = text.trim().split('\n').map(row => row.split(','));
-    const headers = rows[0].map(h => h.trim());
-    const updatesIndex = headers.indexOf('Updates');
-    if (updatesIndex === -1) {
-      chatBubble.textContent = "No 'Updates' column found.";
-      return;
-    }
-    const updates = rows.slice(1).map(row => row[updatesIndex]).filter(val => val && val.trim().length > 0);
-
-    if (updates.length === 0) {
-      chatBubble.textContent = "No updates available.";
-      return;
-    }
-
- // Show welcome message first for 5 seconds
-document.getElementById('bubble-body').textContent = "Welcome to the Medical Utility Tool";
-let i = 0;
-
-setTimeout(() => {
-  document.getElementById('bubble-body').textContent = updates[i];
-  setInterval(() => {
-    i = (i + 1) % updates.length;
-    document.getElementById('bubble-body').textContent = updates[i];
-  }, 8000);
-}, 5000);
-
-  } catch (err) {
-    chatBubble.textContent = "Failed to load updates.";
-    console.error(err);
-  }
-}
-
-fetchUpdates();
-
 
 </script>
 </body>
