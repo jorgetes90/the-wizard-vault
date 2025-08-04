@@ -284,7 +284,7 @@
 </head>
 <body>
   <div class="toolbar">
-    <button onclick="window.top.location.href='https://script.google.com/macros/s/AKfycbyL54f4XL0gl_FJAgl26TMRAX06TWJUyYQropWj1K0uBQnSAlOqSIuOqZfUVctp-3z5/exec'">← Back</button>
+    <button onclick="window.top.location.href='https://script.google.com/macros/s/AKfycbyL54f4XL0gl_FJAgl26TMRAX06TWJUyYQropWj1K0uBQnSAlOqSIuOqZfUVctp-3z5/exec'">â† Back</button>
     <button id="headers-btn" onclick="toggleHeaders()">Headers</button>
     <button id="formulary-btn" onclick="toggleFormulary()">CA Formulary</button>
     <button onclick="navigate('jurisdiction')">Jurisdiction</button>
@@ -303,6 +303,15 @@
   <div class="hint-strip" id="hint-strip">Loading hints...</div>
 
   <img id="copy-ghost" class="copy-ghost" src="https://i.postimg.cc/d0jsn69H/Ghost.png" alt="Copied!" />
+  
+   <!-- Embedded Google Sheet Viewer -->
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTeHKLlBMDC9O9qB027g-R_zG2n11PrDOkHL_dfzcaMF64cZemX8tXnb9tUxla1YwmnzOHkvPLVqDJ-/pubhtml" 
+  width="100%" 
+  height="600" 
+  style="border: 2px solid #1dbae2; border-radius: 8px; margin-top: 30px; background: white; position: relative; z-index: 1500;"
+  allowfullscreen>
+</iframe>
 
   <!-- Full page formulary overlay -->
   <div id="formulary-overlay" aria-hidden="true">
