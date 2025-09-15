@@ -327,20 +327,61 @@
   </div>
 
 <!-- Full page Jurisdiction overlay -->
-<div id="jurisdiction-overlay" aria-hidden="true" style="display:none;">
-  <div id="jurisdiction-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px;">
+<div id="jurisdiction-overlay" aria-hidden="true">
+  <div id="jurisdiction-header">
     <h2>Jurisdiction</h2>
-    <button id="jurisdiction-close" style="background:#1f5db3ee; border:none; color:white; padding:8px 14px; font-weight:bold; border-radius:5px; cursor:pointer;" onclick="toggleJurisdiction()">Close</button>
+    <button id="jurisdiction-close" onclick="toggleJurisdiction()">Close</button>
   </div>
   <iframe 
       id="jurisdiction-iframe" 
       src="https://tesecumj.neocities.org/jurisdiction" 
       width="100%" 
-      height="80vh" 
-      style="border:2px solid #1dbae2; border-radius:8px;">
+      height="80vh">
   </iframe>
 </div>
-  
+
+<style>
+  #jurisdiction-overlay {
+    display: none;
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: rgba(11, 35, 73, 0.95);
+    color: white;
+    z-index: 20000; /* higher than Google Sheet iframe */
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  #jurisdiction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  #jurisdiction-header button {
+    background: #1f5db3ee;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  #jurisdiction-header button:hover {
+    background: #3b82f6;
+  }
+
+  #jurisdiction-iframe {
+    border: 2px solid #1dbae2;
+    border-radius: 8px;
+  }
+</style>
   <!-- Wizard and chat bubble -->
   <div id="wizard-container">
     <img id="wizard-img" src="https://i.postimg.cc/g0CKgrDV/Chat-GPT-Image-Jun-23-2025-02-01-13-PM.png" alt="Wizard" />
