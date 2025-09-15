@@ -464,6 +464,7 @@ function copyText(button) {
   function goBack() {
     alert('Going back to main home page...');
   }
+  // === Navigation function ===
   function navigate(section) {
     document.getElementById('main-content').innerHTML = `<h2>Loading ${section}...</h2>`;
     if (headersVisible) {
@@ -482,6 +483,16 @@ function copyText(button) {
   let formularyVisible = false;
   let formularyData = [];
 
+  async function fetchFormularyData() {
+    try {
+      const res = await fetch('2025CAformulary.json');
+      if (!res.ok) throw new Error('Failed to load formulary JSON');
+      formularyData = await res.json();
+    } catch (e) {
+      resultsContainer.textContent = 'Failed to load formulary data.';
+      console.error(e);
+    }
+  }
   fetchFormularyData();
 
   function toggleFormulary() {
@@ -502,25 +513,25 @@ function copyText(button) {
   }
 
   // === Jurisdiction iframe overlay ===
-const jurisdictionOverlay = document.getElementById('jurisdiction-overlay');
-const jurisdictionBtn = document.getElementById('jurisdiction-btn'); // make sure your toolbar button has id="jurisdiction-btn"
-let jurisdictionVisible = false;
+  const jurisdictionOverlay = document.getElementById('jurisdiction-overlay');
+  const jurisdictionBtn = document.getElementById('jurisdiction-btn');
+  let jurisdictionVisible = false;
 
-function toggleJurisdiction() {
-  if (jurisdictionVisible) {
-    jurisdictionOverlay.style.display = 'none';
-    jurisdictionVisible = false;
-  } else {
-    jurisdictionOverlay.style.display = 'block';
-    jurisdictionVisible = true;
-    if (formularyVisible) toggleFormulary(); // close CA Formulary if open
+  function toggleJurisdiction() {
+    if (jurisdictionVisible) {
+      jurisdictionOverlay.style.display = 'none';
+      jurisdictionVisible = false;
+    } else {
+      jurisdictionOverlay.style.display = 'block';
+      jurisdictionVisible = true;
+      if (formularyVisible) toggleFormulary();
+    }
   }
-}
 
-// Optional: close overlay by pressing Escape key
-document.addEventListener('keydown', e => {
-  if (e.key === "Escape" && jurisdictionVisible) toggleJurisdiction();
-});
+  document.addEventListener('keydown', e => {
+    if (e.key === "Escape" && jurisdictionVisible) toggleJurisdiction();
+  });
+
   searchButton.addEventListener('click', () => {
     const term = searchInput.value.trim().toLowerCase();
     if (!term) {
@@ -539,10 +550,8 @@ document.addEventListener('keydown', e => {
       return;
     }
 
-    // Build result entries with copy buttons
     let html = '';
     matches.forEach(item => {
-      // Safe JSON stringify for onclick
       const safeJson = JSON.stringify(item).replace(/'/g, "&apos;");
       html += `<div class="formulary-entry">
         <div>${item['Drug Ingredient'] || 'N/A'} - ${item['Reference Brand Name'] || 'N/A'}</div>
@@ -552,86 +561,70 @@ document.addEventListener('keydown', e => {
     resultsContainer.innerHTML = html;
   });
 
-function copyFormularyText(item) {
-  const textToCopy = item['General citation (All body parts)'] || '';
-
-  // Create a hidden textarea and inject the text
-  const textarea = document.createElement('textarea');
-  textarea.value = textToCopy;
-  textarea.setAttribute('readonly', '');
-  textarea.style.position = 'absolute';
-  textarea.style.left = '-9999px';
-  document.body.appendChild(textarea);
-
-  // Select and copy the text
-  textarea.select();
-  try {
-    document.execCommand('copy');
-
-    // Show the ghost
-    const ghost = document.getElementById('copy-ghost');
-    ghost.style.display = 'block';
-    setTimeout(() => ghost.style.display = 'none', 5000);
-  } catch (err) {
-    alert('Copy failed');
+  function copyFormularyText(item) {
+    const textToCopy = item['General citation (All body parts)'] || '';
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      const ghost = document.getElementById('copy-ghost');
+      ghost.style.display = 'block';
+      setTimeout(() => ghost.style.display = 'none', 5000);
+    } catch (err) {
+      alert('Copy failed');
+    }
+    document.body.removeChild(textarea);
   }
 
-  // Cleanup
-  document.body.removeChild(textarea);
-}
-
-
-  // Optional: Press Enter key triggers search
   searchInput.addEventListener('keypress', e => {
-    if (e.key === 'Enter') {
-      searchButton.click();
-    }
+    if (e.key === 'Enter') searchButton.click();
   });
 
   // === Wizard & Chat Bubble ===
- const chatBubble = document.getElementById('chat-bubble');
-const updatesURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5XiMQ0sng07xIfp_peFYZd0R01FwcvrbGK4PHI2NIIVwoelHOntcX2HiuSjRFDW_yU6_Ldaf1Il9L/pub?gid=0&single=true&output=csv';
+  const chatBubble = document.getElementById('chat-bubble');
+  const updatesURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT5XiMQ0sng07xIfp_peFYZd0R01FwcvrbGK4PHI2NIIVwoelHOntcX2HiuSjRFDW_yU6_Ldaf1Il9L/pub?gid=0&single=true&output=csv';
 
-async function fetchUpdates() {
-  try {
-    const res = await fetch(updatesURL);
-    if (!res.ok) throw new Error('Network response not ok');
-    const text = await res.text();
-    const rows = text.trim().split('\n').map(row => row.split(','));
-    const headers = rows[0].map(h => h.trim());
-    const updatesIndex = headers.indexOf('Updates');
-    if (updatesIndex === -1) {
-      chatBubble.textContent = "No 'Updates' column found.";
-      return;
-    }
-    const updates = rows.slice(1).map(row => row[updatesIndex]).filter(val => val && val.trim().length > 0);
+  async function fetchUpdates() {
+    try {
+      const res = await fetch(updatesURL);
+      if (!res.ok) throw new Error('Network response not ok');
+      const text = await res.text();
+      const rows = text.trim().split('\n').map(row => row.split(','));
+      const headers = rows[0].map(h => h.trim());
+      const updatesIndex = headers.indexOf('Updates');
+      if (updatesIndex === -1) {
+        chatBubble.textContent = "No 'Updates' column found.";
+        return;
+      }
+      const updates = rows.slice(1).map(row => row[updatesIndex]).filter(val => val && val.trim().length > 0);
+      if (updates.length === 0) {
+        chatBubble.textContent = "No updates available.";
+        return;
+      }
 
-    if (updates.length === 0) {
-      chatBubble.textContent = "No updates available.";
-      return;
-    }
-
-    // Show welcome message first for 5 seconds
-    chatBubble.textContent = "Welcome to the Medical Utility Tool";
-    let i = 0;
-
-    setTimeout(() => {
-      chatBubble.textContent = updates[i];
-      setInterval(() => {
-        i = (i + 1) % updates.length;
+      chatBubble.textContent = "Welcome to the Medical Utility Tool";
+      let i = 0;
+      setTimeout(() => {
         chatBubble.textContent = updates[i];
-      }, 3000);
-    }, 5000);
+        setInterval(() => {
+          i = (i + 1) % updates.length;
+          chatBubble.textContent = updates[i];
+        }, 3000);
+      }, 5000);
 
-  } catch (err) {
-    chatBubble.textContent = "Failed to load updates.";
-    console.error(err);
+    } catch (err) {
+      chatBubble.textContent = "Failed to load updates.";
+      console.error(err);
+    }
   }
-}
 
-fetchUpdates();
-
-
+  fetchUpdates();
+});
 </script>
 </body>
 </html>
